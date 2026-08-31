@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HW1-Eric Zhao</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="inspection-card" aria-labelledby="page-heading">
+        <h1 id="page-heading">Local Restaurant Inspection</h1>
+    
+        </p>
+
+        <form>
+          <div class="form-field">
+            <label for="restaurantID">Restaurant ID</label>
+            <input
+              id="restaurantID"
+              name="restaurantID"
+              type="text"
+              placeholder="Enter the restaurant ID"
+              required
+              autofocus
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="restaurantName">Restaurant name</label>
+            <input
+              id="restaurantName"
+              name="restaurantName"
+              type="text"
+              placeholder="Enter the restaurant name"
+              required
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="Email">Email</label>
+            <input
+              id="Email"
+              name="Email"
+              type="email"
+              placeholder="Enter your email address"
+              required
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="Comments">Comments</label>
+            <textarea
+              id="Comments"
+              name="Comments"
+              rows="6"
+              placeholder="Describe the inspection observations and findings"
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-field">
+            <label for="Result">Result</label>
+            <select id="Result" name="Result" required>
+              <option value="" selected disabled>Select an inspection result</option>
+              <option value="Excellent Pass">Excellent Pass</option>
+              <option value="Pass">Pass</option>
+              <option value="Needs Reinspection">Needs Reinspection</option>
+              <option value="Fail">Fail</option>
+            </select>
+          </div>
+
+          <div class="terms-row">
+            <input id="termsAccepted" name="termsAccepted" type="checkbox" />
+            <label for="termsAccepted">I agree to the terms and conditions.</label>
+          </div>
+
+          <button type="submit">Submit Inspection Record</button>
+          <p id="successMessage" class="success-message" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

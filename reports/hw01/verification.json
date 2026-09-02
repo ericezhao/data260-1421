@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-08-31T23:24:22Z",
+  "project": "DATA-260 Homework 1",
+  "student": {
+    "name": "Eric Zhao",
+    "SID4": 1421
+  },
+  "overall_status": "PASS",
+  "summary": {
+    "total_checks": 10,
+    "passed": 10,
+    "failed": 0
+  },
+  "checks": [
+    {
+      "id": "configuration",
+      "status": "PASS",
+      "description": "Personal configuration values are correct",
+      "evidence": {
+        "SID4": 1421,
+        "PORT_BASE": 8521,
+        "PREFIX": "s1421",
+        "SEED": 1421,
+        "VERIFY_SEED": 261421,
+        "DOMAIN_ID": 5
+      }
+    },
+    {
+      "id": "required_files",
+      "status": "PASS",
+      "description": "Core implementation and evidence files exist",
+      "evidence": {
+        "required_count": 18,
+        "missing": []
+      }
+    },
+    {
+      "id": "html_form",
+      "status": "PASS",
+      "description": "HTML form satisfies Part 1 field requirements",
+      "evidence": {
+        "file": "HW1-{Eric Zhao}.html",
+        "form_fields": [
+          "Comments",
+          "Email",
+          "Result",
+          "restaurantID",
+          "restaurantName",
+          "termsAccepted"
+        ],
+        "category_values": [
+          "Excellent Pass",
+          "Pass",
+          "Needs Reinspection",
+          "Fail"
+        ]
+      }
+    },
+    {
+      "id": "javascript",
+      "status": "PASS",
+      "description": "JavaScript contains all required ES6 behaviors",
+      "evidence": {
+        "verified_features": [
+          "arrow_validation",
+          "length_check",
+          "terms_check",
+          "alerts",
+          "json_stringify",
+          "json_parse",
+          "destructuring",
+          "spread_operator",
+          "submission_date",
+          "closure"
+        ]
+      }
+    },
+    {
+      "id": "docker",
+      "status": "PASS",
+      "description": "Docker and Nginx use PORT_BASE 8521",
+      "evidence": {
+        "container_port": 8521,
+        "nginx_config_copied": true
+      }
+    },
+    {
+      "id": "python",
+      "status": "PASS",
+      "description": "Python version is 3.11 or 3.12",
+      "evidence": {
+        "executable": "/opt/anaconda3/envs/data260-hw1/bin/python",
+        "version": "3.12.14"
+      }
+    },
+    {
+      "id": "ollama",
+      "status": "PASS",
+      "description": "Ollama has the qwen3:8b model available",
+      "evidence": {
+        "model": "qwen3:8b",
+        "available": true
+      }
+    },
+    {
+      "id": "model_adapter",
+      "status": "PASS",
+      "description": "All active Python model calls use the adapter",
+      "evidence": {
+        "adapter": "src/model_client.py",
+        "consumers": [
+          "agents_demo.py",
+          "hw1_client.py"
+        ]
+      }
+    },
+    {
+      "id": "part3_results",
+      "status": "PASS",
+      "description": "Part 3 contains 40 valid fixed-input runs",
+      "evidence": {
+        "input_sha256": "8fe9960f63e8379b48eaf43a9f7a07c302f71e3200eb41d4a2fbba438a41761e",
+        "total_runs": 40,
+        "temperature_0_7_runs": 20,
+        "temperature_0_0_runs": 20,
+        "csv_rows": 40
+      }
+    },
+    {
+      "id": "part4_results",
+      "status": "PASS",
+      "description": "Part 4 contains five turns and two stats snapshots",
+      "evidence": {
+        "turn_count": 5,
+        "bullet_only_passes": 5,
+        "stats_after_turns": [
+          3,
+          5
+        ],
+        "cumulative_input_tokens": 1810,
+        "cumulative_output_tokens": 538,
+        "final_serialized_history_length_bytes": 3741
+      }
+    }
+  ]
+}

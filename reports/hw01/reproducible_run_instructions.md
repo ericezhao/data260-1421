@@ -71,7 +71,6 @@ Available interactive commands:
 The repository contains the following supporting artifacts under `reports/hw01/`:
 
 - `RUN_LOG.txt` — recorded console output from Homework 1 runs.
-- `PART4_RUN_LOG.txt` — console output associated with Part 4.
 - `cases/five_turn_conversation.json` — frozen scripted conversation used by the command above.
 - `raw/token_turns.json` — machine-readable token-accounting output.
 - `METRICS.md` — reported experiment metrics.

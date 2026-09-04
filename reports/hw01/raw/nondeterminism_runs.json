@@ -1,0 +1,488 @@
+{
+  "model": "qwen3:8b",
+  "input_file": "reports/hw01/cases/nondeterminism_input.json",
+  "input_sha256": "8fe9960f63e8379b48eaf43a9f7a07c302f71e3200eb41d4a2fbba438a41761e",
+  "result_count": 40,
+  "results": [
+    {
+      "temperature": 0.7,
+      "run": 1,
+      "timestamp_utc": "2026-08-31T18:00:32Z",
+      "latency_ms": 14209,
+      "tags": [
+        "food safety inspections",
+        "restaurant hygiene",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas."
+    },
+    {
+      "temperature": 0.7,
+      "run": 2,
+      "timestamp_utc": "2026-08-31T18:00:46Z",
+      "latency_ms": 16794,
+      "tags": [
+        "yakitori restaurant inspections",
+        "restaurant hygiene",
+        "yakitori restaurant"
+      ],
+      "summary": "Yakitori restaurant inspection found live flies and rodent droppings, indicating poor sanitation."
+    },
+    {
+      "temperature": 0.7,
+      "run": 3,
+      "timestamp_utc": "2026-08-31T18:01:03Z",
+      "latency_ms": 15427,
+      "tags": [
+        "restaurant hygiene",
+        "yakitori inspections",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Yakitori restaurant inspection found flies and rodent droppings, showing hygiene and pest problems."
+    },
+    {
+      "temperature": 0.7,
+      "run": 4,
+      "timestamp_utc": "2026-08-31T18:01:18Z",
+      "latency_ms": 16889,
+      "tags": [
+        "food safety inspections",
+        "yakitori restaurant inspections",
+        "restaurant hygiene"
+      ],
+      "summary": "Yakitori inspection found live flies and rodent droppings, showing poor hygiene and pest control."
+    },
+    {
+      "temperature": 0.7,
+      "run": 5,
+      "timestamp_utc": "2026-08-31T18:01:35Z",
+      "latency_ms": 16420,
+      "tags": [
+        "yakitori restaurant inspections",
+        "yakitori restaurant",
+        "restaurant inspections"
+      ],
+      "summary": "A yakitori restaurant inspection found live flies and rodent droppings in storage areas."
+    },
+    {
+      "temperature": 0.7,
+      "run": 6,
+      "timestamp_utc": "2026-08-31T18:01:52Z",
+      "latency_ms": 16038,
+      "tags": [
+        "yakitori restaurant inspections",
+        "yakitori restaurant",
+        "restaurant inspections"
+      ],
+      "summary": "Yakitori restaurant inspection found live flies and rodent droppings, indicating poor hygiene and pest control."
+    },
+    {
+      "temperature": 0.7,
+      "run": 7,
+      "timestamp_utc": "2026-08-31T18:02:08Z",
+      "latency_ms": 15036,
+      "tags": [
+        "food safety inspections",
+        "yakitori restaurant inspections",
+        "yakitori restaurant"
+      ],
+      "summary": "A yakitori restaurant had hygiene issues with flies and rodent droppings during an inspection."
+    },
+    {
+      "temperature": 0.7,
+      "run": 8,
+      "timestamp_utc": "2026-08-31T18:02:23Z",
+      "latency_ms": 14017,
+      "tags": [
+        "restaurant hygiene",
+        "yakitori inspections",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Yakitori restaurant faced hygiene and pest control issues during an inspection."
+    },
+    {
+      "temperature": 0.7,
+      "run": 9,
+      "timestamp_utc": "2026-08-31T18:02:37Z",
+      "latency_ms": 16592,
+      "tags": [
+        "yakitori restaurant inspections",
+        "food safety inspections",
+        "yakitori restaurant"
+      ],
+      "summary": "Yakitori restaurant inspection found live flies and rodent droppings, indicating hygiene and food safety risks."
+    },
+    {
+      "temperature": 0.7,
+      "run": 10,
+      "timestamp_utc": "2026-08-31T18:02:53Z",
+      "latency_ms": 16236,
+      "tags": [
+        "food safety inspections",
+        "restaurant hygiene",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in a yakitori restaurant, raising food safety concerns."
+    },
+    {
+      "temperature": 0.7,
+      "run": 11,
+      "timestamp_utc": "2026-08-31T18:03:09Z",
+      "latency_ms": 15260,
+      "tags": [
+        "yakitori restaurant inspections",
+        "yakitori restaurant",
+        "restaurant inspections"
+      ],
+      "summary": "Yakitori restaurant faced live flies and rodent droppings, indicating hygiene failures."
+    },
+    {
+      "temperature": 0.7,
+      "run": 12,
+      "timestamp_utc": "2026-08-31T18:03:25Z",
+      "latency_ms": 14691,
+      "tags": [
+        "restaurant hygiene",
+        "yakitori inspections",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "A yakitori restaurant had hygiene issues with flies and rodent droppings during an inspection."
+    },
+    {
+      "temperature": 0.7,
+      "run": 13,
+      "timestamp_utc": "2026-08-31T18:03:39Z",
+      "latency_ms": 15115,
+      "tags": [
+        "food safety inspections",
+        "yakitori restaurant inspections",
+        "yakitori restaurant"
+      ],
+      "summary": "A yakitori restaurant faced hygiene issues with live flies and rodent droppings during an inspection."
+    },
+    {
+      "temperature": 0.7,
+      "run": 14,
+      "timestamp_utc": "2026-08-31T18:03:55Z",
+      "latency_ms": 14594,
+      "tags": [
+        "yakitori restaurant inspections",
+        "restaurant hygiene",
+        "yakitori restaurant"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in a yakitori restaurant."
+    },
+    {
+      "temperature": 0.7,
+      "run": 15,
+      "timestamp_utc": "2026-08-31T18:04:09Z",
+      "latency_ms": 15866,
+      "tags": [
+        "food safety inspections",
+        "yakitori hygiene",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Inspection found live flies and rodent droppings, indicating poor hygiene and pest control."
+    },
+    {
+      "temperature": 0.7,
+      "run": 16,
+      "timestamp_utc": "2026-08-31T18:04:25Z",
+      "latency_ms": 14296,
+      "tags": [
+        "restaurant hygiene",
+        "yakitori restaurant inspections",
+        "yakitori restaurant"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in a yakitori restaurant, raising food safety concerns."
+    },
+    {
+      "temperature": 0.7,
+      "run": 17,
+      "timestamp_utc": "2026-08-31T18:04:39Z",
+      "latency_ms": 16707,
+      "tags": [
+        "food safety inspections",
+        "restaurant hygiene",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in a yakitori restaurant, showing poor hygiene and pest control."
+    },
+    {
+      "temperature": 0.7,
+      "run": 18,
+      "timestamp_utc": "2026-08-31T18:04:56Z",
+      "latency_ms": 15574,
+      "tags": [
+        "restaurant hygiene",
+        "food safety",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Yakitori restaurant had live flies and rodent droppings, showing poor hygiene and pest control."
+    },
+    {
+      "temperature": 0.7,
+      "run": 19,
+      "timestamp_utc": "2026-08-31T18:05:12Z",
+      "latency_ms": 16522,
+      "tags": [
+        "yakitori restaurant inspections",
+        "yakitori restaurant",
+        "restaurant inspections"
+      ],
+      "summary": "A yakitori restaurant faced hygiene issues with flies and rodent droppings in storage areas."
+    },
+    {
+      "temperature": 0.7,
+      "run": 20,
+      "timestamp_utc": "2026-08-31T18:05:28Z",
+      "latency_ms": 15973,
+      "tags": [
+        "yakitori restaurant inspections",
+        "food safety inspections",
+        "restaurant hygiene"
+      ],
+      "summary": "A yakitori restaurant inspection found live flies and rodent droppings, showing poor hygiene."
+    },
+    {
+      "temperature": 0.0,
+      "run": 1,
+      "timestamp_utc": "2026-08-31T18:05:44Z",
+      "latency_ms": 14484,
+      "tags": [
+        "restaurant hygiene",
+        "yakitori restaurant",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Yakitori restaurant faced hygiene issues with flies and rodent droppings during inspection."
+    },
+    {
+      "temperature": 0.0,
+      "run": 2,
+      "timestamp_utc": "2026-08-31T18:05:59Z",
+      "latency_ms": 12658,
+      "tags": [
+        "restaurant hygiene",
+        "yakitori restaurant",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Yakitori restaurant faced hygiene issues with flies and rodent droppings during inspection."
+    },
+    {
+      "temperature": 0.0,
+      "run": 3,
+      "timestamp_utc": "2026-08-31T18:06:11Z",
+      "latency_ms": 12620,
+      "tags": [
+        "restaurant hygiene",
+        "yakitori restaurant",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Yakitori restaurant faced hygiene issues with flies and rodent droppings during inspection."
+    },
+    {
+      "temperature": 0.0,
+      "run": 4,
+      "timestamp_utc": "2026-08-31T18:06:24Z",
+      "latency_ms": 12654,
+      "tags": [
+        "restaurant hygiene",
+        "yakitori restaurant",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Yakitori restaurant faced hygiene issues with flies and rodent droppings during inspection."
+    },
+    {
+      "temperature": 0.0,
+      "run": 5,
+      "timestamp_utc": "2026-08-31T18:06:37Z",
+      "latency_ms": 12634,
+      "tags": [
+        "restaurant hygiene",
+        "yakitori restaurant",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Yakitori restaurant faced hygiene issues with flies and rodent droppings during inspection."
+    },
+    {
+      "temperature": 0.0,
+      "run": 6,
+      "timestamp_utc": "2026-08-31T18:06:49Z",
+      "latency_ms": 12618,
+      "tags": [
+        "restaurant hygiene",
+        "yakitori restaurant",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Yakitori restaurant faced hygiene issues with flies and rodent droppings during inspection."
+    },
+    {
+      "temperature": 0.0,
+      "run": 7,
+      "timestamp_utc": "2026-08-31T18:07:02Z",
+      "latency_ms": 12687,
+      "tags": [
+        "restaurant hygiene",
+        "yakitori restaurant",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Yakitori restaurant faced hygiene issues with flies and rodent droppings during inspection."
+    },
+    {
+      "temperature": 0.0,
+      "run": 8,
+      "timestamp_utc": "2026-08-31T18:07:14Z",
+      "latency_ms": 12611,
+      "tags": [
+        "restaurant hygiene",
+        "yakitori restaurant",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Yakitori restaurant faced hygiene issues with flies and rodent droppings during inspection."
+    },
+    {
+      "temperature": 0.0,
+      "run": 9,
+      "timestamp_utc": "2026-08-31T18:07:27Z",
+      "latency_ms": 12676,
+      "tags": [
+        "restaurant hygiene",
+        "yakitori restaurant",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Yakitori restaurant faced hygiene issues with flies and rodent droppings during inspection."
+    },
+    {
+      "temperature": 0.0,
+      "run": 10,
+      "timestamp_utc": "2026-08-31T18:07:40Z",
+      "latency_ms": 12649,
+      "tags": [
+        "restaurant hygiene",
+        "yakitori restaurant",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Yakitori restaurant faced hygiene issues with flies and rodent droppings during inspection."
+    },
+    {
+      "temperature": 0.0,
+      "run": 11,
+      "timestamp_utc": "2026-08-31T18:07:52Z",
+      "latency_ms": 12614,
+      "tags": [
+        "restaurant hygiene",
+        "yakitori restaurant",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Yakitori restaurant faced hygiene issues with flies and rodent droppings during inspection."
+    },
+    {
+      "temperature": 0.0,
+      "run": 12,
+      "timestamp_utc": "2026-08-31T18:08:05Z",
+      "latency_ms": 12653,
+      "tags": [
+        "restaurant hygiene",
+        "yakitori restaurant",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Yakitori restaurant faced hygiene issues with flies and rodent droppings during inspection."
+    },
+    {
+      "temperature": 0.0,
+      "run": 13,
+      "timestamp_utc": "2026-08-31T18:08:18Z",
+      "latency_ms": 12760,
+      "tags": [
+        "restaurant hygiene",
+        "yakitori restaurant",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Yakitori restaurant faced hygiene issues with flies and rodent droppings during inspection."
+    },
+    {
+      "temperature": 0.0,
+      "run": 14,
+      "timestamp_utc": "2026-08-31T18:08:30Z",
+      "latency_ms": 12879,
+      "tags": [
+        "restaurant hygiene",
+        "yakitori restaurant",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Yakitori restaurant faced hygiene issues with flies and rodent droppings during inspection."
+    },
+    {
+      "temperature": 0.0,
+      "run": 15,
+      "timestamp_utc": "2026-08-31T18:08:43Z",
+      "latency_ms": 12753,
+      "tags": [
+        "restaurant hygiene",
+        "yakitori restaurant",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Yakitori restaurant faced hygiene issues with flies and rodent droppings during inspection."
+    },
+    {
+      "temperature": 0.0,
+      "run": 16,
+      "timestamp_utc": "2026-08-31T18:08:56Z",
+      "latency_ms": 12619,
+      "tags": [
+        "restaurant hygiene",
+        "yakitori restaurant",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Yakitori restaurant faced hygiene issues with flies and rodent droppings during inspection."
+    },
+    {
+      "temperature": 0.0,
+      "run": 17,
+      "timestamp_utc": "2026-08-31T18:09:09Z",
+      "latency_ms": 12682,
+      "tags": [
+        "restaurant hygiene",
+        "yakitori restaurant",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Yakitori restaurant faced hygiene issues with flies and rodent droppings during inspection."
+    },
+    {
+      "temperature": 0.0,
+      "run": 18,
+      "timestamp_utc": "2026-08-31T18:09:21Z",
+      "latency_ms": 12652,
+      "tags": [
+        "restaurant hygiene",
+        "yakitori restaurant",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Yakitori restaurant faced hygiene issues with flies and rodent droppings during inspection."
+    },
+    {
+      "temperature": 0.0,
+      "run": 19,
+      "timestamp_utc": "2026-08-31T18:09:34Z",
+      "latency_ms": 12665,
+      "tags": [
+        "restaurant hygiene",
+        "yakitori restaurant",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Yakitori restaurant faced hygiene issues with flies and rodent droppings during inspection."
+    },
+    {
+      "temperature": 0.0,
+      "run": 20,
+      "timestamp_utc": "2026-08-31T18:09:47Z",
+      "latency_ms": 12624,
+      "tags": [
+        "restaurant hygiene",
+        "yakitori restaurant",
+        "yakitori restaurant inspections"
+      ],
+      "summary": "Yakitori restaurant faced hygiene issues with flies and rodent droppings during inspection."
+    }
+  ]
+}

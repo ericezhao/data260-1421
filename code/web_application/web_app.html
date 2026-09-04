@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HW1-Eric Zhao</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <h1>Local Restaurant Inspection</h1>
+
+      <form>
+        <label for="restaurantID">Restaurant ID</label>
+        <input
+          id="restaurantID"
+          name="restaurantID"
+          type="text"
+          placeholder="Enter the restaurant ID"
+          required
+          autofocus
+        />
+
+        <label for="restaurantName">Restaurant name</label>
+        <input
+          id="restaurantName"
+          name="restaurantName"
+          type="text"
+          placeholder="Enter the restaurant name"
+          required
+        />
+
+        <label for="Email">Email</label>
+        <input
+          id="Email"
+          name="Email"
+          type="email"
+          placeholder="Enter your email address"
+          required
+        />
+
+        <label for="comments">Comments</label>
+        <textarea
+          id="comments"
+          name="Comments"
+          rows="6"
+          placeholder="Describe the inspection observations and findings"
+          required
+        ></textarea>
+
+        <label for="Result">Result</label>
+        <select id="Result" name="Result" required>
+          <option value="" selected disabled>Select an inspection result</option>
+          <option value="Excellent Pass">Excellent Pass</option>
+          <option value="Pass">Pass</option>
+          <option value="Needs Reinspection">Needs Reinspection</option>
+          <option value="Fail">Fail</option>
+        </select>
+
+        <div class="terms">
+          <input id="termsAccepted" name="termsAccepted" type="checkbox" />
+          <label for="termsAccepted">I agree to the terms and conditions.</label>
+        </div>
+
+        <button type="submit">Submit Inspection Record</button>
+      </form>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

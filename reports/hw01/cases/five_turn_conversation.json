@@ -1,0 +1,7 @@
+[
+  "Review this Python function for correctness: def average(values): return sum(values) / len(values)",
+  "Now focus on how the function behaves when values is empty.",
+  "Review this proposed revision: def average(values): return sum(values) / len(values) if values else 0",
+  "Check whether returning 0 for empty input is a good API design and suggest a clearer alternative.",
+  "Give a final prioritized review of the revised function and the tests it should have."
+]

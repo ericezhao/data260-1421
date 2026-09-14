@@ -4,26 +4,114 @@
 
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
-  background: #f2f6f3;
+  padding: 0 0 24px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #f9f9f9;
   color: #1f2933;
 }
 
-.page {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 24px 16px;
+.heading {
+  margin: 0 0 20px;
+  padding: 10px;
+  background: #28704c;
+  color: #ffffff;
 }
 
-h1 {
-  margin: 0 0 20px;
-  color: #28704f;
-  font-size: 1.8rem;
+h2,
+h3 {
+  color: #111111;
+}
+
+.search-row {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  max-width: 500px;
+  margin: 0 auto 12px;
+  padding: 0 16px;
+}
+
+.search-row input {
+  flex: 1;
+  margin: 0;
+}
+
+.search-row button {
+  width: auto;
+  margin: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.status {
+  max-width: 500px;
+  margin: 0 auto 12px;
+  padding: 12px;
+  border-radius: 8px;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.status-loading {
+  background: #e8eef2;
+  color: #334e68;
+}
+
+.status-empty {
+  background: #f6f1e3;
+  color: #6b5420;
+}
+
+.status-error {
+  background: #f8e6e6;
+  color: #8a1f1f;
+}
+
+.table-wrap {
+  width: 90%;
+  margin: 20px auto;
+  overflow-x: auto;
+}
+
+.record-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  background: #ffffff;
+}
+
+.record-table th,
+.record-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.record-table th {
+  background: #28704c;
+  color: #ffffff;
+  text-align: center;
+}
+
+.actions-container {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
 }
 
 form {
   display: grid;
-  gap: 8px;
+  gap: 6px;
 }
 
 label {
@@ -42,14 +130,14 @@ button {
 input,
 textarea,
 select {
-  margin-bottom: 10px;
-  padding: 10px 12px;
-  border: 1px solid #b8c7bd;
-  border-radius: 8px;
+  margin: 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 textarea {
-  min-height: 120px;
+  min-height: 6rem;
   resize: vertical;
 }
 
@@ -57,7 +145,7 @@ textarea {
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  margin: 4px 0 12px;
+  margin: 8px 0;
 }
 
 .terms input {
@@ -72,21 +160,41 @@ textarea {
 }
 
 button {
+  margin-top: 8px;
   border: 0;
-  padding: 12px;
-  border-radius: 8px;
+  padding: 10px;
+  border-radius: 4px;
   background: #28704c;
   color: #ffffff;
-  font-weight: 700;
   cursor: pointer;
 }
 
+button.danger {
+  background: #8a1f1f;
+}
+
 @media (max-width: 375px) {
-  .page {
-    padding: 16px 12px;
+  .search-row {
+    flex-direction: column;
+    padding: 0 12px;
   }
 
-  h1 {
-    font-size: 1.5rem;
+  .search-row button {
+    width: 100%;
+  }
+
+  .table-wrap {
+    width: calc(100% - 24px);
+  }
+
+  .record-table th,
+  .record-table td {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .actions-container {
+    margin: 16px 12px;
+    padding: 16px;
   }
 }

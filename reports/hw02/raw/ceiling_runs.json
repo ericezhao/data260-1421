@@ -1,0 +1,550 @@
+{
+  "started": "2026-09-14T18:19:40.972637+00:00",
+  "input": {
+    "title": "Yakitori Restaurant Inspections",
+    "content": "Observed multiple live flies landing on clean food-contact storage racks and food prep counters; small rodent droppings noted near the dry storage shelving baseboards.",
+    "email": "eric.e.zhao@sjsu.edu"
+  },
+  "ceiling_2": {
+    "n": 20,
+    "counts": {
+      "valid_first_attempt": 20
+    },
+    "completion_rate": 1.0,
+    "mean_latency_ms": 3347.8,
+    "mean_latency_completed_ms": 3347.8
+  },
+  "ceiling_10": {
+    "n": 20,
+    "counts": {
+      "valid_first_attempt": 20
+    },
+    "completion_rate": 1.0,
+    "mean_latency_ms": 3365.4,
+    "mean_latency_completed_ms": 3365.4
+  },
+  "runs_2": [
+    {
+      "run": 1,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3400,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 2,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3316,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 3,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3439,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 4,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3388,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 5,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3368,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 6,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3411,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 7,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3390,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 8,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3341,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 9,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3310,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 10,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3303,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 11,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3319,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 12,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3303,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 13,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3312,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 14,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3337,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 15,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3361,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 16,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3340,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 17,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3317,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 18,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3317,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 19,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3372,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 20,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3313,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    }
+  ],
+  "runs_10": [
+    {
+      "run": 1,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3319,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 2,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3314,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 3,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3315,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 4,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3354,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 5,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3337,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 6,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3338,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 7,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3384,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 8,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3391,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 9,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3756,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 10,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3474,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 11,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3360,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 12,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3351,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 13,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3325,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 14,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3362,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 15,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3310,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 16,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3307,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 17,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3333,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 18,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3320,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 19,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3310,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    },
+    {
+      "run": 20,
+      "outcome": "valid_first_attempt",
+      "planner_attempts": 1,
+      "validation_error": "",
+      "latency_ms": 3349,
+      "tags": [
+        "food safety issues",
+        "pest infestation",
+        "hygiene violations"
+      ],
+      "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."
+    }
+  ]
+}

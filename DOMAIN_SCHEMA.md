@@ -4,8 +4,8 @@
 
 | Field | Type | Required | Purpose |
 | --- | --- | --- | --- |
-| `restaurantID` | Text | Yes | Primary field uniquely identifying the inspected restaurant. |
-| `restaurantName` | Text | Yes | Secondary field giving the restaurant's name. |
+| `restaurantName` | Text | Yes | Primary field uniquely identifying the inspected restaurant. |
+| `cuisine` | Text | Yes | Secondary field giving the restaurant's cuisine. |
 | `Email` | Email | Yes | Email address of the submitter. |
 | `Comments` | Text area | Yes | Detailed content describing observations and inspection findings. |
 | `Result` | Category | Yes | Inspection result selected from the four category values below. |

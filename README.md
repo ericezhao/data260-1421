@@ -88,3 +88,33 @@ The model has a finite context window. Once the system prompt, history, and new 
 
 ## Homework 2
 
+Activate the `data260` environment and start the FastAPI app on port 8521:
+
+```bash
+conda activate data260
+python code/main.py
+```
+
+Open [http://localhost:8521](http://localhost:8521).
+
+## Homework 2 Part 3 — LangGraph
+
+```bash
+conda activate data260
+cd code
+python -m restaurant_graph.workflow
+```
+
+## Homework 2 Part 4 — schema and loop safety
+
+Frozen input is `reports/hw02/cases/schema_input.json` (saved before the runs).
+
+```bash
+conda activate data260
+python code/run_hw02_part4.py --experiment schema
+python code/run_hw02_part4.py --experiment ceiling
+python code/run_hw02_part4.py --experiment adversarial
+```
+
+`--experiment all` runs 30 + 20 + 20 + 5 graph calls and takes a while. Results go to `reports/hw02/raw/`.
+

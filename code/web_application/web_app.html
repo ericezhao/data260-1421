@@ -2,31 +2,63 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- set the viewport to the width of the device and the initial scale to 1.0 -->
     <title>HW1-Eric Zhao</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="page">
-      <h1>Local Restaurant Inspection</h1>
+    <h1 class="heading">Local Restaurant Inspection</h1> <!-- title of the page -->
 
-      <form>
-        <label for="restaurantID">Restaurant ID</label>
-        <input
-          id="restaurantID"
-          name="restaurantID"
-          type="text"
-          placeholder="Enter the restaurant ID"
-          required
-          autofocus
-        />
+    <h2>Records</h2>
+    <form id="searchForm" class="search-row" onsubmit="searchRecords(); return false;">
+      <label class="sr-only" for="searchQuery">Search</label>
+      <input
+        id="searchQuery"
+        name="q"
+        type="search"
+        placeholder="Search by restaurant name or cuisine"
+      />
+      <button type="button" onclick="searchRecords()">Search</button>
+    </form>
+    <p id="loadingMessage" class="status status-loading" hidden>
+      Loading records…
+    </p>
+    <p id="emptyMessage" class="status status-empty" hidden>
+      No inspection records yet.
+    </p>
+    <p id="errorMessage" class="status status-error" hidden></p>
+    <div class="table-wrap">
+    <table class="record-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Restaurant name</th>
+          <th>Cuisine</th>
+        </tr>
+      </thead>
+      <tbody id="recordList"></tbody>
+    </table>
+    </div>
 
+    <div class="actions-container">
+      <h3>Add record</h3>
+      <form id="inspectionForm" onsubmit="createRecord(); return false;">
         <label for="restaurantName">Restaurant name</label>
         <input
           id="restaurantName"
           name="restaurantName"
           type="text"
           placeholder="Enter the restaurant name"
+          required
+          autofocus
+        />
+
+        <label for="cuisine">Cuisine</label>
+        <input
+          id="cuisine"
+          name="cuisine"
+          type="text"
+          placeholder="Enter the cuisine"
           required
         />
 
@@ -43,7 +75,7 @@
         <textarea
           id="comments"
           name="Comments"
-          rows="6"
+          rows="4"
           placeholder="Describe the inspection observations and findings"
           required
         ></textarea>
@@ -62,9 +94,39 @@
           <label for="termsAccepted">I agree to the terms and conditions.</label>
         </div>
 
-        <button type="submit">Submit Inspection Record</button>
+        <button type="button" onclick="createRecord()">Add record</button>
       </form>
-    </main>
+    </div>
+
+    <div class="actions-container">
+      <h3>Update record 1</h3>
+      <form id="updateForm" onsubmit="updateRecord(); return false;">
+        <label for="updateRestaurantName">Restaurant name</label>
+        <input
+          id="updateRestaurantName"
+          name="restaurantName"
+          type="text"
+          placeholder="New restaurant name"
+          required
+        />
+        <label for="updateCuisine">Cuisine</label>
+        <input
+          id="updateCuisine"
+          name="cuisine"
+          type="text"
+          placeholder="New cuisine"
+          required
+        />
+        <button type="button" onclick="updateRecord()">Update record 1</button>
+      </form>
+    </div>
+
+    <div class="actions-container">
+      <h3>Delete highest ID</h3>
+      <form id="deleteForm" onsubmit="deleteRecord(); return false;">
+        <button type="button" onclick="deleteRecord()" class="danger">Delete highest ID</button>
+      </form>
+    </div>
 
     <script src="app.js"></script>
   </body>

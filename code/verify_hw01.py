@@ -121,11 +121,11 @@ def main() -> None:
         }
         assert "<title>HW1-Eric Zhao</title>" in source
         assert any(tag == "h1" for tag, _ in parser.tags)
-        assert controls["restaurantID"][1].get("type") == "text"
-        assert "required" in controls["restaurantID"][1]
-        assert "autofocus" in controls["restaurantID"][1]
         assert controls["restaurantName"][1].get("type") == "text"
         assert "required" in controls["restaurantName"][1]
+        assert "autofocus" in controls["restaurantName"][1]
+        assert controls["cuisine"][1].get("type") == "text"
+        assert "required" in controls["cuisine"][1]
         assert controls["Email"][1].get("type") == "email"
         assert "required" in controls["Email"][1]
         assert controls["Comments"][0] == "textarea"
@@ -156,7 +156,7 @@ def main() -> None:
             "alerts": r"alert\(",
             "json_stringify": r"JSON\.stringify",
             "json_parse": r"JSON\.parse",
-            "destructuring": r"const\s*\{\s*restaurantID\s*,\s*Email\s*\}",
+            "destructuring": r"const\s*\{\s*restaurantName\s*,\s*Email\s*\}",
             "spread_operator": r"\.\.\.parsedObject",
             "submission_date": r"submissionDate",
             "closure": r"createSubmissionCounter",

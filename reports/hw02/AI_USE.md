@@ -2,9 +2,7 @@
 
 ## 1. What I used an AI assistant for, and what I did myself
 
-I used Cursor to help split the LangGraph files (`state`, `nodes`, `router`, `schema`, `workflow`), write the Part 4 experiment runner, and auto-fill `METRICS.md` from the JSON results. I also used it to compare the repo against the Homework 2 PDF.
-
-I set up the FastAPI records page on port 8521, chose restaurant name / cuisine as the primary and secondary fields, ran the schema / ceiling / adversarial experiments locally with `qwen3:8b`, and took the Terminal.app screenshots for the report.
+I used ChatGBT help with the LangGraph files (`state`, `nodes`, `router`, `schema`, `workflow`), write the Part 4 experiment runner. 
 
 ## 2. One AI-produced output that was wrong or unsuitable
 

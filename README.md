@@ -118,3 +118,12 @@ python code/run_hw02_part4.py --experiment adversarial
 
 `--experiment all` runs 30 + 20 + 20 + 5 graph calls and takes a while. Results go to `reports/hw02/raw/`.
 
+## Homework 2 smoke test
+
+```bash
+conda activate data260
+python code/verify_hw02.py
+```
+
+This writes `reports/hw02/verification.json`. Reproducible commands are in `reports/hw02/reproducible_run_instructions.md`.
+

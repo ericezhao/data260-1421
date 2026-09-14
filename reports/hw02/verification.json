@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-14T18:56:01Z",
+  "project": "DATA-260 Homework 2",
+  "homework": 2,
+  "commit_hash": "442b7317b4fdc7ab93ea209e30f46e8843002fd7",
+  "student": {
+    "name": "Eric Zhao",
+    "SID4": 1421
+  },
+  "model": "qwen3:8b",
+  "SEED": 1421,
+  "VERIFY_SEED": 261421,
+  "overall_status": "PASS",
+  "summary": {
+    "total_checks": 8,
+    "passed": 8,
+    "failed": 0
+  },
+  "checks": [
+    {
+      "id": "configuration",
+      "status": "PASS",
+      "description": "Personal configuration values are correct",
+      "evidence": {
+        "homework": 2,
+        "SID4": 1421,
+        "PORT_BASE": 8521,
+        "PREFIX": "s1421",
+        "SEED": 1421,
+        "VERIFY_SEED": 261421,
+        "DOMAIN_ID": 5,
+        "model": "qwen3:8b"
+      }
+    },
+    {
+      "id": "required_files",
+      "status": "PASS",
+      "description": "Homework 2 implementation and evidence files exist",
+      "evidence": {
+        "required_count": 20,
+        "missing": []
+      }
+    },
+    {
+      "id": "part1_ui",
+      "status": "PASS",
+      "description": "List page has viewport, 375px CSS, and loading/empty/error",
+      "evidence": {
+        "viewport": true,
+        "loading_empty_error": true,
+        "mobile_breakpoint": "375px"
+      }
+    },
+    {
+      "id": "fastapi_port",
+      "status": "PASS",
+      "description": "FastAPI responds on PORT_BASE 8521",
+      "evidence": {
+        "port": 8521,
+        "status": 200,
+        "record_count": 3,
+        "started_by_verifier": true
+      }
+    },
+    {
+      "id": "fastapi_crud",
+      "status": "PASS",
+      "description": "Record list, create, update id 1, search, and delete highest succeed",
+      "evidence": {
+        "list_ok": true,
+        "created_id": 4,
+        "updated_id_1": true,
+        "search_ok": true,
+        "deleted_highest": true,
+        "starting_count": 3
+      }
+    },
+    {
+      "id": "model_adapter",
+      "status": "PASS",
+      "description": "LangGraph nodes call the HW1 model adapter",
+      "evidence": {
+        "adapter": "src/model_client.py",
+        "consumers": [
+          "code/restaurant_graph/nodes.py",
+          "code/restaurant_graph/workflow.py"
+        ]
+      }
+    },
+    {
+      "id": "langgraph",
+      "status": "PASS",
+      "description": "LangGraph run finishes and valid output has exactly 3 tags",
+      "evidence": {
+        "finished": true,
+        "outcome": "valid_first_attempt",
+        "planner_attempts": 1,
+        "tag_count": 3,
+        "latency_ms": 5822
+      }
+    },
+    {
+      "id": "part4_results",
+      "status": "PASS",
+      "description": "Part 4 experiment files match the reported run counts",
+      "evidence": {
+        "schema_runs": 30,
+        "ceiling_2_runs": 20,
+        "ceiling_10_runs": 20,
+        "adversarial_runs": 5,
+        "schema_counts": {
+          "valid_first_attempt": 30
+        },
+        "adversarial_counts": {
+          "hit_ceiling": 5
+        }
+      }
+    }
+  ]
+}

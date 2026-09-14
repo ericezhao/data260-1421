@@ -1,0 +1,394 @@
+DATA-260 Homework 2 RUN_LOG
+Model: qwen3:8b via src/model_client.py
+These rows are the per-run JSON printed by code/run_hw02_part4.py.
+Timestamps come from the saved experiment files that produced METRICS.md.
+
+============================================================
+schema30
+Started: 2026-09-14T17:43:33.928337+00:00
+Command: python code/run_hw02_part4.py --experiment schema
+max_turns: 10
+============================================================
+
+=== schema30 run 1/30 max_turns=10 ===
+{"run": 1, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 5462, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 2/30 max_turns=10 ===
+{"run": 2, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3299, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 3/30 max_turns=10 ===
+{"run": 3, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3327, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 4/30 max_turns=10 ===
+{"run": 4, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3335, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 5/30 max_turns=10 ===
+{"run": 5, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3343, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 6/30 max_turns=10 ===
+{"run": 6, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3301, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 7/30 max_turns=10 ===
+{"run": 7, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3313, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 8/30 max_turns=10 ===
+{"run": 8, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3457, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 9/30 max_turns=10 ===
+{"run": 9, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3377, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 10/30 max_turns=10 ===
+{"run": 10, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3311, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 11/30 max_turns=10 ===
+{"run": 11, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3322, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 12/30 max_turns=10 ===
+{"run": 12, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3311, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 13/30 max_turns=10 ===
+{"run": 13, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3414, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 14/30 max_turns=10 ===
+{"run": 14, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3596, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 15/30 max_turns=10 ===
+{"run": 15, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3489, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 16/30 max_turns=10 ===
+{"run": 16, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3395, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 17/30 max_turns=10 ===
+{"run": 17, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3432, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 18/30 max_turns=10 ===
+{"run": 18, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3367, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 19/30 max_turns=10 ===
+{"run": 19, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3427, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 20/30 max_turns=10 ===
+{"run": 20, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3363, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 21/30 max_turns=10 ===
+{"run": 21, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3347, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 22/30 max_turns=10 ===
+{"run": 22, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3365, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 23/30 max_turns=10 ===
+{"run": 23, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3351, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 24/30 max_turns=10 ===
+{"run": 24, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3354, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 25/30 max_turns=10 ===
+{"run": 25, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3459, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 26/30 max_turns=10 ===
+{"run": 26, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3330, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 27/30 max_turns=10 ===
+{"run": 27, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3386, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 28/30 max_turns=10 ===
+{"run": 28, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3401, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 29/30 max_turns=10 ===
+{"run": 29, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3357, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== schema30 run 30/30 max_turns=10 ===
+{"run": 30, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3408, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+
+============================================================
+ceiling2
+Started: 2026-09-14T18:19:40.972637+00:00
+Command: python code/run_hw02_part4.py --experiment ceiling
+max_turns: 2
+============================================================
+
+=== ceiling2 run 1/20 max_turns=2 ===
+{"run": 1, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3400, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling2 run 2/20 max_turns=2 ===
+{"run": 2, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3316, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling2 run 3/20 max_turns=2 ===
+{"run": 3, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3439, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling2 run 4/20 max_turns=2 ===
+{"run": 4, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3388, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling2 run 5/20 max_turns=2 ===
+{"run": 5, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3368, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling2 run 6/20 max_turns=2 ===
+{"run": 6, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3411, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling2 run 7/20 max_turns=2 ===
+{"run": 7, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3390, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling2 run 8/20 max_turns=2 ===
+{"run": 8, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3341, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling2 run 9/20 max_turns=2 ===
+{"run": 9, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3310, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling2 run 10/20 max_turns=2 ===
+{"run": 10, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3303, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling2 run 11/20 max_turns=2 ===
+{"run": 11, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3319, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling2 run 12/20 max_turns=2 ===
+{"run": 12, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3303, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling2 run 13/20 max_turns=2 ===
+{"run": 13, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3312, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling2 run 14/20 max_turns=2 ===
+{"run": 14, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3337, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling2 run 15/20 max_turns=2 ===
+{"run": 15, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3361, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling2 run 16/20 max_turns=2 ===
+{"run": 16, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3340, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling2 run 17/20 max_turns=2 ===
+{"run": 17, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3317, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling2 run 18/20 max_turns=2 ===
+{"run": 18, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3317, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling2 run 19/20 max_turns=2 ===
+{"run": 19, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3372, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling2 run 20/20 max_turns=2 ===
+{"run": 20, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3313, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+
+============================================================
+ceiling10
+Started: 2026-09-14T18:19:40.972637+00:00
+Command: python code/run_hw02_part4.py --experiment ceiling
+max_turns: 10
+============================================================
+
+=== ceiling10 run 1/20 max_turns=10 ===
+{"run": 1, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3319, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling10 run 2/20 max_turns=10 ===
+{"run": 2, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3314, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling10 run 3/20 max_turns=10 ===
+{"run": 3, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3315, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling10 run 4/20 max_turns=10 ===
+{"run": 4, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3354, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling10 run 5/20 max_turns=10 ===
+{"run": 5, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3337, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling10 run 6/20 max_turns=10 ===
+{"run": 6, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3338, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling10 run 7/20 max_turns=10 ===
+{"run": 7, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3384, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling10 run 8/20 max_turns=10 ===
+{"run": 8, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3391, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling10 run 9/20 max_turns=10 ===
+{"run": 9, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3756, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling10 run 10/20 max_turns=10 ===
+{"run": 10, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3474, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling10 run 11/20 max_turns=10 ===
+{"run": 11, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3360, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling10 run 12/20 max_turns=10 ===
+{"run": 12, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3351, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling10 run 13/20 max_turns=10 ===
+{"run": 13, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3325, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling10 run 14/20 max_turns=10 ===
+{"run": 14, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3362, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling10 run 15/20 max_turns=10 ===
+{"run": 15, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3310, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling10 run 16/20 max_turns=10 ===
+{"run": 16, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3307, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling10 run 17/20 max_turns=10 ===
+{"run": 17, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3333, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling10 run 18/20 max_turns=10 ===
+{"run": 18, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3320, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling10 run 19/20 max_turns=10 ===
+{"run": 19, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3310, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+=== ceiling10 run 20/20 max_turns=10 ===
+{"run": 20, "outcome": "valid_first_attempt", "planner_attempts": 1, "validation_error": "", "latency_ms": 3349, "tags": ["food safety issues", "pest infestation", "hygiene violations"], "summary": "Inspection found live flies and rodent droppings in food storage areas, indicating hygiene and pest control problems."}
+
+
+============================================================
+adversarial
+Started: 2026-09-14T18:28:22.781853+00:00
+Command: python code/run_hw02_part4.py --experiment adversarial
+max_turns: 10
+============================================================
+
+=== adversarial run 1/5 max_turns=10 ===
+{"run": 1, "outcome": "hit_ceiling", "planner_attempts": 10, "validation_error": "Input should be a valid list", "latency_ms": 45120, "tags": null, "summary": null}
+
+=== adversarial run 2/5 max_turns=10 ===
+{"run": 2, "outcome": "hit_ceiling", "planner_attempts": 10, "validation_error": "Input should be a valid list", "latency_ms": 45167, "tags": null, "summary": null}
+
+=== adversarial run 3/5 max_turns=10 ===
+{"run": 3, "outcome": "hit_ceiling", "planner_attempts": 10, "validation_error": "Input should be a valid list", "latency_ms": 45287, "tags": null, "summary": null}
+
+=== adversarial run 4/5 max_turns=10 ===
+{"run": 4, "outcome": "hit_ceiling", "planner_attempts": 10, "validation_error": "Input should be a valid list", "latency_ms": 45352, "tags": null, "summary": null}
+
+=== adversarial run 5/5 max_turns=10 ===
+{"run": 5, "outcome": "hit_ceiling", "planner_attempts": 10, "validation_error": "Input should be a valid list", "latency_ms": 44819, "tags": null, "summary": null}
+
+============================================================
+Smoke test — python code/verify_hw02.py
+Started: 2026-09-14T18:56:01Z
+============================================================
+
+[Supervisor] Node activated
+[Supervisor] turn_count=1
+[Planner] Node activated
+[Planner] latency_ms=5817
+[Planner] complete
+[Supervisor] Node activated
+[Supervisor] turn_count=2
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-14T18:56:01Z",
+  "project": "DATA-260 Homework 2",
+  "homework": 2,
+  "commit_hash": "442b7317b4fdc7ab93ea209e30f46e8843002fd7",
+  "student": {
+    "name": "Eric Zhao",
+    "SID4": 1421
+  },
+  "model": "qwen3:8b",
+  "SEED": 1421,
+  "VERIFY_SEED": 261421,
+  "overall_status": "PASS",
+  "summary": {
+    "total_checks": 8,
+    "passed": 8,
+    "failed": 0
+  },
+  "checks": [
+    {
+      "id": "configuration",
+      "status": "PASS",
+      "description": "Personal configuration values are correct",
+      "evidence": {
+        "homework": 2,
+        "SID4": 1421,
+        "PORT_BASE": 8521,
+        "PREFIX": "s1421",
+        "SEED": 1421,
+        "VERIFY_SEED": 261421,
+        "DOMAIN_ID": 5,
+        "model": "qwen3:8b"
+      }
+    },
+    {
+      "id": "required_files",
+      "status": "PASS",
+      "description": "Homework 2 implementation and evidence files exist",
+      "evidence": {
+        "required_count": 20,
+        "missing": []
+      }
+    },
+    {
+      "id": "part1_ui",
+      "status": "PASS",
+      "description": "List page has viewport, 375px CSS, and loading/empty/error",
+      "evidence": {
+        "viewport": true,
+        "loading_empty_error": true,
+        "mobile_breakpoint": "375px"
+      }
+    },
+    {
+      "id": "fastapi_port",
+      "status": "PASS",
+      "description": "FastAPI responds on PORT_BASE 8521",
+      "evidence": {
+        "port": 8521,
+        "status": 200,
+        "record_count": 3,
+        "started_by_verifier": true
+      }
+    },
+    {
+      "id": "fastapi_crud",
+      "status": "PASS",
+      "description": "Record list, create, update id 1, search, and delete highest succeed",
+      "evidence": {
+        "list_ok": true,
+        "created_id": 4,
+        "updated_id_1": true,
+        "search_ok": true,
+        "deleted_highest": true,
+        "starting_count": 3
+      }
+    },
+    {
+      "id": "model_adapter",
+      "status": "PASS",
+      "description": "LangGraph nodes call the HW1 model adapter",
+      "evidence": {
+        "adapter": "src/model_client.py",
+        "consumers": [
+          "code/restaurant_graph/nodes.py",
+          "code/restaurant_graph/workflow.py"
+        ]
+      }
+    },
+    {
+      "id": "langgraph",
+      "status": "PASS",
+      "description": "LangGraph run finishes and valid output has exactly 3 tags",
+      "evidence": {
+        "finished": true,
+        "outcome": "valid_first_attempt",
+        "planner_attempts": 1,
+        "tag_count": 3,
+        "latency_ms": 5822
+      }
+    },
+    {
+      "id": "part4_results",
+      "status": "PASS",
+      "description": "Part 4 experiment files match the reported run counts",
+      "evidence": {
+        "schema_runs": 30,
+        "ceiling_2_runs": 20,
+        "ceiling_10_runs": 20,
+        "adversarial_runs": 5,
+        "schema_counts": {
+          "valid_first_attempt": 30
+        },
+        "adversarial_counts": {
+          "hit_ceiling": 5
+        }
+      }
+    }
+  ]
+}

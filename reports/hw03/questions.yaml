@@ -1,0 +1,19 @@
+- question1: In Santa Clara County restaurant inspections, how many points are deducted from a perfect score of 100 for a Major, Moderate, and Minor violation?
+  expected_answer: Major 8, Moderate 3, Minor 2.
+  expected_source: SCC-DEH-placarding-workshop-handout.pdf
+
+- question2: In Santa Clara County, what happens if inspectors find a vermin infestation such as cockroaches, mice, rats, or flies, and what does the county recommend the restaurant do?
+  expected_answer: The facility may be closed immediately and a red CLOSED placard issued. Use of a licensed pest control service is recommended.
+  expected_source: SCC-DEH-placarding-workshop-handout.pdf
+
+- question3: How must the premises of a food facility be kept?
+  expected_answer: Clean, fully operative, and in good repair.
+  expected_source: CA-Retail-Food-Code-2025.pdf
+
+- question4: Does the FDA Food Code allow tracking powder pesticides for pest control in a food establishment?
+  expected_answer: No. Tracking powder pesticides are not allowed because the powder can contaminate food.
+  expected_source: FDA-FoodCode-2022-01182023.pdf
+
+- question5: What must a food facility do about vermin such as rodents and insects?
+  expected_answer: It must be constructed, equipped, maintained, and operated to prevent the entrance and harborage of vermin, and the premises shall be kept free of vermin.
+  expected_source: CA-Retail-Food-Code-2025.pdf

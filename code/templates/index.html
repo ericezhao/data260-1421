@@ -1,0 +1,40 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+    <title>Local Restaurant Inspections</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success"> <!-- Navbar, expandable, dark letters, green background -->
+      <div class="container">
+        <a class="navbar-brand" href="/">Restaurant Inspections</a>
+        <div class="navbar-nav ms-auto"> <!-- Navbar items, aligned to the right -->
+          {% if user %}
+          <a class="nav-link" href="/dashboard">Dashboard</a>
+          <a class="nav-link" href="/logout">Log out</a>
+          {% else %}
+          <a class="nav-link" href="/login">Log in</a>
+          {% endif %}
+        </div>
+      </div>
+    </nav>
+
+    <div class="container py-4"> <!-- Container, padding 4 units -->
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title h3">Welcome to the Restaurant Inspection App</h3>
+          
+          {% if user %}
+          <a class="btn btn-success" href="/dashboard">Go to dashboard</a>
+          <a class="btn btn-outline-secondary" href="/logout">Log out</a>
+          {% else %}
+          <p class="card-text">Please log in to continue.</p>
+          <a class="btn btn-success" href="/login">Log in</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

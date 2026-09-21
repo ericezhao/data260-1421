@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-21T05:57:45Z",
+  "project": "DATA-260 Homework 3",
+  "homework": 3,
+  "commit_hash": "b1b917585e1b1d999900ef60935cde3d4ebefd7e",
+  "student": {
+    "name": "Eric Zhao",
+    "SID4": 1421
+  },
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "SEED": 1421,
+  "VERIFY_SEED": 261421,
+  "overall_status": "PASS",
+  "summary": {
+    "total_checks": 7,
+    "passed": 7,
+    "failed": 0
+  },
+  "checks": [
+    {
+      "id": "configuration",
+      "status": "PASS",
+      "description": "Personal configuration values are correct",
+      "evidence": {
+        "homework": 3,
+        "SID4": 1421,
+        "PORT_BASE": 8521,
+        "PREFIX": "s1421",
+        "SEED": 1421,
+        "VERIFY_SEED": 261421,
+        "DOMAIN_ID": 5,
+        "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+      }
+    },
+    {
+      "id": "required_files",
+      "status": "PASS",
+      "description": "Homework 3 implementation and evidence files exist",
+      "evidence": {
+        "required_count": 14,
+        "missing": []
+      }
+    },
+    {
+      "id": "corpus",
+      "status": "PASS",
+      "description": "Corpus files match CORPUS_MANIFEST.json and total at least 200 KB",
+      "evidence": {
+        "files": 3,
+        "total_bytes": 7368619
+      }
+    },
+    {
+      "id": "questions",
+      "status": "PASS",
+      "description": "questions.yaml has five frozen domain questions",
+      "evidence": {
+        "n_questions": 5,
+        "sources": [
+          "CA-Retail-Food-Code-2025.pdf",
+          "FDA-FoodCode-2022-01182023.pdf",
+          "SCC-DEH-placarding-workshop-handout.pdf"
+        ],
+        "single_source_files": [
+          "FDA-FoodCode-2022-01182023.pdf"
+        ]
+      }
+    },
+    {
+      "id": "retrieval_artifacts",
+      "status": "PASS",
+      "description": "summary.csv and METRICS.md cover three techniques",
+      "evidence": {
+        "csv_rows": 75,
+        "techniques": [
+          "semantic chunking",
+          "sentence-window chunking",
+          "token-based chunking"
+        ]
+      }
+    },
+    {
+      "id": "retrieve_script",
+      "status": "PASS",
+      "description": "Retrieve script implements three LlamaIndex chunkers and FAISS",
+      "evidence": {
+        "chunkers": [
+          "token",
+          "semantic",
+          "sentence-window"
+        ],
+        "vector_store": "faiss IndexFlatIP"
+      }
+    },
+    {
+      "id": "auth",
+      "status": "PASS",
+      "description": "Login, protected dashboard, logout, and session cookie attributes work",
+      "evidence": {
+        "home": 200,
+        "login_ok": true,
+        "dashboard_protected": true,
+        "logout_clears_session": true,
+        "set_cookie_httponly_samesite": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 8268.51it/s]
+
+chunking token-based chunking
+chunks 1168 avg_len 2006.1
+
+=== token-based chunking | q1 ===
+query dim 384 first8 [0.0788, 0.0426, 0.0362, -0.0071, -0.0714, 0.0548, -0.0089, 0.0086]
+query_shape [384] docs_shape [5, 384]
+latency_ms 10.5
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1     0.525525    0.509187       2065 County of Santa Clara Department of Environmental Health Consumer Protection Division 1555 Berger Drive, Suite 300 San Jose, CA 95112-2716 (408)918-3400 FAX (40
+    2     0.450318    0.493584       2461 system used, establishment scoring may provide an indication of how well a food establishment is complying with the food safety rules of the regulatory agency. 
+    3     0.448316    0.444784       2229 BEVERAGE listed or displayed on a restaurant menu or advertisement for a children’s meal shall be one of the default BEVERAGEs listed in subdivision (a). 114379
+    4     0.440891    0.418525       2181 and list any program improvements needed only when an appropriation is made to the DEPARTMENT for these purposes. 113715. Compliance with applicable codes Any c
+    5     0.431839    0.372604       2222 of a COMPACT MOBILE FOOD OPERATION is punishable only by an administrative fine. (b) A violation of any provision of this part or regulation adopted pursuant to
+
+=== token-based chunking | q2 ===
+query dim 384 first8 [0.0632, 0.0264, 0.0083, 0.0148, -0.0021, 0.0118, -0.025, -0.0574]
+query_shape [384] docs_shape [5, 384]
+latency_ms 6.83
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1     0.541946    0.540901       1854 Storage Containers Identified with Common Name of Food (C) 3-305.13 Vended Time/Temperature Control for Safety Food, Original Container (C) 3-601.11 Standards o
+    2     0.534420    0.494746       2047 shall wash his or her hands as required by Section 113953.3. (6) The outdoor dining area is maintained clean. Surfaces that have been contaminated by dog excrem
+    3     0.511449    0.489195       1963 FARMERS’ MARKET or as APPROVED by the ENFORCEMENT OFFICER. (d) No live animals, birds, or fowl shall be kept or allowed, and no individual shall bring a live an
+    4     0.510038    0.458811       1976 A FOOD FACILITY shall at all times be constructed, equipped, maintained, and operated as to prevent the entrance and harborage of animals, birds, and VERMIN, in
+    5     0.509333    0.497556       2338 Toilet room doors must remain closed except during cleaning operations to prevent insect and rodent entrance and the associated potential for the spread of dise
+
+=== token-based chunking | q3 ===
+query dim 384 first8 [0.066, 0.0026, -0.0572, 0.01, -0.0033, 0.0079, -0.0053, -0.1022]
+query_shape [384] docs_shape [5, 384]
+latency_ms 5.16
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1     0.665921    0.655637       2026 (1) "Food establishment" means an operation that: (a) stores, prepares, packages, serves, vends FOOD directly to the CONSUMER, or otherwise provides FOOD for hu
+    2     0.649525    0.654225       2002 and ice that are not POTENTIALLY HAZARDOUS FOOD and that are dispensed from APPROVED bulk dispensing units. 114347. Floors TEMPORARY FOOD FACILITIES that handle
+    3     0.642369    0.620390       2045 (A) Effective partitioning and self-closing doors separate the common dining areas from FOOD storage or FOOD PREPARATION areas. (B) CONDIMENTs, EQUIPMENT, and U
+    4     0.639847    0.673668       2103 responsible for operating the HOST FACILITY. (c) A PERMIT application shall be submitted to the ENFORCEMENT AGENCY pursuant to Article 1 (commencing with Sectio
+    5     0.625988    0.640317       2576 Annex 3 - 13 Chapter 2. Management and Personnel Responsibility 2-101. 11 Assignment. D esignation of a person in charge during all hours of operations ensures 
+
+=== token-based chunking | q4 ===
+query dim 384 first8 [-0.0033, -0.0123, -0.0354, -0.0094, 0.078, 0.0422, 0.041, 0.0106]
+query_shape [384] docs_shape [5, 384]
+latency_ms 5.66
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1     0.699368    0.600380       2274 food-contact surfaces and ultimately in the food being prepared or served. 7-206.13 Tracking Powders, Pest Control and Monitoring. The use of tracking powder pe
+    2     0.696320    0.664152       1958 82. Effective food-contact notifications are listed at http://www.accessdata.fda.gov/scripts/fcn/fcnNavigation.cfm?rpt=fcsListing&displayAll=f alse&page=17, and
+    3     0.686384    0.621786       1854 Storage Containers Identified with Common Name of Food (C) 3-305.13 Vended Time/Temperature Control for Safety Food, Original Container (C) 3-601.11 Standards o
+    4     0.670413    0.581814       1808 and maintenance of a FOOD ESTABLISHMENT, such as for the cleaning and SANITIZING of EQUIPMENT and UTENSILS and the control of insects and rodents, shall be allo
+    5     0.639708    0.586980       1755 and Enforcement No Changes. Annex 2. References 1-201.10 Amended to revise § 1-201.10 to update titles, web links and dates for the following references: #3 - I
+
+=== token-based chunking | q5 ===
+query dim 384 first8 [0.0034, 0.0813, -0.0226, -0.0156, 0.0114, -0.0134, -0.0255, -0.0735]
+query_shape [384] docs_shape [5, 384]
+latency_ms 5.61
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1     0.555247    0.565656       1854 Storage Containers Identified with Common Name of Food (C) 3-305.13 Vended Time/Temperature Control for Safety Food, Original Container (C) 3-601.11 Standards o
+    2     0.540649    0.521964       1976 A FOOD FACILITY shall at all times be constructed, equipped, maintained, and operated as to prevent the entrance and harborage of animals, birds, and VERMIN, in
+    3     0.505715    0.428039       2376 necessary to minimize the development of odors, prevent such waste from becoming an attractant and harborage or breeding place for insects and rodents, and prev
+    4     0.501959    0.504910       2338 Toilet room doors must remain closed except during cleaning operations to prevent insect and rodent entrance and the associated potential for the spread of dise
+    5     0.466892    0.521552       2014 Requirements shall be based on proposed method of operation and number of MOBILE FOOD FACILITIES serviced. (b) MOBILE SUPPORT UNITs shall meet all applicable re
+
+chunking semantic chunking
+chunks 765 avg_len 2758.7
+
+=== semantic chunking | q1 ===
+query dim 384 first8 [0.0788, 0.0426, 0.0362, -0.0071, -0.0714, 0.0548, -0.0089, 0.0086]
+query_shape [384] docs_shape [5, 384]
+latency_ms 7.45
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1     0.556504    0.551682        889 Local Enforcement Agency The local ENFORCEMENT AGENCY, as set forth in Section 113713, shall implement, administer, and enforce this chapter. The DEPARTMENT may
+    2     0.525525    0.509187       1560 County of Santa Clara Department of Environmental Health Consumer Protection Division 1555 Berger Drive, Suite 300 San Jose, CA 95112-2716 (408)918-3400 FAX (40
+    3     0.508319    0.520026       2609 A new placard may be issued at that time after a complete inspection of the facility. SCORE:_____ NS HOW SCORE IS CALCULATED Each violation category is assigned
+    4     0.436470    0.426982       3522 (C) The examination consists of at least 40 questions regarding the required subject matter. (D) A minimum score of 70 percent on the examination is required to
+    5     0.421471    0.392467       1221 You may either purchas books or a pdf file that includes current legislation. • AB 1325 Microenterprise Kitchen Operations • AB 1217 Business Pandemic Relief • 
+
+=== semantic chunking | q2 ===
+query dim 384 first8 [0.0632, 0.0264, 0.0083, 0.0148, -0.0021, 0.0118, -0.025, -0.0574]
+query_shape [384] docs_shape [5, 384]
+latency_ms 6.96
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1     0.578786    0.562706        884 Premises and Facilities 114257. All facilities, equipment, and utensils to be kept clean, operative, and in good repair All PREMISES of a FOOD facility shall be
+    2     0.567681    0.595965        647  Ensure all food is obtained from an approved source. VIOLATIONS THAT MAY WARRANT THE IMMEDIATE CLOSURE OF A FACILITY:  Vermin infestation. Keep cockroaches, 
+    3     0.482278    0.459610       5125 120 114259.3. Insect control devices, design and installation (a) Insect control devices that are used to electrocute or stun flying insects shall be designed t
+    4     0.472080    0.458363       3791 ), and as provided in Section 36.104 of Title 28 of the Code of Federal Regulations. All guide dogs, signal dogs, and service dogs shall be used and properly id
+    5     0.451117    0.454463       1441 2006. Interactions Affecting the Proliferation and Control of Human Pathogens on Edible Plants. J. Food Sci. 71(8), R89 – R99. FDA Food Code 2022 Annex 2. Refer
+
+=== semantic chunking | q3 ===
+query dim 384 first8 [0.066, 0.0026, -0.0572, 0.01, -0.0033, 0.0079, -0.0053, -0.1022]
+query_shape [384] docs_shape [5, 384]
+latency_ms 6.48
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1     0.707676    0.688565        438 113874. Premises "PREMISES" means: (a) The FOOD FACILITY, its contents, and the contiguous land or property and its facilities and contents that are under the c
+    2     0.624623    0.643236        884 Premises and Facilities 114257. All facilities, equipment, and utensils to be kept clean, operative, and in good repair All PREMISES of a FOOD facility shall be
+    3     0.618118    0.629557       5398 Permanent Food Facilities 114265. Applicable requirements All PERMANENT FOOD FACILITIES shall meet the applicable requirements in Chapters 1 to 8, inclusive, an
+    4     0.614990    0.627646       7254 113786. Food-contact surface "FOOD-CONTACT SURFACE" means either of the following: (a) A surface of EQUIPMENT or a UTENSIL with which FOOD normally comes into c
+    5     0.614864    0.668525        647  Ensure all food is obtained from an approved source. VIOLATIONS THAT MAY WARRANT THE IMMEDIATE CLOSURE OF A FACILITY:  Vermin infestation. Keep cockroaches, 
+
+=== semantic chunking | q4 ===
+query dim 384 first8 [-0.0033, -0.0123, -0.0354, -0.0094, 0.078, 0.0422, 0.041, 0.0106]
+query_shape [384] docs_shape [5, 384]
+latency_ms 6.43
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1     0.635298    0.372099        191 17, No. 1, in: http://wwwnc.cdc.gov/eid/article/17/1/p2- 1101_article.htm 21. The Public Health Service Act, 42 U.S.C. Section 243. General Grant of Authority f
+    2     0.621964    0.607355       1655 97:258-260. 2. Code of Federal Regulations, Title 9, Subpart C, Section 424.21(b) Food ingredients and sources of radiation. 3. Code of Federal Regulations, Tit
+    3     0.609795    0.580247       1441 2006. Interactions Affecting the Proliferation and Control of Human Pathogens on Edible Plants. J. Food Sci. 71(8), R89 – R99. FDA Food Code 2022 Annex 2. Refer
+    4     0.598549    0.581428       3910 (c) The DEPARTMENT shall adopt regulations to govern the notice required by this section in order to effectuate the purposes of this section. 114094. Menu label
+    5     0.594480    0.505935      33368 This record should not be relied upon as an absolute comparison that identifies each and every change. General Numerous editing changes were made throughout the
+
+=== semantic chunking | q5 ===
+query dim 384 first8 [0.0034, 0.0813, -0.0226, -0.0156, 0.0114, -0.0134, -0.0255, -0.0735]
+query_shape [384] docs_shape [5, 384]
+latency_ms 6.55
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1     0.719720    0.735493        884 Premises and Facilities 114257. All facilities, equipment, and utensils to be kept clean, operative, and in good repair All PREMISES of a FOOD facility shall be
+    2     0.593737    0.618753        647  Ensure all food is obtained from an approved source. VIOLATIONS THAT MAY WARRANT THE IMMEDIATE CLOSURE OF A FACILITY:  Vermin infestation. Keep cockroaches, 
+    3     0.430169    0.425274       5125 120 114259.3. Insect control devices, design and installation (a) Insect control devices that are used to electrocute or stun flying insects shall be designed t
+    4     0.408601    0.408118       1441 2006. Interactions Affecting the Proliferation and Control of Human Pathogens on Edible Plants. J. Food Sci. 71(8), R89 – R99. FDA Food Code 2022 Annex 2. Refer
+    5     0.401051    0.393159       4816 Refuse "REFUSE" means solid waste not carried by water through the sewage system. 113889. Remodel "REMODEL" means construction, building, or repair to the FOOD 
+
+chunking sentence-window chunking
+chunks 15204 avg_len 977.2
+
+=== sentence-window chunking | q1 ===
+query dim 384 first8 [0.0788, 0.0426, 0.0362, -0.0071, -0.0714, 0.0548, -0.0089, 0.0086]
+query_shape [384] docs_shape [5, 384]
+latency_ms 22.56
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1     0.525369    0.293540       1208 (II) Safe handling FOOD practices for major FOOD allergens, as defined in Section 113820.5, as they relate to FOOD preparation activities that occur at a FOOD F
+    2     0.497824    0.571007        748 The DEPARTMENT may 183 issue rules and regulations as necessary to carry out the purposes of this chapter. 114379.50. Violation; infraction; fine A violation of
+    3     0.496478    0.517662        885 Examples of imminent health hazards include but are not limited to: sewage backup, no hot water, no electricity, rodent/insect infestation, or severe unsanitary
+    4     0.496131    0.501104        928 Violation; infraction; fine A violation of this chapter is, notwithstanding Section 114395, an infraction; provided, however, that the first violation shall res
+    5     0.494234    0.364690       1042 (e) (1) When assessing an administrative fine for a first-time offense, pursuant to this section, the HEARING OFFICER shall take into consideration the person’s
+
+=== sentence-window chunking | q2 ===
+query dim 384 first8 [0.0632, 0.0264, 0.0083, 0.0148, -0.0021, 0.0118, -0.025, -0.0574]
+query_shape [384] docs_shape [5, 384]
+latency_ms 7.9
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1     0.586153    0.580176       1076 (B) Lockers or other suitable facilities shall be used for the orderly storage of EMPLOYEE clothing and other possessions. 6-501.111 Controlling Pests. The PREM
+    2     0.583436    0.563306        651 Maintaining premises, unnecessary items and litter The PREMISES of a FOOD FACILITY shall be free of litter and items that are unnecessary to the operation or ma
+    3     0.582370    0.383412       1197 (b) TEMPORARY FOOD FACILITIES that handle nonPREPACKAGED FOOD shall also protect FOOD from contamination in one of the following ways: (1) Enclosure of the FOOD
+    4     0.563669    0.408162       1733 Molluscan shellfish and vended TCS foods must specifically be assessed based on their specific packaging and labeling requirements. Molluscan Shellfish shall no
+    5     0.561948    0.418174       1150 (ii) No infants, small children, or pets may be in the home kitchen during the preparation, packaging, or handling of any cottage FOOD products. (iii) Kitchen E
+
+=== sentence-window chunking | q3 ===
+query dim 384 first8 [0.066, 0.0026, -0.0572, 0.01, -0.0033, 0.0079, -0.0053, -0.1022]
+query_shape [384] docs_shape [5, 384]
+latency_ms 6.43
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1     0.689557    0.614656       1728 INFORMATION TO ASSIST THE USER The provisions contained in the California Retail Food Code that are applicable to all retail food facilities and cottage food op
+    2     0.672374    0.676042       1019 114349. Ceilings and outer exclusionary barriers (a) TEMPORARY FOOD FACILITIES shall be equipped with overhead protection for all FOOD PREPARATION, FOOD storage
+    3     0.665037    0.661712       3033 Food Establishment. (1) "Food establishment" means an operation that: (a) stores, prepares, packages, serves, vends FOOD directly to the CONSUMER, or otherwise 
+    4     0.661507    0.610851       1123 Applicable requirements All PERMANENT FOOD FACILITIES shall meet the applicable requirements in Chapters 1 to 8, inclusive, and Chapter 13, unless specifically 
+    5     0.651047    0.677779        901 113788. Food employee 19 "FOOD EMPLOYEE" means an EMPLOYEE working with FOOD, FOOD EQUIPMENT or UTENSILs, or FOOD-CONTACT SURFACEs. 113789. Food facility (a) "F
+
+=== sentence-window chunking | q4 ===
+query dim 384 first8 [-0.0033, -0.0123, -0.0354, -0.0094, 0.078, 0.0422, 0.041, 0.0106]
+query_shape [384] docs_shape [5, 384]
+latency_ms 6.58
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1     0.863730    0.710523        789 7-206.13 Tracking Powders, Pest Control and Monitoring. The use of tracking powder pesticides presents the potential for the powder to be dispersed throughout t
+    2     0.838091    0.752362        754 Rodent bait shall be contained in a covered, tamper-resistant bait station. P FDA Food Code 2022 Chapter 8. Compliance and Enforcement Chapter 7 - 5 7-206.13 Tr
+    3     0.785614    0.737814        686 Also, it is easier for pests to transport the potentially toxic bait throughout the establishment. Consequently, the bait may end up on food-contact surfaces an
+    4     0.710526    0.581687        324 References Annex 2 - 62 7-205.11 Incidental Food Contact, Criteria. 1. Code of Federal Regulations, Title 21, Part 178.3570, Lubricants with incidental food con
+    5     0.709489    0.490282        457 Appl. Microbiology, 30(2):229-237. FDA Food Code 2022 Annex 2. References Annex 2 - 60 6-501.111 Controlling Pests 1. Monica Pava-Ripoll, Rachel E. Goeriz Pears
+
+=== sentence-window chunking | q5 ===
+query dim 384 first8 [0.0034, 0.0813, -0.0226, -0.0156, 0.0114, -0.0134, -0.0255, -0.0735]
+query_shape [384] docs_shape [5, 384]
+latency_ms 6.33
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1     0.700758    0.738616        651 Maintaining premises, unnecessary items and litter The PREMISES of a FOOD FACILITY shall be free of litter and items that are unnecessary to the operation or ma
+    2     0.628393    0.443639        961 Completely enclosed toilet facilities minimize the potential for the spread of disease by the movement of flies and other insects between the toilet facility an
+    3     0.625538    0.581207        774 Insects and other pests are capable of transmitting disease to humans by contaminating food and food-contact surfaces. Effective measures must be taken to elimi
+    4     0.625302    0.440811        857 Gloves may serve as a source of cross-contamination if misused. Applicable Code Sections: 3-304.15(B)-(D) Gloves, Use Limitations (C) Utensils, Equipment and Ve
+    5     0.614839    0.570428        659 Prevents the harborage of insects and rodents; and 4. Provides accessibility for the monitoring of pests. 4-402.12 Fixed Equipment, Elevation or Sealing. The in
+
+=== metrics ===
+               technique  chunks  avg_chunk_len  top1_cosine  mean_at_k_cosine  recall_at_k  mean_latency_ms
+    token-based chunking    1168         2006.1     0.574352          0.542454          0.8            6.752
+       semantic chunking     765         2758.7     0.582109          0.536674          1.0            6.774
+sentence-window chunking   15204          977.2     0.587502          0.555586          0.8            9.960

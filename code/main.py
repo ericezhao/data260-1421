@@ -1,15 +1,25 @@
 from pathlib import Path
-
+import os
 import uvicorn
 from fastapi import FastAPI, Form, HTTPException, Query, Response
 from fastapi.responses import FileResponse, RedirectResponse
 from pydantic import BaseModel, Field
+from starlette.middleware.sessions import SessionMiddleware
+from auth import router as auth_router
 
 WEB_DIR = Path(__file__).resolve().parent / "web_application"
 PORT_BASE = 8521
 
 app = FastAPI(title="Local Restaurant Inspections")
-
+SECRET_KEY = os.getenv("SECRET_KEY", "dev-key")
+app.add_middleware(
+    SessionMiddleware,
+    secret_key=SECRET_KEY,
+    https_only=True,
+    same_site="lax",
+    max_age=3600,
+)
+app.include_router(auth_router)
 
 class InspectionRecord(BaseModel):
     id: int
@@ -108,8 +118,8 @@ def add_record(payload: InspectionCreate) -> InspectionRecord:
     return record
 
 
-@app.get("/")
-def home():
+@app.get("/inspections")
+def inspections():
     return FileResponse(WEB_DIR / "web_app.html")
 
 

@@ -127,3 +127,28 @@ python code/verify_hw02.py
 
 This writes `reports/hw02/verification.json`. Reproducible commands are in `reports/hw02/reproducible_run_instructions.md`.
 
+## Homework 3
+
+Activate the `data260` environment. Part 1 is the same FastAPI app on port 8521, now with login routes:
+
+```bash
+conda activate data260
+python code/main.py
+```
+
+Open [http://localhost:8521](http://localhost:8521). Login is `admin` / `password`.
+
+Retrieval-only comparison (writes `reports/hw03/raw/summary.csv` and `METRICS.md`):
+
+```bash
+python code/hw03_retrieve.py 2>&1 | tee reports/hw03/RUN_LOG.txt
+```
+
+Smoke test:
+
+```bash
+python code/verify_hw03.py
+```
+
+This writes `reports/hw03/verification.json`.
+

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-28T07:05:09Z",
+  "project": "DATA-260 Homework 4",
+  "homework": 4,
+  "commit_hash": "4f8b2bc429410c7a0a1cc4aad2e46c82797b0ddd",
+  "student": {
+    "name": "Eric Zhao",
+    "SID4": 1421
+  },
+  "llm_model": "qwen3:8b",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "SEED": 1421,
+  "VERIFY_SEED": 261421,
+  "overall_status": "PASS",
+  "summary": {
+    "total_checks": 10,
+    "passed": 10,
+    "failed": 0
+  },
+  "checks": [
+    {
+      "id": "configuration",
+      "status": "PASS",
+      "description": "Personal configuration values are correct",
+      "evidence": {
+        "homework": 4,
+        "SID4": 1421,
+        "PORT_BASE": 8521,
+        "PREFIX": "s1421",
+        "SEED": 1421,
+        "VERIFY_SEED": 261421,
+        "DOMAIN_ID": 5
+      }
+    },
+    {
+      "id": "required_files",
+      "status": "PASS",
+      "description": "Homework 4 code and report files exist",
+      "evidence": {
+        "required_count": 22,
+        "missing": []
+      }
+    },
+    {
+      "id": "backend_port",
+      "status": "PASS",
+      "description": "Backend serves the React app on port 8521 and blocks the API without login",
+      "evidence": {
+        "port": 8521,
+        "react_index": 200,
+        "api_without_login": 401
+      }
+    },
+    {
+      "id": "auth",
+      "status": "PASS",
+      "description": "Email/password login sets an opaque HTTP-only session cookie stored in the sessions table",
+      "evidence": {
+        "wrong_password": 401,
+        "cookie_httponly": true,
+        "opaque_token_len": 64,
+        "session_row_in_db": true,
+        "me_after_logout": 401
+      }
+    },
+    {
+      "id": "crud",
+      "status": "PASS",
+      "description": "Logged-in user can create, read, update, and delete a record",
+      "evidence": {
+        "create": 201,
+        "read": 200,
+        "update": 200,
+        "delete": 204,
+        "read_after_delete": 404
+      }
+    },
+    {
+      "id": "n_plus_one",
+      "status": "PASS",
+      "description": "Naive and fixed list endpoints return the same data at page sizes 10, 50, 200",
+      "evidence": {
+        "limit_10": {
+          "records": 10,
+          "with_violations": 0,
+          "naive_sql": 12,
+          "fixed_sql": 3
+        },
+        "limit_50": {
+          "records": 50,
+          "with_violations": 1,
+          "naive_sql": 52,
+          "fixed_sql": 3
+        },
+        "limit_200": {
+          "records": 200,
+          "with_violations": 12,
+          "naive_sql": 202,
+          "fixed_sql": 3
+        }
+      }
+    },
+    {
+      "id": "database",
+      "status": "PASS",
+      "description": "MySQL has the seeded rows and EXPLAIN uses the cuisine index",
+      "evidence": {
+        "database": "s1421_rel",
+        "inspections": 5000,
+        "violations": 200,
+        "cuisine_index": true,
+        "explain_type": "ref",
+        "explain_key": "ix_inspections_cuisine"
+      }
+    },
+    {
+      "id": "n1_artifacts",
+      "status": "PASS",
+      "description": "180 raw N+1 requests and METRICS.md are present",
+      "evidence": {
+        "raw_requests": 180,
+        "per_combination": 30,
+        "summary_rows": 6
+      }
+    },
+    {
+      "id": "rag_artifacts",
+      "status": "PASS",
+      "description": "Corpus, questions, and RAG result files are present and consistent",
+      "evidence": {
+        "documents": 5,
+        "questions": 6,
+        "eval_rows": 18,
+        "config_c_refused": [
+          "Q5",
+          "Q6"
+        ],
+        "sweep_k": [
+          1,
+          3,
+          5
+        ]
+      }
+    },
+    {
+      "id": "rag_live",
+      "status": "PASS",
+      "description": "RAG retrieves the right chunk and config C cites Q1 and refuses Q5/Q6",
+      "evidence": {
+        "chunks": 54,
+        "q1_top_source": "cors.md",
+        "q1_cites_600": true,
+        "q5_refused": true,
+        "q6_refused": true
+      }
+    }
+  ]
+}

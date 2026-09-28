@@ -17,6 +17,16 @@ class InspectionOut(BaseModel):
     cuisine: str
 
 
+class ViolationOut(BaseModel):
+    id: int
+    description: str
+    severity: str
+
+
+class InspectionWithViolations(InspectionOut):
+    violations: list[ViolationOut]
+
+
 class LoginIn(BaseModel):
     email: str = Field(min_length=1)
     password: str = Field(min_length=1)

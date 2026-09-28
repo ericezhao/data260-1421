@@ -1,0 +1,4 @@
+config,accuracy,faithfulness,format_compliance,robustness,retrieval_correct
+A,0.17,n/a,n/a,0.83,n/a
+B,0.83,0.40,0.00,0.83,0.50
+C,1.00,1.00,1.00,1.00,0.50

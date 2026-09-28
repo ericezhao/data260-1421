@@ -3,7 +3,7 @@ import hashlib
 import secrets
 
 import uvicorn
-from fastapi import Depends, FastAPI, HTTPException, Request, Response
+from fastapi import Depends, FastAPI, HTTPException, Query, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -12,7 +12,7 @@ from sqlalchemy.orm import Session
 import crud
 import models
 import schema
-from database import Base, db_session_basede26, engine, get_db
+from database import Base, db_session_basede26, engine, get_db, sql_counter
 from session_crud import create_session, delete_session, get_session
 
 PORT_BASE = 8521
@@ -30,6 +30,19 @@ app.add_middleware(
     allow_methods=["*"], # allow all methods (GET, POST, PUT, DELETE, etc.)
     allow_headers=["*"], # allow all headers 
 )
+
+
+# count SQL statements per request and return the number in the X-SQL-Count header
+@app.middleware("http")
+async def count_sql_statements(request: Request, call_next):
+    counter = [0]
+    token = sql_counter.set(counter)
+    try:
+        response = await call_next(request)
+    finally:
+        sql_counter.reset(token)
+    response.headers["X-SQL-Count"] = str(counter[0])
+    return response
 
 # require_session must be defined before these Depends(...) lines
 def require_session(request: Request, db: Session = Depends(get_db)):
@@ -78,6 +91,31 @@ def list_inspections(
     _session=Depends(require_session),
 ):
     return [inspection_out(row) for row in crud.get_inspections(db)]
+
+
+# must stay above /api/inspections/{inspection_id}, otherwise "naive" is parsed as an id
+@app.get("/api/inspections/naive", response_model=list[schema.InspectionWithViolations])
+def list_inspections_naive(
+    limit: int = Query(10, ge=1, le=200),
+    db: Session = Depends(get_db),
+    _session=Depends(require_session),
+):
+    return [
+        inspection_with_violations(row, violations)
+        for row, violations in crud.get_inspections_naive(db, limit)
+    ]
+
+
+@app.get("/api/inspections/fixed", response_model=list[schema.InspectionWithViolations])
+def list_inspections_fixed(
+    limit: int = Query(10, ge=1, le=200),
+    db: Session = Depends(get_db),
+    _session=Depends(require_session),
+):
+    return [
+        inspection_with_violations(row, row.violations)
+        for row in crud.get_inspections_fixed(db, limit)
+    ]
 
 
 @app.get("/api/inspections/{inspection_id}", response_model=schema.InspectionOut)
@@ -185,6 +223,18 @@ def inspection_out(row: models.Inspection) -> schema.InspectionOut:
         id=row.id,
         restaurantName=row.restaurant_name,
         cuisine=row.cuisine,
+    )
+
+
+def inspection_with_violations(row, violations) -> schema.InspectionWithViolations:
+    return schema.InspectionWithViolations(
+        id=row.id,
+        restaurantName=row.restaurant_name,
+        cuisine=row.cuisine,
+        violations=[
+            schema.ViolationOut(id=v.id, description=v.description, severity=v.severity)
+            for v in violations
+        ],
     )
 
 

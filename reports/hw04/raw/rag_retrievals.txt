@@ -1,0 +1,59 @@
+=== Q1 | k=3 | What is the default max_age for FastAPI's CORSMiddleware, and what does it control?
+  #1 score=0.5224 cors.md#2  the allowed origins. ## Use `CORSMiddleware` { #use-corsmiddleware } You can configure it in your **FastAPI** application using the `CORSMiddleware`. * Import `
+  #2 score=0.4585 cors.md#3  `False`. None of `allow_origins`, `allow_methods` and `allow_headers` can be set to `['*']` if `allow_credentials` is set to `True`. All of them must be [explic
+  #3 score=0.2496 sql-databases.md#5  (Press CTRL+C to quit) ``` </div> Then go to the `/docs` UI, you will see that **FastAPI** is using these **models** to **document** the API, and it will use th
+
+=== Q2 | k=3 | What cookie attributes should a session ID cookie use, and what idle timeout does OWASP recommend?
+  #1 score=0.6799 Session_Management_Cheat_Sheet.md#17  shorter the session interval is, the lesser the time an attacker has to use the valid session ID. The session expiration timeout values must be set accordingly 
+  #2 score=0.6578 Session_Management_Cheat_Sheet.md#22  the server-side idle timeout functionality with client-side code is that the user can see that the session has finished due to inactivity, or even can be notifi
+  #3 score=0.6306 Session_Management_Cheat_Sheet.md#11  disk by the web browser based until the expiration time. Typically, session management capabilities to track users after authentication make use of non-persiste
+
+=== Q3 | k=3 | Which algorithm is recommended for hashing user passwords?
+  #1 score=0.5651 Password_Storage_Cheat_Sheet.md#1  # Password Storage Cheat Sheet ## Introduction This cheat sheet advises you on the proper methods for storing passwords for authentication. When passwords are s
+  #2 score=0.5469 Password_Storage_Cheat_Sheet.md#10  that use less secure hashing algorithms, such as MD5 or SHA-1, can be upgraded to modern password hashing algorithms as described above. When the users enter th
+  #3 score=0.5098 Password_Storage_Cheat_Sheet.md#3  the number of permutations can be enormous, with high speed hardware (such as GPUs) and cloud services with many servers for rent, the cost to an attacker is re
+
+=== Q4 | k=3 | What is the recommended timeout?
+  #1 score=0.6096 Session_Management_Cheat_Sheet.md#17  shorter the session interval is, the lesser the time an attacker has to use the valid session ID. The session expiration timeout values must be set accordingly 
+  #2 score=0.4939 Session_Management_Cheat_Sheet.md#18  the web application for a given session ID. The idle timeout limits the chances an attacker has to guess and use a valid session ID from another user. However, 
+  #3 score=0.4223 Session_Management_Cheat_Sheet.md#19  is transparently renewed periodically during the session duration, every time the renewal timeout expires. Therefore, the renewal timeout complements the idle a
+
+=== Q5 | k=3 | What is the default session expiration time in Django?
+  #1 score=0.4739 Session_Management_Cheat_Sheet.md#17  shorter the session interval is, the lesser the time an attacker has to use the valid session ID. The session expiration timeout values must be set accordingly 
+  #2 score=0.4564 Session_Management_Cheat_Sheet.md#18  the web application for a given session ID. The idle timeout limits the chances an attacker has to guess and use a valid session ID from another user. However, 
+  #3 score=0.4355 Session_Management_Cheat_Sheet.md#19  is transparently renewed periodically during the session duration, every time the renewal timeout expires. Therefore, the renewal timeout complements the idle a
+
+=== Q6 | k=3 | Who is the most handsome student in Data260?
+  #1 score=0.2279 sql-databases.md#5  (Press CTRL+C to quit) ``` </div> Then go to the `/docs` UI, you will see that **FastAPI** is using these **models** to **document** the API, and it will use th
+  #2 score=0.1748 Password_Storage_Cheat_Sheet.md#11  especially mobile keyboards. They should be able to select passwords from various languages and include pictograms. Prior to hashing the entropy of the user's e
+  #3 score=0.1701 sql-databases.md#2  Create the App with a Single Model { #create-the-app-with-a-single-model } We'll create the simplest first version of the app with a single **SQLModel** model f
+
+=== Q2 | k=1 | What cookie attributes should a session ID cookie use, and what idle timeout does OWASP recommend?
+  #1 score=0.6799 Session_Management_Cheat_Sheet.md#17  shorter the session interval is, the lesser the time an attacker has to use the valid session ID. The session expiration timeout values must be set accordingly 
+
+=== Q2 | k=3 | What cookie attributes should a session ID cookie use, and what idle timeout does OWASP recommend?
+  #1 score=0.6799 Session_Management_Cheat_Sheet.md#17  shorter the session interval is, the lesser the time an attacker has to use the valid session ID. The session expiration timeout values must be set accordingly 
+  #2 score=0.6578 Session_Management_Cheat_Sheet.md#22  the server-side idle timeout functionality with client-side code is that the user can see that the session has finished due to inactivity, or even can be notifi
+  #3 score=0.6306 Session_Management_Cheat_Sheet.md#11  disk by the web browser based until the expiration time. Typically, session management capabilities to track users after authentication make use of non-persiste
+
+=== Q2 | k=5 | What cookie attributes should a session ID cookie use, and what idle timeout does OWASP recommend?
+  #1 score=0.6799 Session_Management_Cheat_Sheet.md#17  shorter the session interval is, the lesser the time an attacker has to use the valid session ID. The session expiration timeout values must be set accordingly 
+  #2 score=0.6578 Session_Management_Cheat_Sheet.md#22  the server-side idle timeout functionality with client-side code is that the user can see that the session has finished due to inactivity, or even can be notifi
+  #3 score=0.6306 Session_Management_Cheat_Sheet.md#11  disk by the web browser based until the expiration time. Typically, session management capabilities to track users after authentication make use of non-persiste
+  #4 score=0.6291 Session_Management_Cheat_Sheet.md#18  the web application for a given session ID. The idle timeout limits the chances an attacker has to guess and use a valid session ID from another user. However, 
+  #5 score=0.6110 Session_Management_Cheat_Sheet.md#19  is transparently renewed periodically during the session duration, every time the renewal timeout expires. Therefore, the renewal timeout complements the idle a
+
+=== Q3 | k=1 | Which algorithm is recommended for hashing user passwords?
+  #1 score=0.5651 Password_Storage_Cheat_Sheet.md#1  # Password Storage Cheat Sheet ## Introduction This cheat sheet advises you on the proper methods for storing passwords for authentication. When passwords are s
+
+=== Q3 | k=3 | Which algorithm is recommended for hashing user passwords?
+  #1 score=0.5651 Password_Storage_Cheat_Sheet.md#1  # Password Storage Cheat Sheet ## Introduction This cheat sheet advises you on the proper methods for storing passwords for authentication. When passwords are s
+  #2 score=0.5469 Password_Storage_Cheat_Sheet.md#10  that use less secure hashing algorithms, such as MD5 or SHA-1, can be upgraded to modern password hashing algorithms as described above. When the users enter th
+  #3 score=0.5098 Password_Storage_Cheat_Sheet.md#3  the number of permutations can be enormous, with high speed hardware (such as GPUs) and cloud services with many servers for rent, the cost to an attacker is re
+
+=== Q3 | k=5 | Which algorithm is recommended for hashing user passwords?
+  #1 score=0.5651 Password_Storage_Cheat_Sheet.md#1  # Password Storage Cheat Sheet ## Introduction This cheat sheet advises you on the proper methods for storing passwords for authentication. When passwords are s
+  #2 score=0.5469 Password_Storage_Cheat_Sheet.md#10  that use less secure hashing algorithms, such as MD5 or SHA-1, can be upgraded to modern password hashing algorithms as described above. When the users enter th
+  #3 score=0.5098 Password_Storage_Cheat_Sheet.md#3  the number of permutations can be enormous, with high speed hardware (such as GPUs) and cloud services with many servers for rent, the cost to an attacker is re
+  #4 score=0.5095 Password_Storage_Cheat_Sheet.md#5  could be used by an attacker to carry out a denial of service attack by exhausting the server's CPU with a large number of login attempts. There is no golden ru
+  #5 score=0.4983 Password_Storage_Cheat_Sheet.md#2  Argon2id, bcrypt, or PBKDF2), rather than encrypted or stored in plaintext.** Because **hashing is a one-way function** (i.e., it is impossible to "decrypt" a h

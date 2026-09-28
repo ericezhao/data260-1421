@@ -1,14 +1,5 @@
-"""Seed 5,000 inspections and 200 violations for HW4 Part 3.
-
-Uses SEED = 1421 so every run produces exactly the same rows.
-Existing inspections and violations are wiped first; users and sessions are kept.
-
-Run:  python seed_hw04.py
-"""
 import random
-
 from sqlalchemy import text
-
 import models
 from database import Base, db_session_basede26, engine
 
@@ -25,7 +16,7 @@ PLACE_TYPES = [
     "Noodle Bar", "Taqueria", "Bakery", "Sushi", "BBQ", "Eatery",
 ]
 CUISINES = [
-    "Japanese", "American", "French", "Mexican", "Italian",
+    "Japanese", "New American", "French", "Mexican", "Italian",
     "Chinese", "Thai", "Indian", "Vietnamese", "Korean",
 ]
 VIOLATIONS = [

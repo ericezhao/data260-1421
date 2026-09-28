@@ -1,3 +1,105 @@
 Sun Sep 27 18:05:50 PDT 2026
 inspections: 5000
 violations:  200
+Sun Sep 27 18:33:16 PDT 2026
+180 requests -> /Users/eric/data260/reports/hw04/raw/n1_requests.csv
+summary -> /Users/eric/data260/reports/hw04/raw/n1_summary.csv
+
+| Page size | Version | SQL stmts/req | p50 (ms) | p95 (ms) | p99 (ms) |
+|---|---|---|---|---|---|
+| 10 | naive | 12 | 3.91 | 4.34 | 4.71 |
+| 10 | fixed | 3 | 1.91 | 2.15 | 2.21 |
+| 50 | naive | 52 | 9.3 | 11.91 | 12.92 |
+| 50 | fixed | 3 | 2.3 | 2.72 | 3.81 |
+| 200 | naive | 202 | 32.52 | 34.85 | 36.01 |
+| 200 | fixed | 3 | 3.6 | 4.29 | 15.19 |
+Sun Sep 27 22:34:00 PDT 2026
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 6914.20it/s]
+chunks per source: {'Password_Storage_Cheat_Sheet.md': 11, 'Session_Management_Cheat_Sheet.md': 25, 'cors.md': 3, 'oauth2-jwt.md': 6, 'sql-databases.md': 9}  total: 54
+=== Q1 | k=3 | What is the default max_age for FastAPI's CORSMiddleware, and what does it control?
+  #1 score=0.5224 cors.md#2  the allowed origins. ## Use `CORSMiddleware` { #use-corsmiddleware } You can configure it in your **FastAPI** application using the `CORSMiddleware`. * Import `
+  #2 score=0.4585 cors.md#3  `False`. None of `allow_origins`, `allow_methods` and `allow_headers` can be set to `['*']` if `allow_credentials` is set to `True`. All of them must be [explic
+  #3 score=0.2496 sql-databases.md#5  (Press CTRL+C to quit) ``` </div> Then go to the `/docs` UI, you will see that **FastAPI** is using these **models** to **document** the API, and it will use th
+  [A] The default `max_age` for FastAPI's `CORSMiddleware` is **`None`**. ### What does `max_age` control? The `max_age` parameter in the `CORSMiddleware` controls the **maximum age (in seconds)** that the browser should cache the CORS preflight response (`OPTIONS` request). This is part of the **CORS (Cr
+  [B] The default `max_age` for FastAPI's `CORSMiddleware` is **600 seconds** (or 10 minutes). ### What does `max_age` control? The `max_age` parameter controls how long browsers can **cache** the results of a **CORS preflight request** (`OPTIONS` request). - When a browser makes a preflight request, the 
+  [C] The default max_age for FastAPI's CORSMiddleware is 600 seconds. It controls the maximum time in seconds for browsers to cache CORS responses [2].
+=== Q2 | k=3 | What cookie attributes should a session ID cookie use, and what idle timeout does OWASP recommend?
+  #1 score=0.6799 Session_Management_Cheat_Sheet.md#17  shorter the session interval is, the lesser the time an attacker has to use the valid session ID. The session expiration timeout values must be set accordingly 
+  #2 score=0.6578 Session_Management_Cheat_Sheet.md#22  the server-side idle timeout functionality with client-side code is that the user can see that the session has finished due to inactivity, or even can be notifi
+  #3 score=0.6306 Session_Management_Cheat_Sheet.md#11  disk by the web browser based until the expiration time. Typically, session management capabilities to track users after authentication make use of non-persiste
+  [A] When setting up a **session ID cookie** for web applications, it's important to follow best practices to ensure **security and proper session management**. Here's a breakdown of the **recommended cookie attributes** and the **idle timeout** recommended by **OWASP** (Open Web Application Security Pro
+  [B] **Answer:** A session ID cookie should use the following **cookie attributes** to ensure security and prevent session hijacking: - **HttpOnly**: Prevents client-side scripts (e.g., JavaScript) from accessing the cookie, mitigating the risk of cross-site scripting (XSS) attacks. - **Secure**: Ensures
+  [C] A session ID cookie should use the `HttpOnly`, `Secure`, and `SameSite=Strict` attributes to prevent accidental transmission over the wire in a non-secure manner, protect against cookie manipulation, and ensure that the cookie is not accessible to JavaScript executing in the origin [3]. OWASP recomm
+=== Q3 | k=3 | Which algorithm is recommended for hashing user passwords?
+  #1 score=0.5651 Password_Storage_Cheat_Sheet.md#1  # Password Storage Cheat Sheet ## Introduction This cheat sheet advises you on the proper methods for storing passwords for authentication. When passwords are s
+  #2 score=0.5469 Password_Storage_Cheat_Sheet.md#10  that use less secure hashing algorithms, such as MD5 or SHA-1, can be upgraded to modern password hashing algorithms as described above. When the users enter th
+  #3 score=0.5098 Password_Storage_Cheat_Sheet.md#3  the number of permutations can be enormous, with high speed hardware (such as GPUs) and cloud services with many servers for rent, the cost to an attacker is re
+  [A] For hashing user passwords, the **recommended algorithm** is **bcrypt**, followed by **Argon2** and **scrypt** as strong alternatives. Here's a breakdown of the best options: --- ### ✅ **1. bcrypt** - **Recommended for most applications**. - **Designed specifically for password hashing**. - **Slower
+  [B] **Answer:** The recommended algorithm for hashing user passwords is **Argon2id** with a minimum configuration of **19 MiB of memory**, an **iteration count of 2**, and **1 degree of parallelism**. If Argon2id is not available, **scrypt** with a minimum CPU/memory cost parameter of **(2^17)**, a mini
+  [C] The recommended algorithm for hashing user passwords is **Argon2id** with a minimum configuration of 19 MiB of memory, an iteration count of 2, and 1 degree of parallelism [1].
+=== Q4 | k=3 | What is the recommended timeout?
+  #1 score=0.6096 Session_Management_Cheat_Sheet.md#17  shorter the session interval is, the lesser the time an attacker has to use the valid session ID. The session expiration timeout values must be set accordingly 
+  #2 score=0.4939 Session_Management_Cheat_Sheet.md#18  the web application for a given session ID. The idle timeout limits the chances an attacker has to guess and use a valid session ID from another user. However, 
+  #3 score=0.4223 Session_Management_Cheat_Sheet.md#19  is transparently renewed periodically during the session duration, every time the renewal timeout expires. Therefore, the renewal timeout complements the idle a
+  [A] The recommended timeout depends on the specific use case, system requirements, and the nature of the operation. Here are some general guidelines: ### 1. **Web Applications / APIs** - **Default timeout**: 30 seconds to 2 minutes. - **Longer operations**: Use **asynchronous** or **background processin
+  [B] The **recommended timeout** depends on the **nature and risk level** of the web application, as well as the **user experience** and **security requirements**. Here's a summary of the **recommended timeout ranges** based on the context provided: ### **Idle Timeout (Inactivity Timeout)** - **High-risk
+  [C] The recommended timeout depends on the purpose and nature of the web application. For high-value applications, the common idle timeout range is 2-5 minutes, while for low-risk applications, it is 15-30 minutes [1]. The absolute timeout should be set based on how long a user typically uses the applic
+=== Q5 | k=3 | What is the default session expiration time in Django?
+  #1 score=0.4739 Session_Management_Cheat_Sheet.md#17  shorter the session interval is, the lesser the time an attacker has to use the valid session ID. The session expiration timeout values must be set accordingly 
+  #2 score=0.4564 Session_Management_Cheat_Sheet.md#18  the web application for a given session ID. The idle timeout limits the chances an attacker has to guess and use a valid session ID from another user. However, 
+  #3 score=0.4355 Session_Management_Cheat_Sheet.md#19  is transparently renewed periodically during the session duration, every time the renewal timeout expires. Therefore, the renewal timeout complements the idle a
+  [A] In Django, there is **no built-in default session expiration time** for the session itself. The session expiration behavior depends on how you configure the session backend and the settings used. ### Key Session Settings in Django Here are the relevant settings that affect session expiration: 1. **`
+  [B] The default session expiration time in **Django** is **2 weeks** (14 days) if you're using the **database-backed session engine** (`django.contrib.sessions.backends.db`). This means that if a user is inactive for 2 weeks, their session will be automatically invalidated by Django. ### Key Points: - *
+  [C] I cannot answer this question from the provided documents.
+=== Q6 | k=3 | Who is the most handsome student in Data260?
+  #1 score=0.2279 sql-databases.md#5  (Press CTRL+C to quit) ``` </div> Then go to the `/docs` UI, you will see that **FastAPI** is using these **models** to **document** the API, and it will use th
+  #2 score=0.1748 Password_Storage_Cheat_Sheet.md#11  especially mobile keyboards. They should be able to select passwords from various languages and include pictograms. Prior to hashing the entropy of the user's e
+  #3 score=0.1701 sql-databases.md#2  Create the App with a Single Model { #create-the-app-with-a-single-model } We'll create the simplest first version of the app with a single **SQLModel** model f
+  [A] I cannot provide personal opinions or subjective assessments about individuals, including students in Data260. If you have a specific question about data, analysis, or coursework, feel free to ask, and I’ll do my best to help!
+  [B] The question "Who is the most handsome student in Data260?" is subjective and depends on personal opinions and preferences. Beauty or attractiveness is a matter of individual taste and can vary greatly from person to person. In a classroom setting, it's important to focus on academic performance, co
+  [C] I cannot answer this question from the provided documents
+=== Q2 | k=1 | What cookie attributes should a session ID cookie use, and what idle timeout does OWASP recommend?
+  #1 score=0.6799 Session_Management_Cheat_Sheet.md#17  shorter the session interval is, the lesser the time an attacker has to use the valid session ID. The session expiration timeout values must be set accordingly 
+  [B k=1] **Answer:** A session ID cookie should use the following attributes to ensure proper session management and security: - **`HttpOnly`**: Prevents client-side scripts from accessing the cookie, reducing the risk of cross-site scripting (XSS) attacks. - **`Secure`**: Ensures the cookie is only transmit
+  [C k=1] The session ID cookie should use the `Expires` (or `Max-Age`) attribute to set a date from the past if a persistent cookie is being used, and provide an empty (or invalid) value for the session ID [1]. OWASP recommends an idle timeout range of 2-5 minutes for high-value applications and 15-30 minute
+=== Q2 | k=3 | What cookie attributes should a session ID cookie use, and what idle timeout does OWASP recommend?
+  #1 score=0.6799 Session_Management_Cheat_Sheet.md#17  shorter the session interval is, the lesser the time an attacker has to use the valid session ID. The session expiration timeout values must be set accordingly 
+  #2 score=0.6578 Session_Management_Cheat_Sheet.md#22  the server-side idle timeout functionality with client-side code is that the user can see that the session has finished due to inactivity, or even can be notifi
+  #3 score=0.6306 Session_Management_Cheat_Sheet.md#11  disk by the web browser based until the expiration time. Typically, session management capabilities to track users after authentication make use of non-persiste
+  [B k=3] **Answer:** A session ID cookie should use the following **cookie attributes** to ensure security and prevent session hijacking: - **HttpOnly**: Prevents client-side scripts (e.g., JavaScript) from accessing the cookie, mitigating the risk of cross-site scripting (XSS) attacks. - **Secure**: Ensures
+  [C k=3] A session ID cookie should use the `HttpOnly`, `Secure`, and `SameSite=Strict` attributes to prevent accidental transmission over the wire in a non-secure manner, protect against cookie manipulation, and ensure that the cookie is not accessible to JavaScript executing in the origin [3]. OWASP recomm
+=== Q2 | k=5 | What cookie attributes should a session ID cookie use, and what idle timeout does OWASP recommend?
+  #1 score=0.6799 Session_Management_Cheat_Sheet.md#17  shorter the session interval is, the lesser the time an attacker has to use the valid session ID. The session expiration timeout values must be set accordingly 
+  #2 score=0.6578 Session_Management_Cheat_Sheet.md#22  the server-side idle timeout functionality with client-side code is that the user can see that the session has finished due to inactivity, or even can be notifi
+  #3 score=0.6306 Session_Management_Cheat_Sheet.md#11  disk by the web browser based until the expiration time. Typically, session management capabilities to track users after authentication make use of non-persiste
+  #4 score=0.6291 Session_Management_Cheat_Sheet.md#18  the web application for a given session ID. The idle timeout limits the chances an attacker has to guess and use a valid session ID from another user. However, 
+  #5 score=0.6110 Session_Management_Cheat_Sheet.md#19  is transparently renewed periodically during the session duration, every time the renewal timeout expires. Therefore, the renewal timeout complements the idle a
+  [B k=5] **Answer:** A session ID cookie should use the following **cookie attributes** to enhance security: - **`HttpOnly`**: Prevents client-side scripts (e.g., JavaScript) from accessing the cookie, reducing the risk of XSS attacks. - **`Secure`**: Ensures the cookie is only transmitted over HTTPS, preven
+  [C k=5] The session ID cookie should use the `HttpOnly`, `Secure`, and `SameSite=Strict` attributes to prevent accidental transmission over the wire in a non-secure manner, protect against cross-site scripting (XSS) attacks, and ensure that cookies are only sent over secure connections and not shared across
+=== Q3 | k=1 | Which algorithm is recommended for hashing user passwords?
+  #1 score=0.5651 Password_Storage_Cheat_Sheet.md#1  # Password Storage Cheat Sheet ## Introduction This cheat sheet advises you on the proper methods for storing passwords for authentication. When passwords are s
+  [B k=1] **Answer:** The recommended algorithm for hashing user passwords is **Argon2id** with a minimum configuration of 19 MiB of memory, an iteration count of 2, and 1 degree of parallelism. If Argon2id is not available, **scrypt** is the next recommended option with specific parameters.
+  [C k=1] The recommended algorithms for hashing user passwords include Argon2id, scrypt, bcrypt, and PBKDF2, depending on the specific requirements and availability. Argon2id is specifically recommended with a minimum configuration of 19 MiB of memory, an iteration count of 2, and 1 degree of parallelism [1]
+=== Q3 | k=3 | Which algorithm is recommended for hashing user passwords?
+  #1 score=0.5651 Password_Storage_Cheat_Sheet.md#1  # Password Storage Cheat Sheet ## Introduction This cheat sheet advises you on the proper methods for storing passwords for authentication. When passwords are s
+  #2 score=0.5469 Password_Storage_Cheat_Sheet.md#10  that use less secure hashing algorithms, such as MD5 or SHA-1, can be upgraded to modern password hashing algorithms as described above. When the users enter th
+  #3 score=0.5098 Password_Storage_Cheat_Sheet.md#3  the number of permutations can be enormous, with high speed hardware (such as GPUs) and cloud services with many servers for rent, the cost to an attacker is re
+  [B k=3] **Answer:** The recommended algorithm for hashing user passwords is **Argon2id** with a minimum configuration of **19 MiB of memory**, an **iteration count of 2**, and **1 degree of parallelism**. If Argon2id is not available, **scrypt** with a minimum CPU/memory cost parameter of **(2^17)**, a mini
+  [C k=3] The recommended algorithm for hashing user passwords is **Argon2id** with a minimum configuration of 19 MiB of memory, an iteration count of 2, and 1 degree of parallelism [1].
+=== Q3 | k=5 | Which algorithm is recommended for hashing user passwords?
+  #1 score=0.5651 Password_Storage_Cheat_Sheet.md#1  # Password Storage Cheat Sheet ## Introduction This cheat sheet advises you on the proper methods for storing passwords for authentication. When passwords are s
+  #2 score=0.5469 Password_Storage_Cheat_Sheet.md#10  that use less secure hashing algorithms, such as MD5 or SHA-1, can be upgraded to modern password hashing algorithms as described above. When the users enter th
+  #3 score=0.5098 Password_Storage_Cheat_Sheet.md#3  the number of permutations can be enormous, with high speed hardware (such as GPUs) and cloud services with many servers for rent, the cost to an attacker is re
+  #4 score=0.5095 Password_Storage_Cheat_Sheet.md#5  could be used by an attacker to carry out a denial of service attack by exhausting the server's CPU with a large number of login attempts. There is no golden ru
+  #5 score=0.4983 Password_Storage_Cheat_Sheet.md#2  Argon2id, bcrypt, or PBKDF2), rather than encrypted or stored in plaintext.** Because **hashing is a one-way function** (i.e., it is impossible to "decrypt" a h
+  [B k=5] **Answer:** The recommended algorithm for hashing user passwords is **Argon2id**, with a minimum configuration of **19 MiB of memory**, an **iteration count of 2**, and **1 degree of parallelism**. If Argon2id is not available, **scrypt** with a minimum CPU/memory cost parameter of **(2^17)**, a min
+  [C k=5] The recommended algorithms for hashing user passwords are Argon2id, scrypt, bcrypt, or PBKDF2. Specifically, the context states: - **Use Argon2id with a minimum configuration of 19 MiB of memory, an iteration count of 2, and 1 degree of parallelism** [1]. - **If Argon2id is not available, use scrypt
+
+wrote rag_retrievals.txt, rag_runs.json, rag_eval.csv, rag_k_sweep.csv to /Users/eric/data260/reports/hw04/raw
+Sun Sep 27 22:56:14 PDT 2026
+| Config | Accuracy | Faithfulness | Format compliance | Robustness | Retrieval correct |
+|---|---|---|---|---|---|
+| A | 0.17 | n/a | n/a | 0.83 | n/a |
+| B | 0.83 | 0.40 | 0.00 | 0.83 | 0.50 |
+| C | 1.00 | 1.00 | 1.00 | 1.00 | 0.50 |

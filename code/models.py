@@ -9,7 +9,7 @@ class Inspection(Base):
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     restaurant_name = Column(String(255), nullable=False)
-    cuisine = Column(String(255), nullable=False)
+    cuisine = Column(String(255), nullable=False, index=True)
 
     # passive_deletes: let MySQL's ON DELETE CASCADE remove violations when an inspection is deleted
     violations = relationship("Violation", passive_deletes=True)

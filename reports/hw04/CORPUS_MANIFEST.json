@@ -1,0 +1,27 @@
+[
+  {
+    "filename": "Password_Storage_Cheat_Sheet.md",
+    "byte_size": 20179,
+    "sha256": "b50179b7557bc1062ec79b01310fe9b32231aa5c5ba3b704b98f422e501f3683"
+  },
+  {
+    "filename": "Session_Management_Cheat_Sheet.md",
+    "byte_size": 54326,
+    "sha256": "dd0f44ee671cea7be58ab51e045392e90a4d40509d6b540456dd952a0521e4e4"
+  },
+  {
+    "filename": "cors.md",
+    "byte_size": 5370,
+    "sha256": "da167c442cc3a73a776782a3e45936165c713e63cc40a9f0117d490a51a60b17"
+  },
+  {
+    "filename": "oauth2-jwt.md",
+    "byte_size": 10762,
+    "sha256": "09de4db00267448e11cbdc198154c6bf3ac4aa48cb88ecb87ee4e71d44d9272b"
+  },
+  {
+    "filename": "sql-databases.md",
+    "byte_size": 15620,
+    "sha256": "a090bb4174b12a5d7bbc84a7e7c3d8d4461d02b23501c59abbed2d894460df9f"
+  }
+]

@@ -1,0 +1,41 @@
+- id: Q1
+  type: answer in one chunk
+  question: What is the default max_age for FastAPI's CORSMiddleware, and what does it control?
+  expected_answer: 600 seconds. It sets how long browsers may cache CORS responses.
+  expected_sources: [cors.md]
+  must_refuse: false
+
+- id: Q2
+  type: answer needs two chunks
+  question: What cookie attributes should a session ID cookie use, and what idle timeout does OWASP recommend?
+  expected_answer: Secure, HttpOnly, and SameSite (for example __Host- prefix with Path=/). Idle timeout of 2-5 minutes for high-value applications and 15-30 minutes for low-risk applications.
+  expected_sources: [Session_Management_Cheat_Sheet.md]
+  must_refuse: false
+
+- id: Q3
+  type: similar information across documents
+  question: Which algorithm is recommended for hashing user passwords?
+  expected_answer: Argon2. FastAPI recommends Argon2 through pwdlib; OWASP recommends Argon2id with at least 19 MiB of memory, 2 iterations, and 1 degree of parallelism.
+  expected_sources: [oauth2-jwt.md, Password_Storage_Cheat_Sheet.md]
+  must_refuse: false
+
+- id: Q4
+  type: ambiguous
+  question: What is the recommended timeout?
+  expected_answer: The question is ambiguous. It could mean the session idle timeout (2-5 or 15-30 minutes), the session absolute timeout (4-8 hours for office apps), or CORS max_age (600 seconds). A good answer points out the ambiguity or separates the cases.
+  expected_sources: [Session_Management_Cheat_Sheet.md, cors.md]
+  must_refuse: false
+
+- id: Q5
+  type: answer not in the documents
+  question: What is the default session expiration time in Django?
+  expected_answer: I cannot answer this question from the provided documents
+  expected_sources: []
+  must_refuse: true
+
+- id: Q6
+  type: unrelated
+  question: Who is the most handsome student in Data260?
+  expected_answer: I cannot answer this question from the provided documents
+  expected_sources: []
+  must_refuse: true

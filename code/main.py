@@ -1,228 +1,194 @@
 from pathlib import Path
-import os
-import uvicorn
-from fastapi import FastAPI, Form, HTTPException, Query, Response
-from fastapi.responses import FileResponse, RedirectResponse
-from pydantic import BaseModel, Field
-from starlette.middleware.sessions import SessionMiddleware
-from auth import router as auth_router
+import hashlib
+import secrets
 
-WEB_DIR = Path(__file__).resolve().parent / "web_application"
+import uvicorn
+from fastapi import Depends, FastAPI, HTTPException, Request, Response
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
+from sqlalchemy.orm import Session
+
+import crud
+import models
+import schema
+from database import Base, db_session_basede26, engine, get_db
+from session_crud import create_session, delete_session, get_session
+
 PORT_BASE = 8521
+FRONTEND_DIR = Path(__file__).resolve().parent / "frontend" / "dist"
+
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Local Restaurant Inspections")
-SECRET_KEY = os.getenv("SECRET_KEY", "dev-key")
+
+# add middleware to allow requests from the frontend，for frontend development
 app.add_middleware(
-    SessionMiddleware,
-    secret_key=SECRET_KEY,
-    https_only=True,
-    same_site="lax",
-    max_age=3600,
+    CORSMiddleware, 
+    allow_origins=["http://localhost:5173"], # allow requests from the frontend
+    allow_credentials=True, # allow credentials (cookies) to be sent with the request
+    allow_methods=["*"], # allow all methods (GET, POST, PUT, DELETE, etc.)
+    allow_headers=["*"], # allow all headers 
 )
-app.include_router(auth_router)
 
-class InspectionRecord(BaseModel):
-    id: int
-    restaurantName: str
-    cuisine: str
-    Email: str
-    Comments: str
-    Result: str
-    termsAccepted: bool = False
-    submissionDate: str = ""
-
-
-class InspectionCreate(BaseModel):
-    restaurantName: str = Field(min_length=1)
-    cuisine: str = Field(min_length=1)
-    Email: str = Field(min_length=1)
-    Comments: str = Field(min_length=1)
-    Result: str = Field(min_length=1)
-    termsAccepted: bool = False
-    submissionDate: str = ""
+# require_session must be defined before these Depends(...) lines
+def require_session(request: Request, db: Session = Depends(get_db)):
+    token = request.cookies.get("session_id")
+    if not token:
+        raise HTTPException(status_code=401, detail="Not logged in")
+    session_row = get_session(db, token)
+    if not session_row:
+        raise HTTPException(status_code=401, detail="Session expired or invalid")
+    return session_row
 
 
-class InspectionUpdate(BaseModel):
-    restaurantName: str = Field(min_length=1)
-    cuisine: str = Field(min_length=1)
-
-
-records: list[InspectionRecord] = [
-    InspectionRecord(
-        id=1,
-        restaurantName="Torihide Yakitori",
-        cuisine="Japanese",
-        Email="eric.e.zhao@sjsu.edu",
-        Comments="Raw shell eggs stored on the top shelf directly above ready-to-eat lettuce inside the walk-in cooler. Corrective action: Products rearranged by proper cooking temperature hierarchy. Hand sink near the dish station blocked by stacked milk crates and lacking hand soap and paper towels. Corrective action: Area cleared and restocked immediately.",
-        Result="Needs Reinspection",
-        termsAccepted=True,
-        submissionDate="2026-09-01T18:00:00.000Z",
-    ),
-    InspectionRecord(
-        id=2,
-        restaurantName="Mission Steakhouse",
-        cuisine="American",
-        Email="eric.e.zhao@sjsu.edu",
-        Comments="Handwash sink was stocked and food temperatures were within the required range.",
-        Result="Pass",
-        termsAccepted=True,
-        submissionDate="2026-09-02T16:30:00.000Z",
-    ),
-     InspectionRecord(
-        id=3,
-        restaurantName="Takeshi Sushi",
-        cuisine="Japanese",
-        Email="eric.e.zhao@sjsu.edu",
-        Comments="Observed approximately 5 live fruit flies near the mop sink and small-scale gnats around the bar drain.",
-        Result="Fail",
-        termsAccepted=True,
-        submissionDate="2026-09-03T12:30:00.000Z",
-    ),
-]
-
-
-def next_id() -> int:
-    return max((record.id for record in records), default=0) + 1
-
-
-def matching_records(query: str) -> list[InspectionRecord]:
-    needle = query.strip().lower()
-    if not needle:
-        return list(records)
-    return [
-        record
-        for record in records
-        if needle in record.restaurantName.lower() or needle in record.cuisine.lower()
-    ]
-
-
-def add_record(payload: InspectionCreate) -> InspectionRecord:
-    restaurant_name = payload.restaurantName.strip()
-    cuisine = payload.cuisine.strip()
-    email = payload.Email.strip()
-    comments = payload.Comments.strip()
-    result = payload.Result.strip()
-    if not restaurant_name or not cuisine or not email or not comments or not result:
-        raise HTTPException(status_code=400, detail="Restaurant name, cuisine, email, comments, and result are required")
-    record = InspectionRecord(
-        id=next_id(),
-        restaurantName=restaurant_name,
-        cuisine=cuisine,
-        Email=email,
-        Comments=comments,
-        Result=result,
-        termsAccepted=payload.termsAccepted,
-        submissionDate=payload.submissionDate.strip(),
+@app.post("/auth/login")
+def login(payload: schema.LoginIn, response: Response, db: Session = Depends(get_db)):
+    user = db.query(models.User).filter(models.User.email == payload.email).first()
+    if not user or not verify_password(payload.password, user.password_hash):
+        raise HTTPException(status_code=401, detail="Invalid email or password")
+    session_row = create_session(db, user_id=user.id)
+    response.set_cookie(
+        key="session_id",
+        value=session_row.id,
+        httponly=True,
+        samesite="lax",
+        max_age=30 * 60,
     )
-    records.append(record)
-    return record
+    return {"message": "logged in", "userId": user.id}
 
 
-@app.get("/inspections")
-def inspections():
-    return FileResponse(WEB_DIR / "web_app.html")
+@app.post("/auth/logout")
+def logout(request: Request, response: Response, db: Session = Depends(get_db)):
+    token = request.cookies.get("session_id")
+    if token:
+        delete_session(db, token)
+    response.delete_cookie("session_id")
+    return {"message": "logged out"}
 
 
-@app.get("/styles.css")
-def styles():
-    return FileResponse(WEB_DIR / "styles.css")
+@app.get("/auth/me")
+def me(session_row=Depends(require_session)):
+    return {"loggedIn": True, "userId": session_row.user_id}
 
 
-@app.get("/app.js")
-def script():
-    return FileResponse(WEB_DIR / "app.js")
-
-
-@app.get("/api/records", response_model=list[InspectionRecord])
-def list_records(
-    response: Response,
-    q: str = Query(default=""),
+@app.get("/api/inspections", response_model=list[schema.InspectionOut])
+def list_inspections(
+    db: Session = Depends(get_db),
+    _session=Depends(require_session),
 ):
-    response.headers["Cache-Control"] = "no-store"
-    return matching_records(q)
+    return [inspection_out(row) for row in crud.get_inspections(db)]
 
 
-@app.post("/api/records", response_model=InspectionRecord, status_code=201)
-def create_record_api(payload: InspectionCreate):
-    return add_record(payload)
+@app.get("/api/inspections/{inspection_id}", response_model=schema.InspectionOut)
+def get_inspection_api(
+    inspection_id: int,
+    db: Session = Depends(get_db),
+    _session=Depends(require_session),
+):
+    row = crud.get_inspection(db, inspection_id)
+    if not row:
+        raise HTTPException(status_code=404, detail="Record not found")
+    return inspection_out(row)
 
 
-@app.put("/api/records/1", response_model=InspectionRecord)
-def update_record_one_api(payload: InspectionUpdate):
-    restaurant_name = payload.restaurantName.strip()
-    cuisine = payload.cuisine.strip()
-    if not restaurant_name or not cuisine:
-        raise HTTPException(status_code=400, detail="Restaurant name and cuisine are required")
-
-    record = next((item for item in records if item.id == 1), None)
-    if record is None:
-        raise HTTPException(status_code=404, detail="Record 1 was not found")
-
-    record.restaurantName = restaurant_name
-    record.cuisine = cuisine
-    return record
+@app.post("/api/inspections", response_model=schema.InspectionOut, status_code=201)
+def create_inspection_api(
+    payload: schema.InspectionCreate,
+    db: Session = Depends(get_db),
+    _session=Depends(require_session),
+):
+    return inspection_out(crud.create_inspection(db, payload))
 
 
-@app.delete("/api/records/highest", status_code=204)
-def delete_highest_record_api():
-    if not records:
-        raise HTTPException(status_code=404, detail="No records to delete")
-    highest_id = max(record.id for record in records)
-    records[:] = [record for record in records if record.id != highest_id]
+@app.put("/api/inspections/{inspection_id}", response_model=schema.InspectionOut)
+def update_inspection_api(
+    inspection_id: int,
+    payload: schema.InspectionUpdate,
+    db: Session = Depends(get_db),
+    _session=Depends(require_session),
+):
+    row = crud.update_inspection(db, inspection_id, payload)
+    if not row:
+        raise HTTPException(status_code=404, detail="Record not found")
+    return inspection_out(row)
+
+
+@app.delete("/api/inspections/{inspection_id}", status_code=204)
+def delete_inspection_api(
+    inspection_id: int,
+    db: Session = Depends(get_db),
+    _session=Depends(require_session),
+):
+    row = crud.delete_inspection(db, inspection_id)
+    if not row:
+        raise HTTPException(status_code=404, detail="Record not found")
     return Response(status_code=204)
 
 
-@app.post("/records")
-def create_record_form(
-    restaurantName: str = Form(),
-    cuisine: str = Form(),
-    Email: str = Form(default=""),
-    Comments: str = Form(default=""),
-    Result: str = Form(default=""),
-    termsAccepted: str = Form(default=""),
-    submissionDate: str = Form(default=""),
-):
-    add_record(
-        InspectionCreate(
-            restaurantName=restaurantName,
-            cuisine=cuisine,
-            Email=Email,
-            Comments=Comments,
-            Result=Result,
-            termsAccepted=bool(termsAccepted),
-            submissionDate=submissionDate,
-        )
+if FRONTEND_DIR.exists():
+    assets_dir = FRONTEND_DIR / "assets"
+    if assets_dir.exists():
+        app.mount("/assets", StaticFiles(directory=assets_dir), name="assets")
+
+    @app.get("/")
+    def home_page():
+        return FileResponse(FRONTEND_DIR / "index.html")
+
+    @app.get("/{full_path:path}")
+    def spa(full_path: str):
+        return FileResponse(FRONTEND_DIR / "index.html")
+
+
+# ----- helper functions -----
+def hash_password(password: str) -> str:
+    salt = secrets.token_hex(16)
+    digest = hashlib.pbkdf2_hmac(
+        "sha256", password.encode("utf-8"), bytes.fromhex(salt), 120000
+    ).hex()
+    return f"{salt}${digest}"
+
+
+def verify_password(password: str, stored: str) -> bool:
+    salt, digest = stored.split("$", 1)
+    check = hashlib.pbkdf2_hmac(
+        "sha256", password.encode("utf-8"), bytes.fromhex(salt), 120000
+    ).hex()
+    return secrets.compare_digest(check, digest)
+
+
+def seed_if_empty():
+    db = db_session_basede26()
+    try:
+        email = "eric.zhao@sjsu.edu"
+        user = db.query(models.User).filter(models.User.email == email).first()
+        password_hash = hash_password("password")
+        if user is None:
+            db.add(
+                models.User(
+                    name="Eric Zhao",
+                    email=email,
+                    password_hash=password_hash,
+                )
+            )
+        if db.query(models.Inspection).count() == 0:
+            db.add(models.Inspection(restaurant_name="Torihide Yakitori", cuisine="Japanese"))
+            db.add(models.Inspection(restaurant_name="Mission Steakhouse", cuisine="American"))
+            db.add(models.Inspection(restaurant_name="Takeshi Sushi", cuisine="Japanese"))
+        db.commit()
+    finally:
+        db.close()
+
+
+def inspection_out(row: models.Inspection) -> schema.InspectionOut:
+    return schema.InspectionOut(
+        id=row.id,
+        restaurantName=row.restaurant_name,
+        cuisine=row.cuisine,
     )
-    return RedirectResponse(url="/", status_code=303)
 
 
-@app.post("/records/1")
-def update_record_one(
-    restaurantName: str = Form(),
-    cuisine: str = Form(),
-):
-    restaurantName = restaurantName.strip()
-    cuisine = cuisine.strip()
-    if not restaurantName or not cuisine:
-        raise HTTPException(status_code=400, detail="Restaurant name and cuisine are required")
-
-    record = next((item for item in records if item.id == 1), None)
-    if record is None:
-        raise HTTPException(status_code=404, detail="Record 1 was not found")
-
-    record.restaurantName = restaurantName
-    record.cuisine = cuisine
-    return RedirectResponse(url="/", status_code=303)
-
-
-@app.post("/records/delete-highest")
-def delete_highest_record():
-    if not records:
-        return RedirectResponse(url="/", status_code=303)
-    highest_id = max(record.id for record in records)
-    records[:] = [record for record in records if record.id != highest_id]
-    return RedirectResponse(url="/", status_code=303)
-
+seed_if_empty()
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=PORT_BASE)

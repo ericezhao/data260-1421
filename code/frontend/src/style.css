@@ -1,0 +1,178 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0 0 24px;
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  color: #1f2933;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 0 20px;
+  padding: 10px 16px;
+  background: #28704c;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.heading-title {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.heading-links {
+  display: flex;
+  gap: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.heading-links a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.page {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.page.wide {
+  max-width: 900px;
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.card-top h3 {
+  margin: 0;
+}
+
+.card-top button {
+  width: auto;
+  margin-top: 0;
+}
+
+.status {
+  margin: 0 0 12px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #f6f1e3;
+  color: #6b5420;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.record-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  background: #ffffff;
+}
+
+.record-table th,
+.record-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.record-table th {
+  background: #28704c;
+  color: #ffffff;
+  text-align: center;
+}
+
+.record-table .actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.record-table .actions button {
+  width: auto;
+  margin-top: 0;
+  padding: 6px 12px;
+}
+
+.card {
+  padding: 20px;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.card h3 {
+  margin: 0 0 12px;
+  color: #111111;
+  font-size: 1.25rem;
+}
+
+.card p {
+  margin: 0 0 12px;
+  line-height: 1.4;
+}
+
+form {
+  display: grid;
+  gap: 6px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+input,
+button {
+  font: inherit;
+  width: 100%;
+  max-width: 100%;
+}
+
+input {
+  font-weight: normal;
+  margin: 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  margin-top: 8px;
+  border: 0;
+  padding: 10px;
+  border-radius: 4px;
+  background: #28704c;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: #ffffff;
+  color: #1f2933;
+  border: 1px solid #ccc;
+}
+
+button.danger {
+  background: #8a1f1f;
+}

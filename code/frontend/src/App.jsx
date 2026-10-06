@@ -1,20 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import Login from "./pages/Login.jsx";
 import Home from "./pages/Home.jsx";
 import CreateRecord from "./pages/CreateRecord.jsx";
 import UpdateRecord from "./pages/UpdateRecord.jsx";
-import DeleteRecord from "./pages/DeleteRecord.jsx";
-import {
-  createInspection,
-  deleteInspection,
-  fetchInspections,
-  login,
-  logout,
-  me,
-  onSessionExpired,
-  updateInspection,
-} from "./api/inspectionsApi.js";
+import { login, logout, me, onSessionExpired } from "./api/inspectionsApi.js";
+import { resetInspections } from "./features/inspectionsSlice.js";
 
 function RequireAuth({ auth, children }) {
   if (!auth.loggedIn) {
@@ -31,9 +23,8 @@ function RequireAuth({ auth, children }) {
 
 export default function App() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [auth, setAuth] = useState({ loggedIn: false, userId: null });
-  const [records, setRecords] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -49,31 +40,11 @@ export default function App() {
   useEffect(() => {
     return onSessionExpired(() => {
       setAuth({ loggedIn: false, userId: null });
-      setRecords([]);
+      dispatch(resetInspections());
       alert("Session expired. Please log in again.");
       navigate("/login");
     });
-  }, [navigate]);
-
-  useEffect(() => {
-    (async () => {
-      if (!auth.loggedIn) {
-        setRecords([]);
-        setLoading(false);
-        return;
-      }
-      try {
-        setLoading(true);
-        const data = await fetchInspections();
-        setRecords(data);
-      } catch (err) {
-        console.error(err);
-        setRecords([]);
-      } finally {
-        setLoading(false);
-      }
-    })();
-  }, [auth.loggedIn]);
+  }, [dispatch, navigate]);
 
   async function onLogin(email, password) {
     try {
@@ -93,27 +64,9 @@ export default function App() {
       await logout();
     } finally {
       setAuth({ loggedIn: false, userId: null });
-      setRecords([]);
+      dispatch(resetInspections());
       navigate("/login");
     }
-  }
-
-  async function onAdd(newRecord) {
-    const created = await createInspection(newRecord);
-    setRecords((prev) => [...prev, created]);
-    navigate("/");
-  }
-
-  async function onUpdate(id, updatedRecord) {
-    const updated = await updateInspection(id, updatedRecord);
-    setRecords((prev) => prev.map((record) => (record.id === id ? updated : record)));
-    navigate("/");
-  }
-
-  async function onDelete(id) {
-    await deleteInspection(id);
-    setRecords((prev) => prev.filter((record) => record.id !== id));
-    navigate("/");
   }
 
   return (
@@ -124,16 +77,23 @@ export default function App() {
         </Link>
         <nav className="heading-links">
           <Link to="/">Home</Link>
-          {auth.loggedIn ? <Link to="/create">Add record</Link> : <Link to="/login">Log in</Link>}
+          {auth.loggedIn ? (
+            <>
+              <Link to="/create">Add record</Link>
+              <Link to="/update">Update record</Link>
+            </>
+          ) : (
+            <Link to="/login">Log in</Link>
+          )}
         </nav>
       </header>
-      <div className={auth.loggedIn ? "page wide" : "page"}> 
+      <div className={auth.loggedIn ? "page wide" : "page"}>
         <Routes>
           <Route
             path="/"
             element={
               <RequireAuth auth={auth}>
-                <Home records={records} loading={loading} onLogout={onLogout} />
+                <Home onLogout={onLogout} />
               </RequireAuth>
             }
           />
@@ -145,23 +105,15 @@ export default function App() {
             path="/create"
             element={
               <RequireAuth auth={auth}>
-                <CreateRecord onAdd={onAdd} />
+                <CreateRecord />
               </RequireAuth>
             }
           />
           <Route
-            path="/update/:id"
+            path="/update/:id?"
             element={
               <RequireAuth auth={auth}>
-                <UpdateRecord records={records} onUpdate={onUpdate} />
-              </RequireAuth>
-            }
-          />
-          <Route
-            path="/delete/:id"
-            element={
-              <RequireAuth auth={auth}>
-                <DeleteRecord records={records} onDelete={onDelete} />
+                <UpdateRecord />
               </RequireAuth>
             }
           />

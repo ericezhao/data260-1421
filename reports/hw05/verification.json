@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-10-06T21:27:44Z",
+  "project": "DATA-260 Homework 5",
+  "homework": 5,
+  "commit_hash": "7bc6f448d197a89b4b82fb7d662d1ddd6bf3e42c",
+  "student": {
+    "name": "Eric Zhao",
+    "SID4": 1421
+  },
+  "llm_model": "qwen3:8b",
+  "SEED": 1421,
+  "VERIFY_SEED": 261421,
+  "overall_status": "PASS",
+  "summary": {
+    "total_checks": 12,
+    "passed": 12,
+    "failed": 0
+  },
+  "checks": [
+    {
+      "id": "configuration",
+      "status": "PASS",
+      "description": "Personal configuration values are correct",
+      "evidence": {
+        "homework": 5,
+        "SID4": 1421,
+        "PORT_BASE": 8521,
+        "PREFIX": "s1421",
+        "SEED": 1421,
+        "VERIFY_SEED": 261421,
+        "DOMAIN_ID": 5
+      }
+    },
+    {
+      "id": "required_files",
+      "status": "PASS",
+      "description": "Homework 5 code and report files exist",
+      "evidence": {
+        "required_count": 24,
+        "missing": []
+      }
+    },
+    {
+      "id": "database_schema",
+      "status": "PASS",
+      "description": "owners/inspections have unique fields, timestamps, score default 100 and a RESTRICT FK",
+      "evidence": {
+        "unique_constraints": [
+          "uq_inspections_code",
+          "uq_owners_email"
+        ],
+        "fk_delete_rule": "RESTRICT",
+        "score_default": 100,
+        "row_counts": {
+          "owners": 50,
+          "inspections": 5000
+        }
+      }
+    },
+    {
+      "id": "backend_port",
+      "status": "PASS",
+      "description": "Backend answers on port 8521 and requires login for /api/owners",
+      "evidence": {
+        "port": 8521,
+        "react_index": 200,
+        "owners_without_login": 401
+      }
+    },
+    {
+      "id": "api",
+      "status": "PASS",
+      "description": "CRUD for owners and inspections, pagination, relationship endpoint and 404/409/422 errors",
+      "evidence": {
+        "owner_crud": "201/200/200/204",
+        "inspection_crud": "201/200/204",
+        "default_score": 100,
+        "relationship_endpoint": 200,
+        "errors": {
+          "bad_code_422": 422,
+          "bad_email_422": 422,
+          "duplicate_code_409": 409,
+          "missing_owner_404": 404,
+          "delete_owner_with_inspections_409": 409
+        }
+      }
+    },
+    {
+      "id": "meals_mcp",
+      "status": "PASS",
+      "description": "meals MCP server starts over STDIO and its tools return the designed shapes",
+      "evidence": {
+        "tools": [
+          "search_meals_by_name",
+          "meals_by_ingredient",
+          "random_meal",
+          "meal_details"
+        ],
+        "search_hits": 1,
+        "empty_message": "no matches for name 'zzzzqq'",
+        "detail_ingredients": 8
+      }
+    },
+    {
+      "id": "domain_mcp",
+      "status": "PASS",
+      "description": "Domain MCP server returns {ok,data,error} for valid and invalid calls",
+      "evidence": {
+        "tools": [
+          "search_inspections",
+          "get_inspection",
+          "score_summary"
+        ],
+        "valid_ok": [
+          true,
+          true,
+          true
+        ],
+        "invalid_ok": [
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "id": "retry_policy",
+      "status": "PASS",
+      "description": "Retry succeeds first try, succeeds after a retry, and returns a clean error when exhausted",
+      "evidence": {
+        "first_try": {
+          "ok": true,
+          "attempts": 1
+        },
+        "after_retry": {
+          "ok": true,
+          "attempts": 2
+        },
+        "exhausted": {
+          "ok": false,
+          "attempts": 3
+        }
+      }
+    },
+    {
+      "id": "fault_injection",
+      "status": "PASS",
+      "description": "VERIFY_SEED gives the same failure sequence; 150 raw call records saved",
+      "evidence": {
+        "same_seed_same_sequence": true,
+        "injected_failures_in_50": {
+          "0.0": 0,
+          "0.2": 7,
+          "0.5": 19
+        },
+        "raw_rows": 150,
+        "per_rate": {
+          "0.0": 50,
+          "0.2": 50,
+          "0.5": 50
+        },
+        "success_rates": {
+          "0%": "100%",
+          "20%": "100%",
+          "50%": "94%"
+        }
+      }
+    },
+    {
+      "id": "offline_tests",
+      "status": "PASS",
+      "description": "Offline test runner passes without database, network or LLM",
+      "evidence": {
+        "summary": "11/11 tests passed",
+        "pass_lines": 11,
+        "fail_lines": 0
+      }
+    },
+    {
+      "id": "agent_log",
+      "status": "PASS",
+      "description": "agent_runs.jsonl has 4+ runs covering final_answer, safety_block and max_steps",
+      "evidence": {
+        "runs": 5,
+        "stop_reasons": [
+          "final_answer",
+          "max_steps",
+          "safety_block"
+        ]
+      }
+    },
+    {
+      "id": "agent_live",
+      "status": "PASS",
+      "description": "run_agent with qwen3:8b calls a tool and finishes with a final answer",
+      "evidence": {
+        "stop_reason": "final_answer",
+        "steps": 2,
+        "tool_calls": 1,
+        "logged_events": [
+          "start",
+          "tool_call",
+          "final",
+          "stop"
+        ]
+      }
+    }
+  ]
+}

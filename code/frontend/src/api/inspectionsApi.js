@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const api = axios.create({
+export const api = axios.create({
   baseURL: import.meta.env.DEV ? "http://localhost:8521" : "",
   withCredentials: true,
 });
@@ -20,9 +20,13 @@ export function onSessionExpired(callback) {
   return () => api.interceptors.response.eject(id);
 }
 
-export async function fetchInspections() {
-  const res = await api.get("/api/inspections");
-  return res.data;
+// FastAPI sends detail as a string (404/409) or a list of field errors (422)
+export function errorMessage(err) {
+  const detail = err.response?.data?.detail;
+  if (Array.isArray(detail)) {
+    return detail.map((d) => `${d.loc[d.loc.length - 1]}: ${d.msg}`).join("; ");
+  }
+  return detail || err.message;
 }
 
 export async function fetchInspectionById(id) {
@@ -30,18 +34,8 @@ export async function fetchInspectionById(id) {
   return res.data;
 }
 
-export async function createInspection(payload) {
-  const res = await api.post("/api/inspections", payload);
-  return res.data;
-}
-
-export async function updateInspection(id, payload) {
-  const res = await api.put(`/api/inspections/${id}`, payload);
-  return res.data;
-}
-
-export async function deleteInspection(id) {
-  const res = await api.delete(`/api/inspections/${id}`);
+export async function fetchOwners() {
+  const res = await api.get("/api/owners", { params: { limit: 100 } });
   return res.data;
 }
 

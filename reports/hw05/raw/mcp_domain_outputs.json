@@ -1,0 +1,142 @@
+{
+  "recordedAt": "2026-10-05T14:20:23",
+  "server": "domain_server.py",
+  "calls": [
+    {
+      "tool": "search_inspections",
+      "input": {
+        "query": "Sushi",
+        "cuisine": "Japanese",
+        "limit": 3
+      },
+      "isError": false,
+      "output": {
+        "ok": true,
+        "data": {
+          "count": 3,
+          "results": [
+            {
+              "inspectionCode": "INS-00042",
+              "restaurantName": "Royal Sushi #42",
+              "cuisine": "Japanese",
+              "score": 100,
+              "ownerId": 7
+            },
+            {
+              "inspectionCode": "INS-00588",
+              "restaurantName": "Golden Sushi #588",
+              "cuisine": "Japanese",
+              "score": 92,
+              "ownerId": 42
+            },
+            {
+              "inspectionCode": "INS-00846",
+              "restaurantName": "Silver Sushi #846",
+              "cuisine": "Japanese",
+              "score": 100,
+              "ownerId": 38
+            }
+          ]
+        },
+        "error": null
+      }
+    },
+    {
+      "tool": "search_inspections",
+      "input": {
+        "query": "S",
+        "limit": 100
+      },
+      "isError": false,
+      "output": {
+        "ok": false,
+        "data": null,
+        "error": "invalid input: query: String should have at least 2 characters; limit: Input should be less than or equal to 25"
+      }
+    },
+    {
+      "tool": "get_inspection",
+      "input": {
+        "inspection_code": "INS-00042"
+      },
+      "isError": false,
+      "output": {
+        "ok": true,
+        "data": {
+          "inspectionCode": "INS-00042",
+          "restaurantName": "Royal Sushi #42",
+          "cuisine": "Japanese",
+          "score": 100,
+          "ownerId": 7,
+          "owner": {
+            "id": 7,
+            "name": "Daniel Lopez"
+          },
+          "violations": [],
+          "createdAt": "2026-10-05T14:04:36"
+        },
+        "error": null
+      }
+    },
+    {
+      "tool": "get_inspection",
+      "input": {
+        "inspection_code": "42"
+      },
+      "isError": false,
+      "output": {
+        "ok": false,
+        "data": null,
+        "error": "invalid input: inspection_code: String should match pattern '^INS-\\d{5}$'"
+      }
+    },
+    {
+      "tool": "score_summary",
+      "input": {
+        "group_by": "cuisine",
+        "top": 3
+      },
+      "isError": false,
+      "output": {
+        "ok": true,
+        "data": {
+          "groupBy": "cuisine",
+          "groups": [
+            {
+              "group": "Japanese",
+              "inspections": 447,
+              "avgScore": 99.74,
+              "minScore": 89
+            },
+            {
+              "group": "French",
+              "inspections": 469,
+              "avgScore": 99.83,
+              "minScore": 92
+            },
+            {
+              "group": "Chinese",
+              "inspections": 476,
+              "avgScore": 99.83,
+              "minScore": 92
+            }
+          ]
+        },
+        "error": null
+      }
+    },
+    {
+      "tool": "score_summary",
+      "input": {
+        "group_by": "city",
+        "top": 3
+      },
+      "isError": false,
+      "output": {
+        "ok": false,
+        "data": null,
+        "error": "invalid input: group_by: Input should be 'cuisine' or 'owner'"
+      }
+    }
+  ]
+}

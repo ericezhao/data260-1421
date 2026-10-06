@@ -16,7 +16,7 @@ from database import Base, db_session_basede26, engine, get_db, sql_counter
 from session_crud import create_session, delete_session, get_session
 
 PORT_BASE = 8521
-FRONTEND_DIR = Path(__file__).resolve().parent / "frontend" / "dist"
+FRONTEND_DIR = Path(__file__).resolve().parent.parent / "frontend" / "dist"
 
 Base.metadata.create_all(bind=engine)
 
@@ -85,12 +85,78 @@ def me(session_row=Depends(require_session)):
     return {"loggedIn": True, "userId": session_row.user_id}
 
 
-@app.get("/api/inspections", response_model=list[schema.InspectionOut])
-def list_inspections(
+# ----- owners -----
+@app.post("/api/owners", response_model=schema.OwnerOut, status_code=201)
+def create_owner_api(
+    payload: schema.OwnerCreate,
     db: Session = Depends(get_db),
     _session=Depends(require_session),
 ):
-    return [inspection_out(row) for row in crud.get_inspections(db)]
+    return owner_out(crud.create_owner(db, payload))
+
+
+@app.get("/api/owners", response_model=list[schema.OwnerOut])
+def list_owners(
+    skip: int = Query(0, ge=0),
+    limit: int = Query(20, ge=1, le=100),
+    db: Session = Depends(get_db),
+    _session=Depends(require_session),
+):
+    return [owner_out(row) for row in crud.get_owners(db, skip, limit)]
+
+
+@app.get("/api/owners/{owner_id}", response_model=schema.OwnerOut)
+def get_owner_api(
+    owner_id: int,
+    db: Session = Depends(get_db),
+    _session=Depends(require_session),
+):
+    return owner_out(crud.get_owner(db, owner_id))
+
+
+@app.put("/api/owners/{owner_id}", response_model=schema.OwnerOut)
+def update_owner_api(
+    owner_id: int,
+    payload: schema.OwnerUpdate,
+    db: Session = Depends(get_db),
+    _session=Depends(require_session),
+):
+    return owner_out(crud.update_owner(db, owner_id, payload))
+
+
+@app.delete("/api/owners/{owner_id}", status_code=204)
+def delete_owner_api(
+    owner_id: int,
+    db: Session = Depends(get_db),
+    _session=Depends(require_session),
+):
+    crud.delete_owner(db, owner_id)
+    return Response(status_code=204)
+
+
+@app.get("/api/owners/{owner_id}/inspections", response_model=list[schema.InspectionOut])
+def list_owner_inspections(
+    owner_id: int,
+    skip: int = Query(0, ge=0),
+    limit: int = Query(50, ge=1, le=500),
+    db: Session = Depends(get_db),
+    _session=Depends(require_session),
+):
+    return [
+        inspection_out(row)
+        for row in crud.get_inspections_by_owner(db, owner_id, skip, limit)
+    ]
+
+
+# ----- inspections -----
+@app.get("/api/inspections", response_model=list[schema.InspectionOut])
+def list_inspections(
+    skip: int = Query(0, ge=0),
+    limit: int = Query(50, ge=1, le=500),
+    db: Session = Depends(get_db),
+    _session=Depends(require_session),
+):
+    return [inspection_out(row) for row in crud.get_inspections(db, skip, limit)]
 
 
 # must stay above /api/inspections/{inspection_id}, otherwise "naive" is parsed as an id
@@ -124,10 +190,7 @@ def get_inspection_api(
     db: Session = Depends(get_db),
     _session=Depends(require_session),
 ):
-    row = crud.get_inspection(db, inspection_id)
-    if not row:
-        raise HTTPException(status_code=404, detail="Record not found")
-    return inspection_out(row)
+    return inspection_out(crud.get_inspection(db, inspection_id))
 
 
 @app.post("/api/inspections", response_model=schema.InspectionOut, status_code=201)
@@ -146,10 +209,7 @@ def update_inspection_api(
     db: Session = Depends(get_db),
     _session=Depends(require_session),
 ):
-    row = crud.update_inspection(db, inspection_id, payload)
-    if not row:
-        raise HTTPException(status_code=404, detail="Record not found")
-    return inspection_out(row)
+    return inspection_out(crud.update_inspection(db, inspection_id, payload))
 
 
 @app.delete("/api/inspections/{inspection_id}", status_code=204)
@@ -158,9 +218,7 @@ def delete_inspection_api(
     db: Session = Depends(get_db),
     _session=Depends(require_session),
 ):
-    row = crud.delete_inspection(db, inspection_id)
-    if not row:
-        raise HTTPException(status_code=404, detail="Record not found")
+    crud.delete_inspection(db, inspection_id)
     return Response(status_code=204)
 
 
@@ -210,27 +268,59 @@ def seed_if_empty():
                 )
             )
         if db.query(models.Inspection).count() == 0:
-            db.add(models.Inspection(restaurant_name="Torihide Yakitori", cuisine="Japanese"))
-            db.add(models.Inspection(restaurant_name="Mission Steakhouse", cuisine="American"))
-            db.add(models.Inspection(restaurant_name="Takeshi Sushi", cuisine="Japanese"))
+            owner = models.Owner(name="Maria Lopez", phone="408-555-0101", email="maria.lopez@example.com")
+            db.add(owner)
+            db.flush()
+            samples = [
+                ("Torihide Yakitori", "Japanese"),
+                ("Mission Steakhouse", "American"),
+                ("Takeshi Sushi", "Japanese"),
+            ]
+            for i, (name, cuisine) in enumerate(samples, start=1):
+                db.add(
+                    models.Inspection(
+                        restaurant_name=name,
+                        cuisine=cuisine,
+                        inspection_code=f"INS-{i:05d}",
+                        owner_id=owner.id,
+                    )
+                )
         db.commit()
     finally:
         db.close()
 
 
-def inspection_out(row: models.Inspection) -> schema.InspectionOut:
-    return schema.InspectionOut(
+def owner_out(row: models.Owner) -> schema.OwnerOut:
+    return schema.OwnerOut(
         id=row.id,
-        restaurantName=row.restaurant_name,
-        cuisine=row.cuisine,
+        name=row.name,
+        phone=row.phone,
+        email=row.email,
+        createdAt=row.created_at,
+        updatedAt=row.updated_at,
     )
+
+
+def inspection_fields(row: models.Inspection) -> dict:
+    return {
+        "id": row.id,
+        "restaurantName": row.restaurant_name,
+        "cuisine": row.cuisine,
+        "inspectionCode": row.inspection_code,
+        "score": row.score,
+        "ownerId": row.owner_id,
+        "createdAt": row.created_at,
+        "updatedAt": row.updated_at,
+    }
+
+
+def inspection_out(row: models.Inspection) -> schema.InspectionOut:
+    return schema.InspectionOut(**inspection_fields(row))
 
 
 def inspection_with_violations(row, violations) -> schema.InspectionWithViolations:
     return schema.InspectionWithViolations(
-        id=row.id,
-        restaurantName=row.restaurant_name,
-        cuisine=row.cuisine,
+        **inspection_fields(row),
         violations=[
             schema.ViolationOut(id=v.id, description=v.description, severity=v.severity)
             for v in violations

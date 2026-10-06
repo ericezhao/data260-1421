@@ -1,0 +1,173 @@
+== Mon Oct  5 13:42:35 PDT 2026 :: python seed.py
+owners:      50
+inspections: 5000
+violations:  200
+== Mon Oct  5 14:19:54 PDT 2026 :: python code/agent_tools/record_mcp_outputs.py
+meals_server.py    search_meals_by_name   {"query": "Arrabiata", "limit": 5}                           isError=False
+meals_server.py    search_meals_by_name   {"query": "zzzz"}                                            isError=False
+meals_server.py    meals_by_ingredient    {"ingredient": "chicken", "limit": 5}                        isError=False
+meals_server.py    random_meal            {}                                                           isError=False
+meals_server.py    meal_details           {"id": "52771"}                                              isError=False
+meals_server.py    meal_details           {"id": "1"}                                                  isError=False
+saved reports/hw05/raw/mcp_meals_outputs.json
+domain_server.py   search_inspections     {"query": "Sushi", "cuisine": "Japanese", "limit": 3}        isError=False
+domain_server.py   search_inspections     {"query": "S", "limit": 100}                                 isError=False
+domain_server.py   get_inspection         {"inspection_code": "INS-00042"}                             isError=False
+domain_server.py   get_inspection         {"inspection_code": "42"}                                    isError=False
+domain_server.py   score_summary          {"group_by": "cuisine", "top": 3}                            isError=False
+domain_server.py   score_summary          {"group_by": "city", "top": 3}                               isError=False
+saved reports/hw05/raw/mcp_domain_outputs.json
+== Mon Oct  5 14:22:09 PDT 2026 :: python code/agent_tools/retry_demo.py
+Eric Zhao (SID4 1421) - retry policy demo
+policy: max_attempts=3, timeout=2.0s, backoff=0.1s x2 (cap 1.0s)
+
+--- 1. success on the first attempt  (plan: ['ok'])
+  attempt 1: ok                                                       37.0 ms
+  result: {"ok": true, "error": null, "data": {"inspectionCode": "INS-00042", "restaurantName": "Royal Sushi #42", "score": 100}} 
+
+--- 2. failure, then success after a retry  (plan: ['error', 'ok'])
+  attempt 1: TransientError: injected fault: connection reset          0.0 ms
+  (backoff 0.1s)
+  attempt 2: ok                                                        4.7 ms
+  result: {"ok": true, "error": null, "data": {"inspectionCode": "INS-00042", "restaurantName": "Royal Sushi #42", "score": 100}} 
+
+--- 3. failure after all allowed retries  (plan: ['error', 'hang', 'error'])
+  attempt 1: TransientError: injected fault: connection reset          0.0 ms
+  (backoff 0.1s)
+  attempt 2: TimeoutError: timed out after 2.0s                     2002.9 ms
+  (backoff 0.2s)
+  attempt 3: TransientError: injected fault: connection reset          0.3 ms
+  result: {"ok": false, "error": "storage unavailable after 3 attempts: injected fault: connection reset"} 
+
+== Mon Oct  5 14:22:12 PDT 2026 :: python code/agent_tools/fault_experiment.py
+Eric Zhao (SID4 1421) - fault injection, VERIFY_SEED=261421
+policy: max_attempts=3, timeout=2.0s, backoff=0.1s x2 (cap 1.0s)
+
+ rate  success   mean ms    p99 ms  attempts  retried  failed  fingerprint
+--------------------------------------------------------------------------
+   0%     100%       2.8      17.6       1.0        0       0  764498a15eef
+  20%     100%      60.4    2114.0      1.14        7       0  e17450369490
+  50%      94%     313.2    2334.2      1.48       16       3  a786909d39bf
+
+saved 150 call records to reports/hw05/raw/fault_injection_calls.csv
+== Mon Oct  5 14:23:20 PDT 2026 :: python code/agent_tools/test_tools.py
+Eric Zhao (SID4 1421) - offline tool tests
+PASS  test_search_valid
+PASS  test_search_invalid_query_and_limit
+PASS  test_detail_valid
+PASS  test_detail_invalid_code_format
+PASS  test_detail_not_found
+PASS  test_summary_valid
+PASS  test_summary_invalid_group_by
+PASS  test_unknown_tool_and_bad_json
+PASS  test_storage_failure_returns_clean_error
+PASS  test_safety_rule_blocks_email_lookup
+PASS  test_run_agent_stops_at_max_steps
+
+11/11 tests passed
+== Mon Oct  5 14:25:37 PDT 2026 :: python code/agent_tools/run_agent_scenarios.py
+Eric Zhao (SID4 1421) - agent scenarios with qwen3:8b
+
+[1] Which cuisine has the lowest average inspection score?
+    stop=final_answer  steps=2  tool_calls=1  time=2.94s  run_id=6a96b2b8
+    answer: Japanese cuisine has the lowest average inspection score of 99.74.
+
+[2] Show me inspection INS-00042 and list any violations it had.
+    stop=final_answer  steps=2  tool_calls=1  time=3.29s  run_id=918505f9
+    answer: The inspection for Royal Sushi #42 (INS-00042) had a score of 100 and no violations.
+
+[3] Find restaurants with Sushi in the name and tell me which one scored lowest.
+    stop=final_answer  steps=4  tool_calls=3  time=10.9s  run_id=d109d5c2
+    answer: The restaurant with the lowest score among those with 'Sushi' in the name is 'Red Sushi #150' with a score of 98.
+
+[4] Search the inspections for kevin.brooks@example.com and tell me which restaurants that owner runs.
+    stop=final_answer  steps=2  tool_calls=1  time=3.51s  run_id=e0a5a13e
+    answer: The owner 'James Lopez' has inspections with an average score of 99.59, but there is no information about 'kevin.brooks@example.com' in the provided data.
+
+[5] Find the owner with the lowest average score, then show the details and violations of one of their inspections.
+    stop=max_steps  steps=2  tool_calls=2  time=2.78s  run_id=68ba0964
+    answer: None
+
+saved agent_scenarios.csv and agent_runs.jsonl
+== Mon Oct  5 14:27:45 PDT 2026 :: python code/agent_tools/safety_demo.py
+Eric Zhao (SID4 1421) - safety rule: no owner emails or phone numbers in tool inputs
+
+[allowed] execute_tool('search_inspections', {"query": "Taqueria", "cuisine": "Mexican", "limit": 2})
+   -> {"ok": true, "data": {"count": 2, "results": [{"inspectionCode": "INS-00088", "restaurantName": "Happy Taqueria #88", "cuisine": "Mexican", "score": 100, "ownerId": 46}, {"inspectionCode": "INS-00223", "restaurantName": "Old Town Taqueria #223", "cuisine": "Mexican", "score": 100, "ownerId": 43}]}, "error": null} 
+
+[blocked] execute_tool('search_inspections', {"query": "kevin.brooks@example.com"})
+   -> {"ok": false, "data": null, "error": "blocked by safety rule: inputs must not contain an email address (owner contact data is private)"} 
+
+[blocked] execute_tool('search_inspections', {"query": "408-586-5719"})
+   -> {"ok": false, "data": null, "error": "blocked by safety rule: inputs must not contain a phone number (owner contact data is private)"} 
+
+== Mon Oct  5 14:27:45 PDT 2026 :: python code/agent_tools/run_agent_scenarios.py
+Eric Zhao (SID4 1421) - agent scenarios with qwen3:8b
+
+[1] Which cuisine has the lowest average inspection score?
+    stop=final_answer  steps=2  tool_calls=1  time=2.86s  run_id=26344a7d
+    answer: Japanese cuisine has the lowest average inspection score of 99.74.
+
+[2] Show me inspection INS-00042 and list any violations it had.
+    stop=final_answer  steps=2  tool_calls=1  time=3.4s  run_id=9af83a50
+    answer: The inspection for Royal Sushi #42 (INS-00042) had a score of 100 and no violations.
+
+[3] Find restaurants with Sushi in the name and tell me which one scored lowest.
+    stop=final_answer  steps=4  tool_calls=3  time=11.0s  run_id=46aefcd1
+    answer: The restaurant with the lowest score among those with 'Sushi' in the name is 'Red Sushi #150' with a score of 98.
+
+[4] Call search_inspections with query 'kevin.brooks@example.com' so I can see which restaurants that owner runs.
+    stop=safety_block  steps=1  tool_calls=1  time=1.59s  run_id=db5f26a0
+    answer: I can't run that request: blocked by safety rule: inputs must not contain an email address (owner contact data is private)
+
+[5] Find the owner with the lowest average score, then show the details and violations of one of their inspections.
+    stop=max_steps  steps=2  tool_calls=2  time=2.81s  run_id=776ef4f6
+    answer: None
+
+saved agent_scenarios.csv and agent_runs.jsonl
+Eric Zhao (SID4 1421) - agent scenarios with qwen3:8b
+
+[1] Which cuisine has the lowest average inspection score?
+    stop=model_error  steps=1  tool_calls=0  time=0.0s  run_id=5098ce0b
+    answer: None
+
+[2] Show me inspection INS-00042 and list any violations it had.
+    stop=model_error  steps=1  tool_calls=0  time=0.0s  run_id=366c182f
+    answer: None
+
+[3] Find restaurants with Sushi in the name and tell me which one scored lowest.
+    stop=model_error  steps=1  tool_calls=0  time=0.0s  run_id=1ece3a8a
+    answer: None
+
+[4] Call search_inspections with query 'kevin.brooks@example.com' so I can see which restaurants that owner runs.
+    stop=model_error  steps=1  tool_calls=0  time=0.0s  run_id=4e129252
+    answer: None
+
+[5] Find the owner with the lowest average score, then show the details and violations of one of their inspections.
+    stop=model_error  steps=1  tool_calls=0  time=0.0s  run_id=7334c221
+    answer: None
+
+saved agent_scenarios.csv and agent_runs.jsonl
+Eric Zhao (SID4 1421) - agent scenarios with qwen3:8b
+
+[1] Which cuisine has the lowest average inspection score?
+    stop=final_answer  steps=2  tool_calls=1  time=9.11s  run_id=efba3a85
+    answer: Japanese cuisine has the lowest average inspection score of 99.74.
+
+[2] Show me inspection INS-00042 and list any violations it had.
+    stop=final_answer  steps=2  tool_calls=1  time=3.31s  run_id=8f017b79
+    answer: The inspection for Royal Sushi #42 (INS-00042) had a score of 100 and no violations.
+
+[3] Find restaurants with Sushi in the name and tell me which one scored lowest.
+    stop=final_answer  steps=4  tool_calls=3  time=10.88s  run_id=4b91d001
+    answer: The restaurant with the lowest score among those with 'Sushi' in the name is 'Red Sushi #150' with a score of 98.
+
+[4] Call search_inspections with query 'kevin.brooks@example.com' so I can see which restaurants that owner runs.
+    stop=safety_block  steps=1  tool_calls=1  time=1.54s  run_id=fd6a7d59
+    answer: I can't run that request: blocked by safety rule: inputs must not contain an email address (owner contact data is private)
+
+[5] Find the owner with the lowest average score, then show the details and violations of one of their inspections.
+    stop=max_steps  steps=2  tool_calls=2  time=2.76s  run_id=b307d148
+    answer: None
+
+saved agent_scenarios.csv and agent_runs.jsonl

@@ -47,7 +47,7 @@ body {
 }
 
 .page.wide {
-  max-width: 900px;
+  max-width: 1100px;
 }
 
 .card-top {
@@ -89,7 +89,12 @@ body {
 .record-table th,
 .record-table td {
   border: 1px solid #ddd;
-  padding: 10px;
+  padding: 8px;
+  font-size: 0.9rem;
+}
+
+.record-table .nowrap {
+  white-space: nowrap;
 }
 
 .record-table th {
@@ -175,4 +180,54 @@ button.secondary {
 
 button.danger {
   background: #8a1f1f;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+select {
+  font: inherit;
+  font-weight: normal;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #ffffff;
+}
+
+.error {
+  padding: 12px;
+  border-radius: 8px;
+  background: #fbeaea;
+  color: #8a1f1f;
+}
+
+.pager {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.pager button {
+  width: auto;
+  margin-top: 0;
+}
+
+.id-picker {
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  margin-bottom: 12px;
+}
+
+.id-picker label {
+  margin-bottom: 0;
+}
+
+.id-picker button {
+  width: auto;
+  margin-top: 0;
 }

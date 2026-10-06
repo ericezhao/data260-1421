@@ -15,6 +15,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 CODE = ROOT / "code"
+BACKEND = CODE / "backend"
 HW04 = ROOT / "reports" / "hw04"
 OUTPUT = HW04 / "verification.json"
 SID4 = 1421
@@ -28,8 +29,9 @@ EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-if str(CODE) not in sys.path:
-    sys.path.insert(0, str(CODE))
+for path in (CODE, BACKEND):
+    if str(path) not in sys.path:
+        sys.path.insert(0, str(path))
 
 
 def git_hash() -> str:
@@ -55,7 +57,7 @@ def start_server() -> subprocess.Popen | None:
     if server_up():
         return None
     process = subprocess.Popen(
-        [sys.executable, "main.py"], cwd=CODE, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+        [sys.executable, "main.py"], cwd=BACKEND, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
     )
     for _ in range(60):
         if server_up():
@@ -102,21 +104,20 @@ def main() -> None:
 
     def verify_required_files() -> dict[str, Any]:
         required = [
-            "code/main.py",
-            "code/database.py",
-            "code/models.py",
-            "code/schema.py",
-            "code/crud.py",
-            "code/session_crud.py",
-            "code/seed_hw04.py",
-            "code/measure_n1.py",
+            "code/backend/main.py",
+            "code/backend/database.py",
+            "code/backend/models.py",
+            "code/backend/schema.py",
+            "code/backend/crud.py",
+            "code/backend/session_crud.py",
+            "code/backend/seed.py",
+            "code/backend/measure_n1.py",
             "code/rag.py",
             "code/frontend/src/App.jsx",
             "code/frontend/src/pages/Home.jsx",
             "code/frontend/src/pages/Login.jsx",
             "code/frontend/src/pages/CreateRecord.jsx",
             "code/frontend/src/pages/UpdateRecord.jsx",
-            "code/frontend/src/pages/DeleteRecord.jsx",
             "code/frontend/dist/index.html",
             "reports/hw04/RUN_LOG.txt",
             "reports/hw04/METRICS.md",
@@ -165,7 +166,11 @@ def main() -> None:
     def verify_crud() -> dict[str, Any]:
         name = f"Verify Diner {rng.randint(1000, 9999)}"
         with logged_in_client() as client:
-            created = client.post("/api/inspections", json={"restaurantName": name, "cuisine": "Thai"})
+            owner_id = client.get("/api/owners", params={"limit": 1}).json()[0]["id"]
+            created = client.post("/api/inspections", json={
+                "restaurantName": name, "cuisine": "Thai",
+                "inspectionCode": f"INS-{rng.randint(90000, 99999)}", "ownerId": owner_id,
+            })
             assert created.status_code == 201, created.text
             record_id = created.json()["id"]
             try:

@@ -6,6 +6,17 @@ from database import Base, db_session_basede26, engine
 SEED = 1421
 NUM_INSPECTIONS = 5000
 NUM_VIOLATIONS = 200
+NUM_OWNERS = 50
+
+FIRST_NAMES = [
+    "Maria", "Kevin", "Aisha", "Daniel", "Grace", "Robert", "Emily", "James",
+    "Sofia", "Minh", "Priya", "Carlos", "Hannah", "Wei", "Olivia", "Jorge",
+]
+LAST_NAMES = [
+    "Lopez", "Tran", "Patel", "Kim", "Chen", "Silva", "Nguyen", "Carter",
+    "Garcia", "Wong", "Shah", "Rivera", "Park", "Liu", "Brooks", "Ramos",
+]
+DEDUCTION = {"critical": 8, "major": 3, "minor": 2}
 
 NAME_WORDS = [
     "Golden", "Lucky", "Sunny", "Blue", "Red", "Green", "Happy", "Little",
@@ -33,23 +44,45 @@ VIOLATIONS = [
 ]
 
 
+def make_owners(rng):
+    pairs = rng.sample([(f, l) for f in FIRST_NAMES for l in LAST_NAMES], NUM_OWNERS)
+    return [
+        models.Owner(
+            name=f"{first} {last}",
+            phone=f"408-{rng.randint(200, 999)}-{rng.randint(0, 9999):04d}",
+            email=f"{first.lower()}.{last.lower()}@example.com",
+        )
+        for first, last in pairs
+    ]
+
+
 def main():
     rng = random.Random(SEED)
-    Base.metadata.create_all(bind=engine)
+    # separate generator so names, cuisines and violations match the HW4 data
+    owner_rng = random.Random(SEED)
 
-    # TRUNCATE resets AUTO_INCREMENT so ids are 1..5000 on every run
+    # drop and recreate so the tables always match models.py; ids restart at 1
     with engine.begin() as conn:
+        conn.execute(text("SET SESSION lock_wait_timeout = 10"))
         conn.execute(text("SET FOREIGN_KEY_CHECKS = 0"))
-        conn.execute(text("TRUNCATE TABLE violations"))
-        conn.execute(text("TRUNCATE TABLE inspections"))
+        conn.execute(text("DROP TABLE IF EXISTS violations, inspections, owners"))
         conn.execute(text("SET FOREIGN_KEY_CHECKS = 1"))
+    Base.metadata.create_all(bind=engine)
 
     db = db_session_basede26()
     try:
+        owners = make_owners(owner_rng)
+        db.add_all(owners)
+        db.flush()
+        owner_ids = [row.id for row in owners]
+
         inspections = [
             models.Inspection(
                 restaurant_name=f"{rng.choice(NAME_WORDS)} {rng.choice(PLACE_TYPES)} #{i}",
                 cuisine=rng.choice(CUISINES),
+                inspection_code=f"INS-{i:05d}",
+                score=100,
+                owner_id=owner_rng.choice(owner_ids),
             )
             for i in range(1, NUM_INSPECTIONS + 1)
         ]
@@ -68,8 +101,13 @@ def main():
                 )
             )
         db.add_all(violations)
+
+        by_id = {row.id: row for row in inspections}
+        for v in violations:
+            by_id[v.inspection_id].score -= DEDUCTION[v.severity]
         db.commit()
 
+        print(f"owners:      {db.query(models.Owner).count()}")
         print(f"inspections: {db.query(models.Inspection).count()}")
         print(f"violations:  {db.query(models.Violation).count()}")
     finally:

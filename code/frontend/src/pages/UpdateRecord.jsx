@@ -1,95 +1,122 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { fetchInspectionById } from "../api/inspectionsApi.js";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import OwnerSelect from "../components/OwnerSelect.jsx";
+import { errorMessage, fetchInspectionById } from "../api/inspectionsApi.js";
+import { updateInspection } from "../features/inspectionsSlice.js";
 
-export default function UpdateRecord({ records, onUpdate }) {
+const FIELDS = ["restaurantName", "cuisine", "inspectionCode", "score", "ownerId"];
+
+export default function UpdateRecord() {
   const { id } = useParams();
-  const recordId = Number(id);
-  const fromList = records.find((item) => item.id === recordId);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const items = useSelector((state) => state.inspections.items);
 
-  const [record, setRecord] = useState(fromList || null);
-  const [notFound, setNotFound] = useState(false);
-  const [restaurantName, setRestaurantName] = useState("");
-  const [cuisine, setCuisine] = useState("");
+  const [idInput, setIdInput] = useState(id || "");
+  const [original, setOriginal] = useState(null);
+  const [form, setForm] = useState(null);
+  const [error, setError] = useState(null);
+
+  async function loadRecord(recordId) {
+    setError(null);
+    const fromStore = items.find((item) => item.id === Number(recordId));
+    try {
+      const record = fromStore || (await fetchInspectionById(recordId));
+      setOriginal(record);
+      setForm(Object.fromEntries(FIELDS.map((f) => [f, record[f]])));
+    } catch (err) {
+      setOriginal(null);
+      setForm(null);
+      setError(errorMessage(err));
+    }
+  }
 
   useEffect(() => {
-    if (fromList) {
-      setRecord(fromList);
-      setNotFound(false);
-      return;
+    if (id) {
+      loadRecord(id);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
 
-    let cancelled = false;
-    (async () => {
-      try {
-        const data = await fetchInspectionById(recordId);
-        if (!cancelled) {
-          setRecord(data);
-          setNotFound(false);
-        }
-      } catch {
-        if (!cancelled) {
-          setRecord(null);
-          setNotFound(true);
-        }
-      }
-    })();
-
-    return () => {
-      cancelled = true;
-    };
-  }, [fromList, recordId]);
-
-  useEffect(() => {
-    if (!record) {
-      return;
-    }
-    setRestaurantName(record.restaurantName);
-    setCuisine(record.cuisine);
-  }, [record]);
+  function update(field) {
+    return (e) => setForm({ ...form, [field]: e.target.value });
+  }
 
   async function handleSubmit(event) {
     event.preventDefault();
-    await onUpdate(recordId, { restaurantName, cuisine });
-  }
-
-  if (notFound) {
-    return (
-      <div className="card">
-        <h3>Update record</h3>
-        <p>Record not found.</p>
-        <Link to="/">Home</Link>
-      </div>
-    );
-  }
-
-  if (!record) {
-    return (
-      <div className="card">
-        <h3>Update record</h3>
-        <p className="status">Loading record…</p>
-      </div>
-    );
+    setError(null);
+    const changes = {};
+    for (const field of FIELDS) {
+      const value = field === "score" || field === "ownerId" ? Number(form[field]) : form[field];
+      if (value !== original[field]) {
+        changes[field] = value;
+      }
+    }
+    if (Object.keys(changes).length === 0) {
+      setError("Nothing changed.");
+      return;
+    }
+    try {
+      await dispatch(updateInspection({ id: original.id, changes })).unwrap();
+      navigate("/");
+    } catch (message) {
+      setError(message);
+    }
   }
 
   return (
     <div className="card">
-      <h3>Update record (ID: {recordId})</h3>
-      <form onSubmit={handleSubmit}>
+      <h3>Update record</h3>
+      {error && <p className="error">{error}</p>}
+
+      <form
+        className="id-picker"
+        onSubmit={(e) => {
+          e.preventDefault();
+          loadRecord(idInput);
+        }}
+      >
         <label>
-          Restaurant name
+          Record ID
           <input
-            value={restaurantName}
-            onChange={(e) => setRestaurantName(e.target.value)}
+            type="number"
+            min="1"
+            value={idInput}
+            onChange={(e) => setIdInput(e.target.value)}
             required
           />
         </label>
-        <label>
-          Cuisine
-          <input value={cuisine} onChange={(e) => setCuisine(e.target.value)} required />
-        </label>
-        <button type="submit">Update record</button>
+        <button type="submit" className="secondary">
+          Load
+        </button>
       </form>
+
+      {form && (
+        <form onSubmit={handleSubmit}>
+          <label>
+            Restaurant name
+            <input value={form.restaurantName} onChange={update("restaurantName")} required />
+          </label>
+          <label>
+            Cuisine
+            <input value={form.cuisine} onChange={update("cuisine")} required />
+          </label>
+          <label>
+            Inspection code
+            <input value={form.inspectionCode} onChange={update("inspectionCode")} required />
+          </label>
+          <label>
+            Score (0–100)
+            <input type="number" value={form.score} onChange={update("score")} required />
+          </label>
+          <label>
+            Owner
+            <OwnerSelect value={form.ownerId} onChange={update("ownerId")} required />
+          </label>
+          <button type="submit">Update record {original.inspectionCode}</button>
+        </form>
+      )}
     </div>
   );
 }

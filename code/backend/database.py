@@ -10,7 +10,7 @@ load_dotenv(Path(__file__).resolve().parent / ".env")
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 if not DATABASE_URL:
-    raise RuntimeError("DATABASE_URL missing. Create code/.env with DATABASE_URL=...")
+    raise RuntimeError("DATABASE_URL missing. Create code/backend/.env with DATABASE_URL=...")
 
 engine = create_engine(DATABASE_URL, pool_pre_ping=True) # using SQLAlchemy to create a database engine
 db_session_basede26 = sessionmaker(autocommit=False, autoflush=False, bind=engine)

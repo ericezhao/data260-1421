@@ -21,7 +21,7 @@ PAGE_SIZES = [10, 50, 200]
 REQUESTS_PER_SIZE = 30
 WARMUP_REQUESTS = 3
 
-RAW_DIR = Path(__file__).resolve().parent.parent / "reports" / "hw04" / "raw"
+RAW_DIR = Path(__file__).resolve().parents[2] / "reports" / "hw04" / "raw"
 
 
 def percentile(values, p):

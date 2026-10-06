@@ -1,0 +1,208 @@
+{
+  "recordedAt": "2026-10-05T14:20:22",
+  "server": "meals_server.py",
+  "calls": [
+    {
+      "tool": "search_meals_by_name",
+      "input": {
+        "query": "Arrabiata",
+        "limit": 5
+      },
+      "isError": false,
+      "output": [
+        {
+          "id": "52771",
+          "name": "Spicy Arrabiata Penne",
+          "area": "Italian",
+          "category": "Vegetarian",
+          "thumb": "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg"
+        }
+      ]
+    },
+    {
+      "tool": "search_meals_by_name",
+      "input": {
+        "query": "zzzz"
+      },
+      "isError": false,
+      "output": {
+        "results": [],
+        "message": "no matches for name 'zzzz'"
+      }
+    },
+    {
+      "tool": "meals_by_ingredient",
+      "input": {
+        "ingredient": "chicken",
+        "limit": 5
+      },
+      "isError": false,
+      "output": [
+        {
+          "id": "52940",
+          "name": "Brown Stew Chicken",
+          "thumb": "https://www.themealdb.com/images/media/meals/sypxpx1515365095.jpg"
+        },
+        {
+          "id": "53161",
+          "name": "Chicken & chorizo rice pot",
+          "thumb": "https://www.themealdb.com/images/media/meals/fk80jp1763280767.jpg"
+        },
+        {
+          "id": "52846",
+          "name": "Chicken & mushroom Hotpot",
+          "thumb": "https://www.themealdb.com/images/media/meals/uuuspp1511297945.jpg"
+        },
+        {
+          "id": "52796",
+          "name": "Chicken Alfredo Primavera",
+          "thumb": "https://www.themealdb.com/images/media/meals/syqypv1486981727.jpg"
+        },
+        {
+          "id": "52934",
+          "name": "Chicken Basquaise",
+          "thumb": "https://www.themealdb.com/images/media/meals/wruvqv1511880994.jpg"
+        }
+      ]
+    },
+    {
+      "tool": "random_meal",
+      "input": {},
+      "isError": false,
+      "output": {
+        "id": "52874",
+        "name": "Beef and Mustard Pie",
+        "category": "Beef",
+        "area": "British",
+        "instructions": "Preheat the oven to 150C/300F/Gas 2.\r\nToss the beef and flour together in a bowl with some salt and black pepper.\r\nHeat a large casserole until hot, add half of the rapeseed oil and enough of the beef to just cover the bottom of the casserole.\r\nFry until browned on each side, then remove and set aside. Repeat with the remaining oil and beef.\r\nReturn the beef to the pan, add the wine and cook until the volume of liquid has reduced by half, then add the stock, onion, carrots, thyme and mustard, and season well with salt and pepper.\r\nCover with a lid and place in the oven for two hours.\r\nRemove from the oven, check the seasoning and set aside to cool. Remove the thyme.\r\nWhen the beef is cool and you're ready to assemble the pie, preheat the oven to 200C/400F/Gas 6.\r\nTransfer the beef to a pie dish, brush the rim with the beaten egg yolks and lay the pastry over the top. Brush the top of the pastry with more beaten egg.\r\nTrim the pastry so there is just enough excess to crimp the edges, then place in the oven and bake for 30 minutes, or until the pastry is golden-brown and cooked through.\r\nFor the green beans, bring a saucepan of salted water to the boil, add the beans and cook for 4-5 minutes, or until just tender.\r\nDrain and toss with the butter, then season with black pepper.\r\nTo serve, place a large spoonful of pie onto each plate with some green beans alongside.",
+        "image": "https://www.themealdb.com/images/media/meals/sytuqu1511553755.jpg",
+        "source": "https://www.bbc.co.uk/food/recipes/beef_and_mustard_pie_58002",
+        "youtube": "https://www.youtube.com/watch?v=nMyBC9staMU",
+        "ingredients": [
+          {
+            "name": "Beef",
+            "measure": "1kg"
+          },
+          {
+            "name": "Plain Flour",
+            "measure": "2 tbs"
+          },
+          {
+            "name": "Rapeseed Oil",
+            "measure": "2 tbs"
+          },
+          {
+            "name": "Red Wine",
+            "measure": "200ml"
+          },
+          {
+            "name": "Beef Stock",
+            "measure": "400ml"
+          },
+          {
+            "name": "Onion",
+            "measure": "1 finely sliced"
+          },
+          {
+            "name": "Carrots",
+            "measure": "2 chopped"
+          },
+          {
+            "name": "Thyme",
+            "measure": "3 sprigs"
+          },
+          {
+            "name": "Mustard",
+            "measure": "2 tbs"
+          },
+          {
+            "name": "Egg Yolks",
+            "measure": "2 free-range"
+          },
+          {
+            "name": "Puff Pastry",
+            "measure": "400g"
+          },
+          {
+            "name": "Green Beans",
+            "measure": "300g"
+          },
+          {
+            "name": "Butter",
+            "measure": "25g"
+          },
+          {
+            "name": "Salt",
+            "measure": "pinch"
+          },
+          {
+            "name": "Pepper",
+            "measure": "pinch"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "meal_details",
+      "input": {
+        "id": "52771"
+      },
+      "isError": false,
+      "output": {
+        "id": "52771",
+        "name": "Spicy Arrabiata Penne",
+        "category": "Vegetarian",
+        "area": "Italian",
+        "instructions": "Bring a large pot of water to a boil. Add kosher salt to the boiling water, then add the pasta. Cook according to the package instructions, about 9 minutes.\r\nIn a large skillet over medium-high heat, add the olive oil and heat until the oil starts to shimmer. Add the garlic and cook, stirring, until fragrant, 1 to 2 minutes. Add the chopped tomatoes, red chile flakes, Italian seasoning and salt and pepper to taste. Bring to a boil and cook for 5 minutes. Remove from the heat and add the chopped basil.\r\nDrain the pasta and add it to the sauce. Garnish with Parmigiano-Reggiano flakes and more basil and serve warm.",
+        "image": "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg",
+        "source": null,
+        "youtube": "https://www.youtube.com/watch?v=1IszT_guI08",
+        "ingredients": [
+          {
+            "name": "penne rigate",
+            "measure": "1 pound"
+          },
+          {
+            "name": "olive oil",
+            "measure": "1/4 cup"
+          },
+          {
+            "name": "garlic",
+            "measure": "3 cloves"
+          },
+          {
+            "name": "chopped tomatoes",
+            "measure": "1 tin"
+          },
+          {
+            "name": "red chilli flakes",
+            "measure": "1/2 teaspoon"
+          },
+          {
+            "name": "italian seasoning",
+            "measure": "1/2 teaspoon"
+          },
+          {
+            "name": "basil",
+            "measure": "6 leaves"
+          },
+          {
+            "name": "Parmigiano-Reggiano",
+            "measure": "sprinkling"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "meal_details",
+      "input": {
+        "id": "1"
+      },
+      "isError": false,
+      "output": {
+        "results": [],
+        "message": "no matches for id 1"
+      }
+    }
+  ]
+}

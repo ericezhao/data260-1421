@@ -1,0 +1,4 @@
+failure_rate,calls,success_rate,mean_latency_ms,p99_latency_ms,mean_attempts,retried_calls,failed_calls,decision_fingerprint
+0%,50,100%,2.8,18.2,1.0,0,0,764498a15eef
+20%,50,100%,60.7,2112.4,1.14,7,0,e17450369490
+50%,50,94%,313.3,2332.9,1.48,16,3,a786909d39bf

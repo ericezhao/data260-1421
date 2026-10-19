@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-10-19T01:06:33Z",
+  "generated_at_utc": "2026-10-19T20:56:08Z",
   "project": "DATA-260 Homework 6",
   "homework": 6,
-  "commit_hash": "5ffd209d46556428449f12ece2d3243f442ef7dd",
+  "commit_hash": "f5c41d364d906ad36ee44d58c32be98f9739ceb4",
   "student": {
     "name": "Eric Zhao",
     "SID4": 1421
@@ -70,7 +70,7 @@
       "status": "PASS",
       "description": "MongoDB document CRUD, 400 for bad JSON or id, 404, and 422 for bad fields",
       "evidence": {
-        "created": "6ad56d17c0ca748a1d1bff18",
+        "created": "6ad683e1c0ca748a1d1c0166",
         "validation": [
           422,
           422,
@@ -92,8 +92,8 @@
       "description": "POST /api/chat returns a reply plus memory_used, and the memory and aggregate routes respond",
       "evidence": {
         "reply_chars": 34,
-        "short_term_count": 1,
-        "prompt_tokens": 1085,
+        "short_term_count": 3,
+        "prompt_tokens": 993,
         "daily_rows": 1
       }
     }

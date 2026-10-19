@@ -1,0 +1,29 @@
+# Five probes asked after the same 30-message conversation.
+# A probe scores 5 when every expect string is present, 3 when some are, and 1 when none are.
+# match "word" requires a whole word, so "8" does not match "80".
+probes:
+  - id: city
+    question: "What is my inspection city?"
+    expect: ["gilroy"]
+    match: substring
+    rubric: "5 if the answer says Gilroy, 1 if it does not."
+  - id: cuisine
+    question: "What is my favorite inspection cuisine?"
+    expect: ["korean"]
+    match: substring
+    rubric: "5 if the answer says Korean, 1 if it does not."
+  - id: weekday
+    question: "What is my inspection weekday?"
+    expect: ["thursday"]
+    match: substring
+    rubric: "5 if the answer says Thursday, 1 if it does not."
+  - id: deduction
+    question: "What is my critical deduction?"
+    expect: ["7"]
+    match: word
+    rubric: "5 if the answer gives 7 as a whole word, 1 if it does not."
+  - id: noodle
+    question: "What is the Lantern Noodle 150 score and the next step?"
+    expect: ["91", "return"]
+    match: substring
+    rubric: "5 if the answer has both 91 and a return visit, 3 if it has only one, 1 if it has neither."

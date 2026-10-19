@@ -1,0 +1,5 @@
+setting,short_term_n,policy,mean_prompt_tokens,mean_completion_tokens,mean_latency_ms,mean_probe_score,cost_10000_conversations_usd
+n4,4,none,1411.6,32.2,5632.1,5.0,471.78
+n12,12,none,1618.0,32.3,6145.9,5.0,533.85
+n30,30,none,1936.8,32.0,7416.9,5.0,629.04
+compress,30,compress,1648.8,36.2,6280.8,5.0,548.94

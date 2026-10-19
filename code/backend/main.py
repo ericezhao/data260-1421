@@ -1,18 +1,21 @@
 from pathlib import Path
 import hashlib
+import json
 import secrets
 
 import uvicorn
 from fastapi import Depends, FastAPI, HTTPException, Query, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from sqlalchemy.orm import Session
 
 import crud
 import models
 import schema
+from chat_api import router as chat_router
 from database import Base, db_session_basede26, engine, get_db, sql_counter
+from documents import router as documents_router
 from session_crud import create_session, delete_session, get_session
 
 PORT_BASE = 8521
@@ -43,6 +46,22 @@ async def count_sql_statements(request: Request, call_next):
         sql_counter.reset(token)
     response.headers["X-SQL-Count"] = str(counter[0])
     return response
+
+
+@app.middleware("http")
+async def reject_invalid_json(request: Request, call_next):
+    if request.method in {"POST", "PUT", "PATCH"}:
+        content_type = request.headers.get("content-type", "")
+        if "application/json" in content_type:
+            raw = await request.body()
+            if raw:
+                try:
+                    json.loads(raw)
+                except json.JSONDecodeError:
+                    return JSONResponse(
+                        status_code=400, content={"detail": "Request body is not valid JSON."}
+                    )
+    return await call_next(request)
 
 # require_session must be defined before these Depends(...) lines
 def require_session(request: Request, db: Session = Depends(get_db)):
@@ -221,6 +240,9 @@ def delete_inspection_api(
     crud.delete_inspection(db, inspection_id)
     return Response(status_code=204)
 
+
+app.include_router(documents_router)
+app.include_router(chat_router)
 
 if FRONTEND_DIR.exists():
     assets_dir = FRONTEND_DIR / "assets"

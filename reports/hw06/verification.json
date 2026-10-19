@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-10-19T01:06:33Z",
+  "project": "DATA-260 Homework 6",
+  "homework": 6,
+  "commit_hash": "5ffd209d46556428449f12ece2d3243f442ef7dd",
+  "student": {
+    "name": "Eric Zhao",
+    "SID4": 1421
+  },
+  "llm_model": "qwen3:8b",
+  "SEED": 1421,
+  "VERIFY_SEED": 261421,
+  "overall_status": "PASS",
+  "summary": {
+    "total_checks": 8,
+    "passed": 8,
+    "failed": 0
+  },
+  "checks": [
+    {
+      "id": "configuration",
+      "status": "PASS",
+      "description": "SID4, PORT_BASE, VERIFY_SEED, and the s1421_doc database name",
+      "evidence": {
+        "SID4": 1421,
+        "PORT_BASE": 8521,
+        "database": "s1421_doc"
+      }
+    },
+    {
+      "id": "required_files",
+      "status": "PASS",
+      "description": "HW6 files exist and AGENT.md has at least five project instructions",
+      "evidence": {
+        "files": 10,
+        "project_instructions": 6
+      }
+    },
+    {
+      "id": "score_label",
+      "status": "PASS",
+      "description": "inspection_score_label follows the AGENT.md type, docstring, and range rules",
+      "evidence": {
+        "label_95": "good",
+        "rejects_out_of_range": true
+      }
+    },
+    {
+      "id": "consolidation",
+      "status": "PASS",
+      "description": "The 55-line MEMORY.md consolidates to under 40 content lines and records conflicts",
+      "evidence": {
+        "content_before": 54,
+        "content_after": 33,
+        "saved_file_content_lines": 33
+      }
+    },
+    {
+      "id": "backend_port",
+      "status": "PASS",
+      "description": "Backend answers on port 8521",
+      "evidence": {
+        "port": 8521,
+        "started_by_verify": false
+      }
+    },
+    {
+      "id": "documents",
+      "status": "PASS",
+      "description": "MongoDB document CRUD, 400 for bad JSON or id, 404, and 422 for bad fields",
+      "evidence": {
+        "created": "6ad56d17c0ca748a1d1bff18",
+        "validation": [
+          422,
+          422,
+          400
+        ]
+      }
+    },
+    {
+      "id": "commands",
+      "status": "PASS",
+      "description": "/help lists /memory, /compact, /dream, and /help",
+      "evidence": {
+        "commands": 4
+      }
+    },
+    {
+      "id": "chat",
+      "status": "PASS",
+      "description": "POST /api/chat returns a reply plus memory_used, and the memory and aggregate routes respond",
+      "evidence": {
+        "reply_chars": 34,
+        "short_term_count": 1,
+        "prompt_tokens": 1085,
+        "daily_rows": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+<!-- consolidated: 2026-10-19T20:40:23Z -->
+# Durable facts
+- repo_owner: Eric Zhao
+- hand_sink: soap
+- report_dir: reports/hw06
+- default_score: 100
+- glove_rule: replace
+- port_base: 8000
+- note_01: Each inspection has a code shaped like INS-00001.
+- note_02: A score starts at 100 before deductions.
+- note_03: Minor violations are worth less than major ones.
+- note_04: Deleting an owner who still has inspections is refused.
+- note_05: Owner email addresses must be unique.
+- note_06: The document database is separate from the MySQL database.
+- note_07: Cuisine is stored on the inspection, not on the owner.
+- note_08: Violations are removed when their inspection is removed.
+- note_09: Session cookies expire after 30 minutes.
+- note_10: The chat route does not require a login cookie.
+- note_11: Short-term memory is a sliding window of recent messages.
+- note_12: Lifetime summaries have no session id.
+- note_13: Episodic facts keep an importance score between 0 and 1.
+- note_14: Probe questions are fixed before the memory test runs.
+- note_15: The local model is qwen3:8b.
+- note_16: Reports for this homework live under reports/hw06.
+- note_17: A second visit means the restaurant is not finished yet.
+- note_18: Closed status means the inspection is finished.
+- note_19: Open status is the default for a new inspection document.
+- note_20: Notes on an inspection document are optional.
+- note_21: The restaurant name on a document cannot exceed 100 characters.
+- note_22: Daily message counts are grouped by the date of the message.
+- note_23: File memory is loaded from AGENT.md and MEMORY.md.
+- resolved default_score: kept "100" and dropped "80".
+- resolved glove_rule: kept "replace" and dropped "reuse".
+- resolved port_base: kept "8000" and dropped "8521".

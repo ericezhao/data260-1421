@@ -1,0 +1,52 @@
+
+[2026-10-18 17:56:22] part 4 consolidation
+file_lines=55 content_before=54 content_after=33
+port_base kept: - port_base: 8000
+Eric Zhao (SID4 1421)
+2026-10-18 18:07:46
+
+GET /api/documents
+status 200
+[{"id":"6ad56afb18fa2382725112d6","restaurantName":"Torihide Yakitori","notes":"Counter seating. No violations on the last visit.","status":"closed","cuisine":"Japanese","inspectedAt":"2026-10-01T18:00:00","score":100,"owner":{"name":"Maria Lopez","phone":"408-555-0101"},"violations":[],"createdAt":"2026-10-19T00:57:31.019000","updatedAt":"2026-10-19T00:57:31.019000"},{"id":"6ad56afb18fa2382725112d7","restaurantName":"Mission Steakhouse","notes":"Walk-in cooler was above temperature.","status":"...
+
+POST /api/documents
+status 201
+{"id":"6ad56d62c0ca748a1d1bff1c","restaurantName":"Homework Grill","notes":"Created from run_hw06_part1.py","status":"open","cuisine":"American","inspectedAt":"2026-10-18T16:00:00","score":95,"owner":null,"violations":[{"description":"No soap at the hand sink","severity":"major"}],"createdAt":"2026-10-19T01:07:46.269000","updatedAt":"2026-10-19T01:07:46.269000"}
+
+GET /api/documents/{id}
+status 200
+{"id":"6ad56d62c0ca748a1d1bff1c","restaurantName":"Homework Grill","notes":"Created from run_hw06_part1.py","status":"open","cuisine":"American","inspectedAt":"2026-10-18T16:00:00","score":95,"owner":null,"violations":[{"description":"No soap at the hand sink","severity":"major"}],"createdAt":"2026-10-19T01:07:46.269000","updatedAt":"2026-10-19T01:07:46.269000"}
+
+PUT /api/documents/{id}
+status 200
+{"id":"6ad56d62c0ca748a1d1bff1c","restaurantName":"Homework Grill","notes":"Created from run_hw06_part1.py","status":"follow_up","cuisine":"American","inspectedAt":"2026-10-18T16:00:00","score":90,"owner":null,"violations":[{"description":"No soap at the hand sink","severity":"major"}],"createdAt":"2026-10-19T01:07:46.269000","updatedAt":"2026-10-19T01:07:46.276000"}
+
+POST missing cuisine
+status 422
+{"detail":[{"type":"missing","loc":["body","cuisine"],"msg":"Field required","input":{"restaurantName":"No Cuisine","inspectedAt":"2026-10-18T16:00:00Z"}}]}
+
+POST bad cuisine
+status 422
+{"detail":[{"type":"literal_error","loc":["body","cuisine"],"msg":"Input should be 'American', 'Chinese', 'Italian', 'Japanese', 'Mexican', 'Indian', 'Thai' or 'Other'","input":"Martian","ctx":{"expected":"'American', 'Chinese', 'Italian', 'Japanese', 'Mexican', 'Indian', 'Thai' or 'Other'"}}]}
+
+POST bad json
+status 400
+{"detail":"Request body is not valid JSON."}
+
+GET bad id
+status 400
+{"detail":"Invalid id format."}
+
+DELETE /api/documents/{id}
+status 204
+
+
+GET deleted id
+status 404
+{"detail":"Document not found."}
+
+[2026-10-18 18:21:59] part 3 short-term sweep
+n4: prompt=1411.6 completion=32.2 latency_ms=5632.1 probe=5.0 cost_usd=471.78
+n12: prompt=1618.0 completion=32.3 latency_ms=6145.9 probe=5.0 cost_usd=533.85
+n30: prompt=1936.8 completion=32.0 latency_ms=7416.9 probe=5.0 cost_usd=629.04
+compress: prompt=1648.8 completion=36.2 latency_ms=6280.8 probe=5.0 cost_usd=548.94

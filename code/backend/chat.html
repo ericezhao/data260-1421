@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Inspection memory</title>
+  <style>
+    body { font-family: Georgia, serif; max-width: 760px; margin: 28px auto; color: #222; }
+    h1 { font-size: 22px; }
+    label { display: block; margin: 8px 0; }
+    input, textarea { width: 100%; box-sizing: border-box; font: 16px Georgia, serif; }
+    button { margin-top: 8px; font: 16px Georgia, serif; }
+    #log { white-space: pre-wrap; background: #f6f4ef; padding: 12px; min-height: 180px; }
+  </style>
+</head>
+<body>
+  <h1>Inspection assistant</h1>
+  <p>Eric Zhao, SID4 1421. One box calls POST /api/chat.</p>
+  <label>User id <input id="user" value="eric"></label>
+  <label>Message <textarea id="message" rows="3">My inspection city is San Jose.</textarea></label>
+  <button id="send">Send</button>
+  <h2>Reply and memory used</h2>
+  <pre id="log"></pre>
+  <script>
+    const log = document.getElementById("log");
+    let sessionId = "";
+    document.getElementById("send").onclick = async () => {
+      const body = {
+        user_id: document.getElementById("user").value.trim(),
+        message: document.getElementById("message").value.trim()
+      };
+      if (sessionId) body.session_id = sessionId;
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(body)
+      });
+      const data = await res.json();
+      if (data.session_id) sessionId = data.session_id;
+      log.textContent = JSON.stringify(data, null, 2);
+    };
+  </script>
+</body>
+</html>

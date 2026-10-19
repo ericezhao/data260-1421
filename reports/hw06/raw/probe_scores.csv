@@ -1,0 +1,21 @@
+setting,probe_id,score,reply
+n4,city,5,Your inspection city is Gilroy.
+n4,cuisine,5,Your favorite inspection cuisine is Korean.
+n4,weekday,5,Your inspection weekday is Thursday.
+n4,deduction,5,Your critical deduction is 7 points.
+n4,noodle,5,Your Lantern Noodle 150 score is 91 and the next step is a return visit.
+n12,city,5,Your inspection city is Gilroy.
+n12,cuisine,5,Your favorite inspection cuisine is Korean.
+n12,weekday,5,Your inspection weekday is Thursday.
+n12,deduction,5,Your critical deduction is 7 points.
+n12,noodle,5,"Your Lantern Noodle 150 score is 91, and the next step is a return visit."
+n30,city,5,Your inspection city is Gilroy.
+n30,cuisine,5,Your favorite inspection cuisine is Korean.
+n30,weekday,5,Your inspection weekday is Thursday.
+n30,deduction,5,Your critical deduction is 7 points.
+n30,noodle,5,Your Lantern Noodle 150 score is 91 and the next step is a return visit.
+compress,city,5,- Your inspection city is Gilroy.
+compress,cuisine,5,- Your favorite inspection cuisine is Korean.
+compress,weekday,5,- Your inspection weekday is Thursday.
+compress,deduction,5,- Your critical deduction is 7 points.
+compress,noodle,5,- Your Lantern Noodle 150 score is 91 and the next step is a return visit.

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Bay Wheels advisor</title>
+  <style>
+    body { font-family: Georgia, serif; max-width: 920px; margin: 24px auto; color: #222; }
+    label { display: block; margin: 10px 0; }
+    input, button, select { font: 16px Georgia, serif; }
+    pre { background: #f6f4ef; padding: 12px; white-space: pre-wrap; }
+    .row { display: flex; gap: 16px; }
+    .row > div { flex: 1; }
+  </style>
+</head>
+<body>
+  <h1>Bay Wheels membership advisor</h1>
+  <p>Eric Zhao (SID4 1421). Tools: csv_sql, policy_retriever, calculator.</p>
+  <label>Scenario
+    <select id="scenario">
+      <option value="membership">membership wins</option>
+      <option value="payg">pay-per-use wins</option>
+    </select>
+  </label>
+  <label>Or upload CSV <input id="csv" type="file" accept=".csv"></label>
+  <label>Pricing URL <input id="url" style="width:100%" value="https://www.lyft.com/bikes/bay-wheels/pricing"></label>
+  <button id="run">Run</button>
+  <div class="row">
+    <div>
+      <h2>Timeline</h2>
+      <pre id="timeline"></pre>
+    </div>
+    <div>
+      <h2>Results</h2>
+      <pre id="results"></pre>
+    </div>
+  </div>
+  <script>
+    document.getElementById("run").onclick = async () => {
+      const scenario = document.getElementById("scenario").value;
+      const url = document.getElementById("url").value.trim();
+      const file = document.getElementById("csv").files[0];
+      const body = new FormData();
+      body.set("scenario", scenario);
+      body.set("pricing_url", url);
+      if (file) body.set("csv", file);
+      const res = await fetch("/api/bike/run", { method: "POST", body });
+      const data = await res.json();
+      document.getElementById("timeline").textContent = JSON.stringify(data.timeline, null, 2);
+      document.getElementById("results").textContent = JSON.stringify({
+        decision: data.decision,
+        justification: data.justification,
+        cost_breakdown: data.cost_breakdown,
+        citations: data.citations,
+        metrics: data.metrics,
+        assumptions: data.assumptions
+      }, null, 2);
+    };
+  </script>
+</body>
+</html>

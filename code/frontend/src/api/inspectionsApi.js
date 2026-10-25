@@ -1,17 +1,25 @@
 import axios from "axios";
 
+const TOKEN_KEY = "hw7_access_token";
+
 export const api = axios.create({
   baseURL: import.meta.env.DEV ? "http://localhost:8521" : "",
-  withCredentials: true,
 });
 
-// run callback when a protected request gets 401 (session expired or invalid)
-// /auth/* is skipped: /auth/me returns 401 when simply not logged in, /auth/login when password is wrong
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem(TOKEN_KEY);
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
 export function onSessionExpired(callback) {
   const id = api.interceptors.response.use(
     (res) => res,
     (err) => {
       if (err.response?.status === 401 && !err.config.url.startsWith("/auth/")) {
+        localStorage.removeItem(TOKEN_KEY);
         callback();
       }
       return Promise.reject(err);
@@ -20,7 +28,6 @@ export function onSessionExpired(callback) {
   return () => api.interceptors.response.eject(id);
 }
 
-// FastAPI sends detail as a string (404/409) or a list of field errors (422)
 export function errorMessage(err) {
   const detail = err.response?.data?.detail;
   if (Array.isArray(detail)) {
@@ -39,14 +46,20 @@ export async function fetchOwners() {
   return res.data;
 }
 
-export async function login(email, password) {
-  const res = await api.post("/auth/login", { email, password });
+export async function login(username, password) {
+  const body = new URLSearchParams();
+  body.set("username", username);
+  body.set("password", password);
+  const res = await api.post("/auth/login", body, {
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  });
+  localStorage.setItem(TOKEN_KEY, res.data.access_token);
   return res.data;
 }
 
 export async function logout() {
-  const res = await api.post("/auth/logout");
-  return res.data;
+  localStorage.removeItem(TOKEN_KEY);
+  return { message: "logged out" };
 }
 
 export async function me() {

@@ -1,0 +1,24 @@
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = [
+  "code/frontend/dist",
+  "code/frontend/node_modules",
+  "reports",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+# Scripts adjust sys.path before local imports.
+[tool.ruff.lint.per-file-ignores]
+"code/agent_tools/run_hw07_part2.py" = ["E402"]
+"code/agent_tools/run_hw07_part3.py" = ["E402"]
+"code/backend/bike_api.py" = ["E402"]
+"code/bike_share/agent.py" = ["E402"]
+"code/bike_share/run_injection_tests.py" = ["E402"]
+"code/bike_share/run_scenarios.py" = ["E402"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

@@ -1,0 +1,100 @@
+[
+  {
+    "scenario": "membership_wins",
+    "source_url": "https://www.lyft.com/bikes/bay-wheels/pricing",
+    "access_date": "2026-10-25T17:32:47Z",
+    "sha256_extracted_text": "27d82c92dbf17c4b0ac758b825969b559e8ccd6cc7674e9de714b3351263171f",
+    "sha256_fixture_file": "9533766b0416c551873610012d3efd8880bdc435e933c7f15f90008d281c80a7",
+    "fixture_file": "reports/hw07/raw/bike/baywheels_pricing_membership.html",
+    "decision": "Buy Monthly Membership",
+    "metrics": {
+      "step_count": 7,
+      "total_time_ms": 104,
+      "stop_reason": "success"
+    },
+    "cost_breakdown": {
+      "pay_per_use_total": 6208.75,
+      "membership_total": 264.76,
+      "membership_base": 34.0,
+      "membership_residual": 230.76,
+      "break_even_rides": 4.26,
+      "actual_rides": 520.0,
+      "by_week": [
+        {
+          "week": 1,
+          "ride_count": 130.0,
+          "average_duration": 28.066923076923093,
+          "spend_payg": 1548.31
+        },
+        {
+          "week": 2,
+          "ride_count": 130.0,
+          "average_duration": 27.658461538461534,
+          "spend_payg": 1532.38
+        },
+        {
+          "week": 3,
+          "ride_count": 130.0,
+          "average_duration": 28.673076923076927,
+          "spend_payg": 1571.95
+        },
+        {
+          "week": 4,
+          "ride_count": 130.0,
+          "average_duration": 28.26692307692307,
+          "spend_payg": 1556.11
+        }
+      ]
+    },
+    "justification": "Across 520 rides totaling 14646.5 minutes, pay-per-use is about $6208.75 while membership is about $264.76 (base $34.00 plus residual overage $230.76). Break-even is roughly 4.3 typical rides. Pricing snippets came from https://www.lyft.com/bikes/bay-wheels/pricing. Decision: Buy Monthly Membership."
+  },
+  {
+    "scenario": "payg_wins",
+    "source_url": "https://www.lyft.com/bikes/bay-wheels/pricing",
+    "access_date": "2026-10-25T17:32:47Z",
+    "sha256_extracted_text": "692c8f60009d96a816651bfa8da597cd033fe93b47e59b25eb2389d1e89ef93d",
+    "sha256_fixture_file": "abdff0d2be4ab6f4a9f31dc499b8d7dfbdacc5340b536ce96e960c022dd224a9",
+    "fixture_file": "reports/hw07/raw/bike/baywheels_pricing_payg.html",
+    "decision": "Pay Per Ride/Minute",
+    "metrics": {
+      "step_count": 7,
+      "total_time_ms": 16,
+      "stop_reason": "success"
+    },
+    "cost_breakdown": {
+      "pay_per_use_total": 81.62,
+      "membership_total": 120.0,
+      "membership_base": 120.0,
+      "membership_residual": 0.0,
+      "break_even_rides": 160.0,
+      "actual_rides": 520.0,
+      "by_week": [
+        {
+          "week": 1,
+          "ride_count": 130.0,
+          "average_duration": 3.1053846153846156,
+          "spend_payg": 20.19
+        },
+        {
+          "week": 2,
+          "ride_count": 130.0,
+          "average_duration": 3.1200000000000014,
+          "spend_payg": 20.28
+        },
+        {
+          "week": 3,
+          "ride_count": 130.0,
+          "average_duration": 3.2615384615384597,
+          "spend_payg": 21.2
+        },
+        {
+          "week": 4,
+          "ride_count": 130.0,
+          "average_duration": 3.0707692307692316,
+          "spend_payg": 19.96
+        }
+      ]
+    },
+    "justification": "Across 520 rides totaling 1632.5 minutes, pay-per-use is about $81.62 while membership is about $120.00 (base $120.00 plus residual overage $0.00). Break-even is roughly 160.0 typical rides. Pricing snippets came from https://www.lyft.com/bikes/bay-wheels/pricing. Decision: Pay Per Ride/Minute."
+  }
+]

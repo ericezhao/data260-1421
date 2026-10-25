@@ -1,22 +1,23 @@
-from pathlib import Path
-import hashlib
 import json
-import secrets
-
-import uvicorn
-from fastapi import Depends, FastAPI, HTTPException, Query, Request, Response
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse
-from fastapi.staticfiles import StaticFiles
-from sqlalchemy.orm import Session
+from pathlib import Path
 
 import crud
 import models
 import schema
+import uvicorn
+from bike_api import router as bike_router
 from chat_api import router as chat_router
 from database import Base, db_session_basede26, engine, get_db, sql_counter
+from dependencies import get_current_user, require_roles
 from documents import router as documents_router
-from session_crud import create_session, delete_session, get_session
+from fastapi import Depends, FastAPI, HTTPException, Query, Request, Response, status
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse, JSONResponse
+from fastapi.security import OAuth2PasswordRequestForm
+from fastapi.staticfiles import StaticFiles
+from security import create_access_token, get_password_hash, verify_password
+from sqlalchemy import inspect, text
+from sqlalchemy.orm import Session
 
 PORT_BASE = 8521
 FRONTEND_DIR = Path(__file__).resolve().parent.parent / "frontend" / "dist"
@@ -27,11 +28,11 @@ app = FastAPI(title="Local Restaurant Inspections")
 
 # add middleware to allow requests from the frontend，for frontend development
 app.add_middleware(
-    CORSMiddleware, 
-    allow_origins=["http://localhost:5173"], # allow requests from the frontend
-    allow_credentials=True, # allow credentials (cookies) to be sent with the request
-    allow_methods=["*"], # allow all methods (GET, POST, PUT, DELETE, etc.)
-    allow_headers=["*"], # allow all headers 
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],  # allow requests from the frontend
+    allow_credentials=True,  # allow credentials (cookies) to be sent with the request
+    allow_methods=["*"],  # allow all methods (GET, POST, PUT, DELETE, etc.)
+    allow_headers=["*"],  # allow all headers
 )
 
 
@@ -63,45 +64,34 @@ async def reject_invalid_json(request: Request, call_next):
                     )
     return await call_next(request)
 
-# require_session must be defined before these Depends(...) lines
-def require_session(request: Request, db: Session = Depends(get_db)):
-    token = request.cookies.get("session_id")
-    if not token:
-        raise HTTPException(status_code=401, detail="Not logged in")
-    session_row = get_session(db, token)
-    if not session_row:
-        raise HTTPException(status_code=401, detail="Session expired or invalid")
-    return session_row
 
-
-@app.post("/auth/login")
-def login(payload: schema.LoginIn, response: Response, db: Session = Depends(get_db)):
-    user = db.query(models.User).filter(models.User.email == payload.email).first()
-    if not user or not verify_password(payload.password, user.password_hash):
-        raise HTTPException(status_code=401, detail="Invalid email or password")
-    session_row = create_session(db, user_id=user.id)
-    response.set_cookie(
-        key="session_id",
-        value=session_row.id,
-        httponly=True,
-        samesite="lax",
-        max_age=30 * 60,
+# ----- JWT authentication -----
+@app.post("/auth/login", response_model=schema.Token)
+def login(
+    form_data: OAuth2PasswordRequestForm = Depends(),
+    db: Session = Depends(get_db),
+):
+    user = db.query(models.User).filter(models.User.username == form_data.username).first()
+    if not user or not verify_password(form_data.password, user.password_hash):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Incorrect username or password",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    access_token = create_access_token(
+        data={"sub": user.username, "role": user.role},
     )
-    return {"message": "logged in", "userId": user.id}
+    return {"access_token": access_token, "token_type": "bearer"}
 
 
-@app.post("/auth/logout")
-def logout(request: Request, response: Response, db: Session = Depends(get_db)):
-    token = request.cookies.get("session_id")
-    if token:
-        delete_session(db, token)
-    response.delete_cookie("session_id")
-    return {"message": "logged out"}
-
-
-@app.get("/auth/me")
-def me(session_row=Depends(require_session)):
-    return {"loggedIn": True, "userId": session_row.user_id}
+@app.get("/auth/me", response_model=schema.AuthMeOut)
+def me(current_user: models.User = Depends(get_current_user)):
+    return schema.AuthMeOut(
+        id=current_user.id,
+        username=current_user.username,
+        name=current_user.name,
+        role=current_user.role,
+    )
 
 
 # ----- owners -----
@@ -109,7 +99,7 @@ def me(session_row=Depends(require_session)):
 def create_owner_api(
     payload: schema.OwnerCreate,
     db: Session = Depends(get_db),
-    _session=Depends(require_session),
+    _user=Depends(require_roles(["writer", "moderator"])),
 ):
     return owner_out(crud.create_owner(db, payload))
 
@@ -119,7 +109,7 @@ def list_owners(
     skip: int = Query(0, ge=0),
     limit: int = Query(20, ge=1, le=100),
     db: Session = Depends(get_db),
-    _session=Depends(require_session),
+    _user=Depends(get_current_user),
 ):
     return [owner_out(row) for row in crud.get_owners(db, skip, limit)]
 
@@ -128,7 +118,7 @@ def list_owners(
 def get_owner_api(
     owner_id: int,
     db: Session = Depends(get_db),
-    _session=Depends(require_session),
+    _user=Depends(get_current_user),
 ):
     return owner_out(crud.get_owner(db, owner_id))
 
@@ -138,7 +128,7 @@ def update_owner_api(
     owner_id: int,
     payload: schema.OwnerUpdate,
     db: Session = Depends(get_db),
-    _session=Depends(require_session),
+    _user=Depends(require_roles(["writer", "moderator"])),
 ):
     return owner_out(crud.update_owner(db, owner_id, payload))
 
@@ -147,7 +137,7 @@ def update_owner_api(
 def delete_owner_api(
     owner_id: int,
     db: Session = Depends(get_db),
-    _session=Depends(require_session),
+    _user=Depends(require_roles(["moderator"])),
 ):
     crud.delete_owner(db, owner_id)
     return Response(status_code=204)
@@ -159,12 +149,9 @@ def list_owner_inspections(
     skip: int = Query(0, ge=0),
     limit: int = Query(50, ge=1, le=500),
     db: Session = Depends(get_db),
-    _session=Depends(require_session),
+    _user=Depends(get_current_user),
 ):
-    return [
-        inspection_out(row)
-        for row in crud.get_inspections_by_owner(db, owner_id, skip, limit)
-    ]
+    return [inspection_out(row) for row in crud.get_inspections_by_owner(db, owner_id, skip, limit)]
 
 
 # ----- inspections -----
@@ -173,7 +160,7 @@ def list_inspections(
     skip: int = Query(0, ge=0),
     limit: int = Query(50, ge=1, le=500),
     db: Session = Depends(get_db),
-    _session=Depends(require_session),
+    _user=Depends(get_current_user),
 ):
     return [inspection_out(row) for row in crud.get_inspections(db, skip, limit)]
 
@@ -183,7 +170,7 @@ def list_inspections(
 def list_inspections_naive(
     limit: int = Query(10, ge=1, le=200),
     db: Session = Depends(get_db),
-    _session=Depends(require_session),
+    _user=Depends(get_current_user),
 ):
     return [
         inspection_with_violations(row, violations)
@@ -195,7 +182,7 @@ def list_inspections_naive(
 def list_inspections_fixed(
     limit: int = Query(10, ge=1, le=200),
     db: Session = Depends(get_db),
-    _session=Depends(require_session),
+    _user=Depends(get_current_user),
 ):
     return [
         inspection_with_violations(row, row.violations)
@@ -207,7 +194,7 @@ def list_inspections_fixed(
 def get_inspection_api(
     inspection_id: int,
     db: Session = Depends(get_db),
-    _session=Depends(require_session),
+    _user=Depends(get_current_user),
 ):
     return inspection_out(crud.get_inspection(db, inspection_id))
 
@@ -216,7 +203,7 @@ def get_inspection_api(
 def create_inspection_api(
     payload: schema.InspectionCreate,
     db: Session = Depends(get_db),
-    _session=Depends(require_session),
+    _user=Depends(require_roles(["writer", "moderator"])),
 ):
     return inspection_out(crud.create_inspection(db, payload))
 
@@ -226,7 +213,7 @@ def update_inspection_api(
     inspection_id: int,
     payload: schema.InspectionUpdate,
     db: Session = Depends(get_db),
-    _session=Depends(require_session),
+    _user=Depends(require_roles(["writer", "moderator"])),
 ):
     return inspection_out(crud.update_inspection(db, inspection_id, payload))
 
@@ -235,7 +222,7 @@ def update_inspection_api(
 def delete_inspection_api(
     inspection_id: int,
     db: Session = Depends(get_db),
-    _session=Depends(require_session),
+    _user=Depends(require_roles(["moderator"])),
 ):
     crud.delete_inspection(db, inspection_id)
     return Response(status_code=204)
@@ -243,6 +230,7 @@ def delete_inspection_api(
 
 app.include_router(documents_router)
 app.include_router(chat_router)
+app.include_router(bike_router)
 
 if FRONTEND_DIR.exists():
     assets_dir = FRONTEND_DIR / "assets"
@@ -259,38 +247,58 @@ if FRONTEND_DIR.exists():
 
 
 # ----- helper functions -----
-def hash_password(password: str) -> str:
-    salt = secrets.token_hex(16)
-    digest = hashlib.pbkdf2_hmac(
-        "sha256", password.encode("utf-8"), bytes.fromhex(salt), 120000
-    ).hex()
-    return f"{salt}${digest}"
-
-
-def verify_password(password: str, stored: str) -> bool:
-    salt, digest = stored.split("$", 1)
-    check = hashlib.pbkdf2_hmac(
-        "sha256", password.encode("utf-8"), bytes.fromhex(salt), 120000
-    ).hex()
-    return secrets.compare_digest(check, digest)
+def ensure_user_columns() -> None:
+    """Add HW7 username/role columns when the HW4 users table is still present."""
+    inspector = inspect(engine)
+    if "users" not in inspector.get_table_names():
+        return
+    columns = {col["name"] for col in inspector.get_columns("users")}
+    with engine.begin() as conn:
+        if "username" not in columns:
+            conn.execute(text("ALTER TABLE users ADD COLUMN username VARCHAR(80) NULL"))
+            conn.execute(text("CREATE UNIQUE INDEX uq_users_username ON users (username)"))
+        if "role" not in columns:
+            conn.execute(
+                text("ALTER TABLE users ADD COLUMN role VARCHAR(20) NOT NULL " "DEFAULT 'reader'")
+            )
 
 
 def seed_if_empty():
+    ensure_user_columns()
     db = db_session_basede26()
     try:
-        email = "eric.zhao@sjsu.edu"
-        user = db.query(models.User).filter(models.User.email == email).first()
-        password_hash = hash_password("password")
-        if user is None:
-            db.add(
-                models.User(
-                    name="Eric Zhao",
-                    email=email,
-                    password_hash=password_hash,
+        role_users = [
+            ("reader", "reader123", "reader", "Reader User", "reader@example.com"),
+            ("writer", "writer123", "writer", "Writer User", "writer@example.com"),
+            (
+                "moderator",
+                "moderator123",
+                "moderator",
+                "Moderator User",
+                "moderator@example.com",
+            ),
+        ]
+        for username, password, role, name, email in role_users:
+            row = db.query(models.User).filter(models.User.username == username).first()
+            if row is None:
+                db.add(
+                    models.User(
+                        name=name,
+                        email=email,
+                        username=username,
+                        password_hash=get_password_hash(password),
+                        role=role,
+                    )
                 )
-            )
+            else:
+                row.role = role
+                row.password_hash = get_password_hash(password)
         if db.query(models.Inspection).count() == 0:
-            owner = models.Owner(name="Maria Lopez", phone="408-555-0101", email="maria.lopez@example.com")
+            owner = models.Owner(
+                name="Maria Lopez",
+                phone="408-555-0101",
+                email="maria.lopez@example.com",
+            )
             db.add(owner)
             db.flush()
             samples = [

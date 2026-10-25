@@ -1,0 +1,22 @@
+name: DATA260 CI
+
+on:
+  push:
+    branches: ["main", "master"]
+  pull_request:
+    branches: ["main", "master"]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install Ruff
+        run: pip install ruff==0.6.5
+      - name: Run Ruff lint
+        run: ruff check code/backend/security.py code/backend/dependencies.py code/backend/auth_config.py
+      - name: Run Ruff format check
+        run: ruff format --check code/backend/security.py code/backend/dependencies.py code/backend/auth_config.py

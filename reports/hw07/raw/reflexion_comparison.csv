@@ -1,0 +1,4 @@
+task_id,original_success,original_unsupported,original_tool_calls,original_tokens,original_latency_ms,reflexion_success,reflexion_retries,reflexion_tool_calls,reflexion_tokens,reflexion_latency_ms,verifier_false_rejection
+A,0,0,2,1854,5780,1,1,4,3986,11450,0
+B,0,0,3,2175,5920,0,2,13,10809,25850,0
+C,0,0,3,2834,7150,1,1,6,6014,14940,0

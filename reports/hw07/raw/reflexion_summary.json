@@ -1,0 +1,64 @@
+{
+  "original": {
+    "task_success": 0.0,
+    "unsupported_claims": 0.0,
+    "retry_rate": 0.0,
+    "tool_calls": 2.67,
+    "tokens": 2287.67,
+    "latency_ms": 6283.33,
+    "verifier_false_rejections": 0
+  },
+  "reflexion": {
+    "task_success": 0.67,
+    "unsupported_claims": 0,
+    "retry_rate": 1.33,
+    "tool_calls": 7.67,
+    "tokens": 6936.33,
+    "latency_ms": 17413.33,
+    "verifier_false_rejections": 0
+  },
+  "rows": [
+    {
+      "task_id": "A",
+      "original_success": 0,
+      "original_unsupported": 0,
+      "original_tool_calls": 2,
+      "original_tokens": 1854,
+      "original_latency_ms": 5780,
+      "reflexion_success": 1,
+      "reflexion_retries": 1,
+      "reflexion_tool_calls": 4,
+      "reflexion_tokens": 3986,
+      "reflexion_latency_ms": 11450,
+      "verifier_false_rejection": 0
+    },
+    {
+      "task_id": "B",
+      "original_success": 0,
+      "original_unsupported": 0,
+      "original_tool_calls": 3,
+      "original_tokens": 2175,
+      "original_latency_ms": 5920,
+      "reflexion_success": 0,
+      "reflexion_retries": 2,
+      "reflexion_tool_calls": 13,
+      "reflexion_tokens": 10809,
+      "reflexion_latency_ms": 25850,
+      "verifier_false_rejection": 0
+    },
+    {
+      "task_id": "C",
+      "original_success": 0,
+      "original_unsupported": 0,
+      "original_tool_calls": 3,
+      "original_tokens": 2834,
+      "original_latency_ms": 7150,
+      "reflexion_success": 1,
+      "reflexion_retries": 1,
+      "reflexion_tool_calls": 6,
+      "reflexion_tokens": 6014,
+      "reflexion_latency_ms": 14940,
+      "verifier_false_rejection": 0
+    }
+  ]
+}

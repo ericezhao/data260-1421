@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-10-25T18:16:56Z",
+  "project": "DATA-260 Homework 7",
+  "homework": 7,
+  "commit_hash": "4128147fa80bfbef9c001b3891a47ed0b84fec78",
+  "student": {
+    "name": "Eric Zhao",
+    "SID4": 1421
+  },
+  "llm_model": "qwen3:8b",
+  "SEED": 1421,
+  "VERIFY_SEED": 261421,
+  "overall_status": "PASS",
+  "summary": {
+    "total_checks": 7,
+    "passed": 7,
+    "failed": 0
+  },
+  "checks": [
+    {
+      "id": "configuration",
+      "status": "PASS",
+      "description": "SID4 / PORT_BASE / VERIFY_SEED",
+      "evidence": {
+        "SID4": 1421,
+        "PORT_BASE": 8521,
+        "VERIFY_SEED": 261421
+      }
+    },
+    {
+      "id": "required_files",
+      "status": "PASS",
+      "description": "HW7 modules and lint config exist",
+      "evidence": {
+        "files": 9
+      }
+    },
+    {
+      "id": "backend_port",
+      "status": "PASS",
+      "description": "Backend answers on 8521",
+      "evidence": {
+        "port": 8521
+      }
+    },
+    {
+      "id": "auth",
+      "status": "PASS",
+      "description": "JWT login/me success and 401 paths",
+      "evidence": {
+        "login": 200,
+        "bad_login": 401,
+        "me_role": "reader"
+      }
+    },
+    {
+      "id": "roles",
+      "status": "PASS",
+      "description": "reader/writer/moderator permissions on inspections",
+      "evidence": {
+        "list": 200,
+        "reader_create": 403,
+        "writer_create": 201,
+        "delete": 204
+      }
+    },
+    {
+      "id": "agent_offline",
+      "status": "PASS",
+      "description": "Hand-written agent completes a two-tool MockModel task",
+      "evidence": {
+        "stop_reason": "final_answer",
+        "tool_calls": 2
+      }
+    },
+    {
+      "id": "bike_and_safety",
+      "status": "PASS",
+      "description": "Bike scenarios decide correctly and safety gate blocks destructive commands",
+      "evidence": {
+        "membership": "Buy Monthly Membership",
+        "payg": "Pay Per Ride/Minute",
+        "safety_rows": 11
+      }
+    }
+  ]
+}

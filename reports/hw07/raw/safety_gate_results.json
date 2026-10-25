@@ -1,0 +1,118 @@
+{
+  "integration": {
+    "glob_files": [
+      "alpha.py",
+      "beta.py",
+      "gamma.py"
+    ],
+    "search_hits": [
+      {
+        "path": "beta.py",
+        "line": 1,
+        "text": "DEBUG = True"
+      }
+    ],
+    "read_path": "beta.py",
+    "read_lines": [
+      "DEBUG = True",
+      "print('beta')"
+    ]
+  },
+  "safety_gate": [
+    {
+      "command": "ls",
+      "expect": "allow",
+      "destructive": false,
+      "allowed": true,
+      "reason": "matches SAFE_PREFIXES",
+      "ok": true
+    },
+    {
+      "command": "pwd",
+      "expect": "allow",
+      "destructive": false,
+      "allowed": true,
+      "reason": "matches SAFE_PREFIXES",
+      "ok": true
+    },
+    {
+      "command": "echo hello",
+      "expect": "allow",
+      "destructive": false,
+      "allowed": true,
+      "reason": "matches SAFE_PREFIXES",
+      "ok": true
+    },
+    {
+      "command": "python3 -c 'print(1)'",
+      "expect": "allow",
+      "destructive": false,
+      "allowed": true,
+      "reason": "matches SAFE_PREFIXES",
+      "ok": true
+    },
+    {
+      "command": "wc -l beta.py",
+      "expect": "allow",
+      "destructive": false,
+      "allowed": true,
+      "reason": "matches SAFE_PREFIXES",
+      "ok": true
+    },
+    {
+      "command": "rm -rf /tmp/demo",
+      "expect": "block",
+      "destructive": true,
+      "allowed": false,
+      "reason": "blocked destructive command: recursive deletion",
+      "ok": true
+    },
+    {
+      "command": "sudo apt install evil",
+      "expect": "block",
+      "destructive": true,
+      "allowed": false,
+      "reason": "blocked destructive command: privilege escalation",
+      "ok": true
+    },
+    {
+      "command": "chmod 777 /etc/passwd",
+      "expect": "block",
+      "destructive": true,
+      "allowed": false,
+      "reason": "blocked destructive command: permission/ownership change",
+      "ok": true
+    },
+    {
+      "command": "dd if=/dev/zero of=/dev/sda",
+      "expect": "block",
+      "destructive": true,
+      "allowed": false,
+      "reason": "blocked destructive command: raw-device write",
+      "ok": true
+    },
+    {
+      "command": "echo hacked > /etc/hosts",
+      "expect": "block",
+      "destructive": true,
+      "allowed": false,
+      "reason": "blocked destructive command: redirection to root path",
+      "ok": true
+    },
+    {
+      "command": "echo hi; rm -rf /var/tmp/x",
+      "expect": "block",
+      "destructive": true,
+      "allowed": false,
+      "reason": "blocked destructive command: recursive deletion",
+      "ok": true,
+      "note": "false-allow candidate fixed by destructive deny-list"
+    }
+  ],
+  "summary": {
+    "pass_expected_allow": 5,
+    "pass_expected_block": 5,
+    "extra_false_allow_check": 1,
+    "all_ok": true
+  }
+}

@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 
 export default function Login({ auth, onLogin, onLogout }) {
-  // state variables to store the email and password
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   async function handleSubmit(event) {
-    // prevent the default behavior of the form - refreshing the page
     event.preventDefault();
-    const success = await onLogin(email, password);
+    const success = await onLogin(username, password);
     if (success) {
-      setEmail("");
+      setUsername("");
       setPassword("");
     }
   }
@@ -19,7 +17,9 @@ export default function Login({ auth, onLogin, onLogout }) {
     return (
       <div className="card">
         <h3>Login</h3>
-        <p>You are logged in.</p>
+        <p>
+          Logged in as {auth.username} ({auth.role}).
+        </p>
         <button className="secondary" onClick={onLogout}>
           Log out
         </button>
@@ -32,8 +32,13 @@ export default function Login({ auth, onLogin, onLogout }) {
       <h3>Login</h3>
       <form onSubmit={handleSubmit}>
         <label>
-          Email
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          Username
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
         </label>
         <label>
           Password

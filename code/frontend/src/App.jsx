@@ -24,37 +24,53 @@ function RequireAuth({ auth, children }) {
 export default function App() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [auth, setAuth] = useState({ loggedIn: false, userId: null });
+  const [auth, setAuth] = useState({
+    loggedIn: false,
+    userId: null,
+    username: null,
+    role: null,
+  });
 
   useEffect(() => {
     (async () => {
       try {
         const data = await me();
-        setAuth({ loggedIn: true, userId: data.userId });
+        setAuth({
+          loggedIn: true,
+          userId: data.id,
+          username: data.username,
+          role: data.role,
+        });
       } catch {
-        setAuth({ loggedIn: false, userId: null });
+        setAuth({ loggedIn: false, userId: null, username: null, role: null });
       }
     })();
   }, []);
 
   useEffect(() => {
     return onSessionExpired(() => {
-      setAuth({ loggedIn: false, userId: null });
+      setAuth({ loggedIn: false, userId: null, username: null, role: null });
       dispatch(resetInspections());
       alert("Session expired. Please log in again.");
       navigate("/login");
     });
   }, [dispatch, navigate]);
 
-  async function onLogin(email, password) {
+  async function onLogin(username, password) {
     try {
-      const data = await login(email, password);
-      setAuth({ loggedIn: true, userId: data.userId });
+      await login(username, password);
+      const data = await me();
+      setAuth({
+        loggedIn: true,
+        userId: data.id,
+        username: data.username,
+        role: data.role,
+      });
       navigate("/");
       return true;
     } catch (err) {
       console.error(err);
-      alert("Login failed. Check email and password.");
+      alert("Login failed. Check username and password.");
       return false;
     }
   }
@@ -63,7 +79,7 @@ export default function App() {
     try {
       await logout();
     } finally {
-      setAuth({ loggedIn: false, userId: null });
+      setAuth({ loggedIn: false, userId: null, username: null, role: null });
       dispatch(resetInspections());
       navigate("/login");
     }

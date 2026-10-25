@@ -1,0 +1,21 @@
+attempt,task_id,repair_enabled,stop_reason,tool_calls,well_formed_before_repair,well_formed_after_repair,repair_count,failure_classes,answer
+1,A,False,final_answer,2,2,2,0,,Blue Sushi #3 has a score of 100 and no violations.
+2,B,True,final_answer,3,3,3,0,,There are no inspections found for Japanese cuisine.
+3,C,False,final_answer,3,3,3,0,,"Both inspections have the same score of 100, so neither has a lower score."
+4,A,True,final_answer,2,2,2,0,,Blue Sushi #3 has a score of 100 and no violations.
+5,B,False,final_answer,3,3,3,0,,There are no inspections found for Japanese cuisine.
+6,C,True,final_answer,3,3,3,0,,"Both inspections have the same score of 100, so neither has a lower score."
+7,A,False,final_answer,2,2,2,0,,Blue Sushi #3 has a score of 100 and no violations.
+8,B,True,final_answer,3,3,3,0,,There are no inspections found for Japanese cuisine.
+9,C,False,final_answer,3,3,3,0,,"Both inspections have the same score of 100, so neither has a lower score."
+10,A,True,final_answer,2,2,2,0,,Blue Sushi #3 has a score of 100 and no violations.
+11,B,False,final_answer,3,3,3,0,,There are no inspections found for Japanese cuisine.
+12,C,True,final_answer,3,3,3,0,,"Both inspections have the same score of 100, so neither has a lower score."
+13,A,False,final_answer,2,2,2,0,,Blue Sushi #3 has a score of 100 and no violations.
+14,B,True,final_answer,3,3,3,0,,There are no inspections found for Japanese cuisine.
+15,C,False,final_answer,3,3,3,0,,"Both inspections have the same score of 100, so neither has a lower score."
+16,A,True,final_answer,2,2,2,0,,Blue Sushi #3 has a score of 100 and no violations.
+17,B,False,final_answer,3,3,3,0,,There are no inspections found for Japanese cuisine.
+18,C,True,final_answer,3,3,3,0,,"Both inspections have the same score of 100, so neither has a lower score."
+19,A,False,final_answer,2,2,2,0,,Blue Sushi #3 has a score of 100 and no violations.
+20,B,True,final_answer,3,3,3,0,,There are no inspections found for Japanese cuisine.

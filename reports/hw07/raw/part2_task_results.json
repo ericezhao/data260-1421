@@ -1,0 +1,67 @@
+{
+  "tasks": [
+    {
+      "task_id": "A",
+      "run_id": "2c288a95",
+      "stop_reason": "final_answer",
+      "steps": 3,
+      "tool_calls": 2,
+      "answer": "Blue Sushi #3 has a score of 100 and no violations.",
+      "elapsed_s": 11.84,
+      "repair_count": 0,
+      "well_formed_before_repair": 2,
+      "well_formed_after_repair": 2,
+      "failure_classes": [],
+      "input_tokens": 1762,
+      "output_tokens": 92,
+      "total_tokens": 1854
+    },
+    {
+      "task_id": "B",
+      "run_id": "bf82a0c9",
+      "stop_reason": "final_answer",
+      "steps": 4,
+      "tool_calls": 3,
+      "answer": "There are no inspections found for Japanese cuisine.",
+      "elapsed_s": 6.0,
+      "repair_count": 0,
+      "well_formed_before_repair": 3,
+      "well_formed_after_repair": 3,
+      "failure_classes": [],
+      "input_tokens": 2047,
+      "output_tokens": 128,
+      "total_tokens": 2175
+    },
+    {
+      "task_id": "C",
+      "run_id": "225e02cf",
+      "stop_reason": "final_answer",
+      "steps": 4,
+      "tool_calls": 3,
+      "answer": "Both inspections have the same score of 100, so neither has a lower score.",
+      "elapsed_s": 7.16,
+      "repair_count": 0,
+      "well_formed_before_repair": 3,
+      "well_formed_after_repair": 3,
+      "failure_classes": [],
+      "input_tokens": 2709,
+      "output_tokens": 125,
+      "total_tokens": 2834
+    }
+  ],
+  "error_recovery": {
+    "run_id": "34ad438c",
+    "stop_reason": "final_answer",
+    "steps": 2,
+    "tool_calls": 1,
+    "answer": "The inspection code INS-99999 was not found in the database.",
+    "elapsed_s": 2.62,
+    "repair_count": 0,
+    "well_formed_before_repair": 1,
+    "well_formed_after_repair": 1,
+    "failure_classes": [],
+    "input_tokens": 691,
+    "output_tokens": 60,
+    "total_tokens": 751
+  }
+}

@@ -67,6 +67,20 @@ class InspectionWithViolations(InspectionOut):
     violations: list[ViolationOut]
 
 
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+
+class AuthMeOut(BaseModel):
+    id: int
+    username: str
+    name: str
+    role: str
+
+
 class LoginIn(BaseModel):
+    """Kept for older clients; HW7 login uses OAuth2 form username/password."""
+
     email: str = Field(min_length=1)
     password: str = Field(min_length=1)

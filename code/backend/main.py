@@ -1,4 +1,6 @@
 import json
+import sys
+from contextlib import asynccontextmanager
 from pathlib import Path
 
 import crud
@@ -21,10 +23,23 @@ from sqlalchemy.orm import Session
 
 PORT_BASE = 8521
 FRONTEND_DIR = Path(__file__).resolve().parent.parent / "frontend" / "dist"
+CODE_DIR = Path(__file__).resolve().parent.parent
+if str(CODE_DIR) not in sys.path:
+    sys.path.insert(0, str(CODE_DIR))
+
+from kafka_rpc.api import kafka_lifespan  # noqa: E402
+from kafka_rpc.api import router as kafka_router  # noqa: E402
 
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="Local Restaurant Inspections")
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    async with kafka_lifespan(app):
+        yield
+
+
+app = FastAPI(title="Local Restaurant Inspections", lifespan=lifespan)
 
 # add middleware to allow requests from the frontend，for frontend development
 app.add_middleware(
@@ -231,6 +246,7 @@ def delete_inspection_api(
 app.include_router(documents_router)
 app.include_router(chat_router)
 app.include_router(bike_router)
+app.include_router(kafka_router)
 
 if FRONTEND_DIR.exists():
     assets_dir = FRONTEND_DIR / "assets"
@@ -259,7 +275,7 @@ def ensure_user_columns() -> None:
             conn.execute(text("CREATE UNIQUE INDEX uq_users_username ON users (username)"))
         if "role" not in columns:
             conn.execute(
-                text("ALTER TABLE users ADD COLUMN role VARCHAR(20) NOT NULL " "DEFAULT 'reader'")
+                text("ALTER TABLE users ADD COLUMN role VARCHAR(20) NOT NULL DEFAULT 'reader'")
             )
 
 

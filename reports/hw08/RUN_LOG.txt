@@ -1,0 +1,231 @@
+Eric Zhao (SID4 1421) HW8 evidence refresh 2026-11-04T01:00:11Z
+PORT_BASE=8521 PREFIX=s1421 VERIFY_SEED=261421
+
+===== docker ps =====
+NAMES          STATUS                 PORTS
+s1421-api      Up 2 hours             0.0.0.0:8521->8521/tcp, [::]:8521->8521/tcp
+s1421-worker   Up 2 hours             
+s1421-kafka    Up 3 hours (healthy)   0.0.0.0:9092->29092/tcp, [::]:9092->29092/tcp
+s1421_mongo    Up 3 hours             0.0.0.0:27017->27017/tcp, [::]:27017->27017/tcp
+
+===== Part1 homework_demo.py =====
+Eric Zhao (SID4 1421) - HW8 homework_demo.py
+REQUEST_TOPIC=s1421_entity_requests
+RESPONSE_TOPIC=s1421_entity_responses
+
+[CLIENT] Sending message to REQUEST topic
+[CLIENT] correlation_id=ffbbb37a-d237-4113-b289-1259c5325d61
+[CLIENT] Message value={
+  "correlation_id": "ffbbb37a-d237-4113-b289-1259c5325d61",
+  "reply_to": "s1421_entity_responses",
+  "operation": "CREATE_INSPECTION",
+  "data": {
+    "restaurant_name": "Blue Sushi Demo",
+    "cuisine": "Japanese",
+    "score": 95
+  }
+}
+[CLIENT] Sent to topic=s1421_entity_requests, partition=2, offset=1
+
+[CLIENT] Response received from RESPONSE topic
+[CLIENT] Topic=s1421_entity_responses, Partition=2, Offset=3
+[CLIENT] Message value={
+  "correlation_id": "ffbbb37a-d237-4113-b289-1259c5325d61",
+  "success": true,
+  "inspection_id": "70bc9301-69f8-42bd-9607-35cc295dec00",
+  "message": "Inspection created"
+}
+[CLIENT] correlation_id preserved=ffbbb37a-d237-4113-b289-1259c5325d61
+
+[CLIENT] Created inspection_id=70bc9301-69f8-42bd-9607-35cc295dec00
+
+[CLIENT] Sending message to REQUEST topic
+[CLIENT] correlation_id=f8275eae-c5ea-48c4-aae9-3b986b96c4c7
+[CLIENT] Message value={
+  "correlation_id": "f8275eae-c5ea-48c4-aae9-3b986b96c4c7",
+  "reply_to": "s1421_entity_responses",
+  "operation": "GET_INSPECTION",
+  "data": {
+    "inspection_id": "70bc9301-69f8-42bd-9607-35cc295dec00"
+  }
+}
+[CLIENT] Sent to topic=s1421_entity_requests, partition=1, offset=5
+
+[CLIENT] Response received from RESPONSE topic
+[CLIENT] Topic=s1421_entity_responses, Partition=0, Offset=3
+[CLIENT] Message value={
+  "correlation_id": "f8275eae-c5ea-48c4-aae9-3b986b96c4c7",
+  "success": true,
+  "entity": {
+    "inspection_id": "70bc9301-69f8-42bd-9607-35cc295dec00",
+    "restaurant_name": "Blue Sushi Demo",
+    "cuisine": "Japanese",
+    "score": 95
+  }
+}
+[CLIENT] correlation_id preserved=f8275eae-c5ea-48c4-aae9-3b986b96c4c7
+
+[CLIENT] Retrieved entity:
+{
+  "inspection_id": "70bc9301-69f8-42bd-9607-35cc295dec00",
+  "restaurant_name": "Blue Sushi Demo",
+  "cuisine": "Japanese",
+  "score": 95
+}
+[CLIENT] CREATE -> GET sequence complete; create_corr=ffbbb37a-d237-4113-b289-1259c5325d61 get_corr=f8275eae-c5ea-48c4-aae9-3b986b96c4c7
+
+===== Part1 API CREATE =====
+{"correlation_id":"fc29512a-385e-410f-a328-6747ae9593de","success":true,"inspection_id":"7d0e0801-edea-4f3d-be51-11c4b4429977","message":"Inspection created"}
+
+===== Part2 send_question + agent tails =====
+[SEND] correlation_id=6e22e60c-25a5-4451-83aa-ad61eefc83a5
+[SEND] -> s1421_inbox: {"correlation_id": "6e22e60c-25a5-4451-83aa-ad61eefc83a5", "question": "Why do inspection scores matter for sushi restaurants?", "entity_key": "cuisine-japanese"}
+[SEND] waiting on s1421_final ...
+[SEND] final message:
+{
+  "correlation_id": "6e22e60c-25a5-4451-83aa-ad61eefc83a5",
+  "status": "approved",
+  "score": 8,
+  "answer": "Inspection scores (0-100) summarize food-safety findings; higher is better. Sushi restaurants watch scores because raw fish handling is high risk and public grades affect trust.",
+  "question": "Why do inspection scores matter for sushi restaurants?"
+}
+--- planner ---
+[PLANNER] listening on s1421_inbox
+[PLANNER] got correlation_id=6e22e60c-25a5-4451-83aa-ad61eefc83a5 question='Why do inspection scores matter for sushi restaurants?'
+[PLANNER] sent plan to s1421_tasks: '1. Restate the inspection question.\n2. Note score meaning (0-100, higher is better).\n3. Give a short cuisine-aware answe'
+--- writer ---
+[WRITER] listening on s1421_tasks (group=s1421-writer-group)
+[WRITER] recv partition=1 offset=88 key=b'cuisine-japanese' correlation_id=6e22e60c-25a5-4451-83aa-ad61eefc83a5 retries=0
+[WRITER] drafting correlation_id=6e22e60c-25a5-4451-83aa-ad61eefc83a5
+[WRITER] sent draft to s1421_drafts: 'Inspection scores run from 0 to 100 (higher is better) and summarize observed food-safety practices. For sushi restauran'
+[WRITER] offset committed partition=1
+--- reviewer ---
+[REVIEWER] reviewing correlation_id=261421-11-d3ed
+[REVIEWER] final -> s1421_final: {"correlation_id": "261421-11-d3ed", "status": "approved", "score": 8, "answer": "Inspection scores (0-100) summarize food-safety findings; higher is better. Sushi restaurants watch scores because raw
+[REVIEWER] reviewing correlation_id=261421-12-ec56
+[REVIEWER] final -> s1421_final: {"correlation_id": "261421-12-ec56", "status": "approved", "score": 8, "answer": "Inspection scores (0-100) summarize food-safety findings; higher is better. Sushi restaurants watch scores because raw
+[REVIEWER] reviewing correlation_id=261421-13-f3fd
+[REVIEWER] final -> s1421_final: {"correlation_id": "261421-13-f3fd", "status": "approved", "score": 8, "answer": "Inspection scores (0-100) summarize food-safety findings; higher is better. Sushi restaurants watch scores because raw
+[REVIEWER] reviewing correlation_id=261421-14-954c
+[REVIEWER] final -> s1421_final: {"correlation_id": "261421-14-954c", "status": "approved", "score": 8, "answer": "Inspection scores (0-100) summarize food-safety findings; higher is better. Sushi restaurants watch scores because raw
+[REVIEWER] reviewing correlation_id=261421-15-f58e
+[REVIEWER] final -> s1421_final: {"correlation_id": "261421-15-f58e", "status": "approved", "score": 8, "answer": "Inspection scores (0-100) summarize food-safety findings; higher is better. Sushi restaurants watch scores because raw
+[REVIEWER] reviewing correlation_id=261421-16-68f1
+[REVIEWER] final -> s1421_final: {"correlation_id": "261421-16-68f1", "status": "approved", "score": 8, "answer": "Inspection scores (0-100) summarize food-safety findings; higher is better. Sushi restaurants watch scores because raw
+[REVIEWER] reviewing correlation_id=261421-17-ae3e
+[REVIEWER] final -> s1421_final: {"correlation_id": "261421-17-ae3e", "status": "approved", "score": 8, "answer": "Inspection scores (0-100) summarize food-safety findings; higher is better. Sushi restaurants watch scores because raw
+[REVIEWER] reviewing correlation_id=261421-18-7998
+[REVIEWER] final -> s1421_final: {"correlation_id": "261421-18-7998", "status": "approved", "score": 8, "answer": "Inspection scores (0-100) summarize food-safety findings; higher is better. Sushi restaurants watch scores because raw
+[REVIEWER] reviewing correlation_id=261421-19-9c6c
+[REVIEWER] final -> s1421_final: {"correlation_id": "261421-19-9c6c", "status": "approved", "score": 8, "answer": "Inspection scores (0-100) summarize food-safety findings; higher is better. Sushi restaurants watch scores because raw
+[REVIEWER] reviewing correlation_id=6e22e60c-25a5-4451-83aa-ad61eefc83a5
+[REVIEWER] final -> s1421_final: {"correlation_id": "6e22e60c-25a5-4451-83aa-ad61eefc83a5", "status": "approved", "score": 8, "answer": "Inspection scores (0-100) summarize food-safety findings; higher is better. Sushi restaurants wa
+
+===== Part3 failure tests =====
+[2026-11-04T00:59:19Z] Eric Zhao (SID4 1421) - HW8 Part 3 failure tests start
+[2026-11-04T00:59:19Z] duplicate before={"note": "Without idempotency, replaying CREATE would insert twice", "would_create_second_row": true} after={"first_inspection_id": "4d5f8507-43e6-4ec0-83c1-66ad036a63e9", "second_inspection_id": "4d5f8507-43e6-4ec0-83c1-66ad036a63e9", "same_id": true, "second_was_replay": true}
+[2026-11-04T00:59:22Z] consumer_death first_see correlation_id=b0702dc7-a629-4ccb-9905-86235904a6a9 offset=55 (no commit, exit)
+[2026-11-04T00:59:25Z] consumer_death redelivered correlation_id=b0702dc7-a629-4ccb-9905-86235904a6a9 offset=55
+[2026-11-04T00:59:25Z] consumer_death before={"behavior": "Auto-commit before finish can lose in-flight work on kill", "first_offset_seen": 55, "committed_before_exit": false} after={"behavior": "enable_auto_commit=False; commit only after success", "redelivered_after_restart": true, "second_offset": 55, "same_offset": true}
+[2026-11-04T00:59:25Z] started writer pid=11547 log=/tmp/s1421_writer_test_0.log
+[2026-11-04T00:59:25Z] started writer pid=11548 log=/tmp/s1421_writer_test_1.log
+[2026-11-04T00:59:33Z] poison publish correlation_id=6eb1acd2-5bed-4f37-8b56-53630c01553e
+[2026-11-04T00:59:33Z] poison before={"retries_expected": 2, "blocks_pipeline_without_dlq": true} after={"dead_letter_topic": "s1421_dead_letter", "dead_payload": {"correlation_id": "6eb1acd2-5bed-4f37-8b56-53630c01553e", "question": "__POISON__", "plan": "n/a", "poison": true, "entity_key": "poison-demo", "_retries": 2, "dead_letter_reason": "poison message", "retries": 2}, "pipeline_unblocked": true}
+[2026-11-04T00:59:37Z] ordering sent 20 messages use_key=False
+[2026-11-04T00:59:40Z] ordering sent 20 messages use_key=True
+[2026-11-04T00:59:40Z] Part 3 failure tests done
+{
+  "ordering_summary": {
+    "verify_seed": 261421,
+    "without_key_count": 20,
+    "with_key_count": 20,
+    "without_key": [
+      {
+        "correlation_id": "261421-00-84b5",
+        "seq": 0,
+        "partition": 1
+      },
+      {
+        "correlation_id": "261421-01-d176",
+        "seq": 1,
+        "partition": 0
+      },
+      {
+        "correlation_id": "261421-02-1b53",
+        "seq": 2,
+        "partition": 1
+      },
+      {
+        "correlation_id": "261421-03-0f6f",
+        "seq": 3,
+        "partition": 1
+      },
+      {
+        "correlation_id": "261421-04-9808",
+        "seq": 4,
+        "partition": 1
+      },
+      {
+        "correlation_id": "261421-05-1729",
+        "seq": 5,
+        "partition": 0
+      },
+      {
+        "correlation_id": "261421-06-7305",
+        "seq": 6,
+        "partition": 0
+      },
+      {
+        "correlation_id": "261421-07-f475",
+        "seq": 7,
+        "partition": 0
+      },
+      {
+        "correlation_id": "261421-08-0100",
+        "seq": 8,
+        "partition": 0
+      },
+      {
+        "correlation_id": "261421-09-86d8",
+        "seq": 9,
+        "partition": 1
+      },
+      {
+        "correlation_id": "261421-10-7e3a",
+        "seq": 10,
+        "partition": 1
+      },
+      {
+        "correlation_id": "261421-11-0286",
+        "seq": 11,
+        "partition": 0
+      },
+      {
+        "correlation_id": "261421-12-2e9f",
+        "seq": 12,
+        "partition": 1
+      },
+      {
+        "correlation_id": "261421-13-e954",
+        "seq": 13,
+        "partition": 0
+      },
+      {
+        "correlation_id": "2614
+
+===== verify_hw08.py =====
+{
+  "overall_status": "PASS",
+  "summary": {
+    "passed": 10,
+    "failed": 0,
+    "total": 10
+  }
+}
+[2026-11-04T07:24:34Z] consumer_death first_see correlation_id=09d4a489-9b43-41de-bfa6-51c8c0a4adac offset=90 (no commit, exit)
+[2026-11-04T07:24:37Z] consumer_death redelivered correlation_id=09d4a489-9b43-41de-bfa6-51c8c0a4adac offset=90
+[2026-11-04T07:24:37Z] consumer_death before={"behavior": "Auto-commit before finish can lose in-flight work on kill", "first_offset_seen": 90, "committed_before_exit": false} after={"behavior": "enable_auto_commit=False; commit only after success", "redelivered_after_restart": true, "second_offset": 90, "same_offset": true}
+[2026-11-04T07:27:32Z] poison publish correlation_id=402c14cb-755b-4ca5-b09b-b2e576cbf385
+[2026-11-04T07:27:32Z] poison before={"retries_expected": 2, "blocks_pipeline_without_dlq": true} after={"dead_letter_topic": "s1421_dead_letter", "dead_payload": {"correlation_id": "402c14cb-755b-4ca5-b09b-b2e576cbf385", "question": "__POISON__", "plan": "n/a", "poison": true, "entity_key": "poison-demo", "_retries": 2, "dead_letter_reason": "poison message", "retries": 2}, "pipeline_unblocked": true}
+[2026-11-04T07:30:20Z] ordering sent 20 messages use_key=False
+[2026-11-04T07:30:23Z] ordering sent 20 messages use_key=True

@@ -1,0 +1,68 @@
+{
+  "homework": 8,
+  "sid4": 1421,
+  "commit": "c3556c9f9e8d30872e4d9fbfa4aaf783a6a522a9",
+  "model": "qwen3:8b",
+  "seed": 1421,
+  "verify_seed": 261421,
+  "kafka_bootstrap": "localhost:9092",
+  "checked_at": "2026-11-04T07:45:38.444877+00:00",
+  "summary": {
+    "passed": 10,
+    "failed": 0,
+    "total": 10
+  },
+  "overall_status": "PASS",
+  "checks": [
+    {
+      "name": "prefix_topics",
+      "pass": true,
+      "detail": "PREFIX=s1421"
+    },
+    {
+      "name": "create_inspection_local",
+      "pass": true,
+      "detail": "{\"success\": true, \"inspection_id\": \"8f65d52a-11c6-46bb-aca8-d99c8c7a85b4\", \"message\": \"Inspection created\"}"
+    },
+    {
+      "name": "get_inspection_local",
+      "pass": true,
+      "detail": "{\"success\": true, \"entity\": {\"inspection_id\": \"8f65d52a-11c6-46bb-aca8-d99c8c7a85b4\", \"restaurant_name\": \"Verify Sushi\", \"cuisine\": \"Japanese\", \"score\": 91}}"
+    },
+    {
+      "name": "idempotent_create_replay",
+      "pass": true,
+      "detail": "{\"success\": true, \"inspection_id\": \"8f65d52a-11c6-46bb-aca8-d99c8c7a85b4\", \"message\": \"Inspection created\", \"idempotent_replay\": true}"
+    },
+    {
+      "name": "unknown_operation",
+      "pass": true,
+      "detail": "{\"success\": false, \"error\": \"Unknown operation\"}"
+    },
+    {
+      "name": "missing_entity",
+      "pass": true,
+      "detail": "{\"success\": false, \"error\": \"Inspection not found\"}"
+    },
+    {
+      "name": "kafka_create_get_roundtrip",
+      "pass": true,
+      "detail": "{\"created\": {\"correlation_id\": \"5016b69a-d829-45df-9581-f6133de1e267\", \"success\": true, \"inspection_id\": \"3175bda0-e114-45c3-a73d-02ad47985002\", \"message\": \"Inspection created\"}, \"fetched\": {\"correlation_id\": \"40f54cb7-8c3f-448d-936d-1eee76764b5b\", \"success\": true, \"entity\": {\"inspection_id\": \"3175bda0-e114-45c3-a73d-02ad47985002\", \"restaurant_name\": \"Verify Kafka Sushi\", \"cuisine\": \"Japanese\", \"score\": 93}}}"
+    },
+    {
+      "name": "agent_modules_import",
+      "pass": true,
+      "detail": "ok"
+    },
+    {
+      "name": "reports_hw08_layout",
+      "pass": true,
+      "detail": "/Users/eric/data260/reports/hw08"
+    },
+    {
+      "name": "part3_raw_artifacts",
+      "pass": true,
+      "detail": "/Users/eric/data260/reports/hw08/raw"
+    }
+  ]
+}

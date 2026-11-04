@@ -1,0 +1,14 @@
+{
+  "first": {
+    "success": true,
+    "inspection_id": "edd8c673-ec0d-4b5a-ae32-6fd9c4738b31",
+    "message": "Inspection created"
+  },
+  "second": {
+    "success": true,
+    "inspection_id": "edd8c673-ec0d-4b5a-ae32-6fd9c4738b31",
+    "message": "Inspection created",
+    "idempotent_replay": true
+  },
+  "store_size": 1
+}

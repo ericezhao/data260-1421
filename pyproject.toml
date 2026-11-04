@@ -18,6 +18,11 @@ select = ["E", "F", "I"]
 "code/bike_share/agent.py" = ["E402"]
 "code/bike_share/run_injection_tests.py" = ["E402"]
 "code/bike_share/run_scenarios.py" = ["E402"]
+"code/kafka_rpc/homework_demo.py" = ["E402"]
+"code/kafka_rpc/worker.py" = ["E402"]
+"code/kafka_rpc/slim_api.py" = ["E402"]
+"code/agents_kafka/*.py" = ["E402"]
+"code/verify_hw08.py" = ["E402"]
 
 [tool.ruff.format]
 quote-style = "double"

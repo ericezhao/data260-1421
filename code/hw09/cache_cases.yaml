@@ -1,0 +1,217 @@
+# 40 labeled cache cases for HW9 Part 3.
+# Labels fixed before any threshold sweep. Do not relabel after seeing results.
+# expected_hit: true means a good cache should return a prior answer for this query.
+# category: exact | paraphrase | false_friend | unrelated
+#
+# Seed queries (written into cache before each case is asked) are listed as seed_query
+# when the incoming query is not itself the first write.
+
+cases:
+  # --- 10 exact duplicates (should hit) ---
+  - id: E01
+    category: exact
+    expected_hit: true
+    seed_query: "Why do inspection scores matter for sushi restaurants?"
+    query: "Why do inspection scores matter for sushi restaurants?"
+  - id: E02
+    category: exact
+    expected_hit: true
+    seed_query: "What does a score of 100 mean on a restaurant inspection?"
+    query: "What does a score of 100 mean on a restaurant inspection?"
+  - id: E03
+    category: exact
+    expected_hit: true
+    seed_query: "How are critical violations different from noncritical ones?"
+    query: "How are critical violations different from noncritical ones?"
+  - id: E04
+    category: exact
+    expected_hit: true
+    seed_query: "What cuisine tends to get more temperature violations?"
+    query: "What cuisine tends to get more temperature violations?"
+  - id: E05
+    category: exact
+    expected_hit: true
+    seed_query: "Does a closed placard mean the restaurant failed inspection?"
+    query: "Does a closed placard mean the restaurant failed inspection?"
+  - id: E06
+    category: exact
+    expected_hit: true
+    seed_query: "How often are restaurants in San Jose typically inspected?"
+    query: "How often are restaurants in San Jose typically inspected?"
+  - id: E07
+    category: exact
+    expected_hit: true
+    seed_query: "What is the inspection score range used in this system?"
+    query: "What is the inspection score range used in this system?"
+  - id: E08
+    category: exact
+    expected_hit: true
+    seed_query: "Why does raw fish handling raise food-safety risk?"
+    query: "Why does raw fish handling raise food-safety risk?"
+  - id: E09
+    category: exact
+    expected_hit: true
+    seed_query: "Can an owner delete an inspection that still has violations?"
+    query: "Can an owner delete an inspection that still has violations?"
+  - id: E10
+    category: exact
+    expected_hit: true
+    seed_query: "What fields are required to create an inspection record?"
+    query: "What fields are required to create an inspection record?"
+
+  # --- 10 paraphrases (should hit) ---
+  - id: P01
+    category: paraphrase
+    expected_hit: true
+    seed_query: "Why do inspection scores matter for sushi restaurants?"
+    query: "Why should sushi places care about their inspection score?"
+  - id: P02
+    category: paraphrase
+    expected_hit: true
+    seed_query: "What does a score of 100 mean on a restaurant inspection?"
+    query: "If a restaurant gets 100, what does that tell me?"
+  - id: P03
+    category: paraphrase
+    expected_hit: true
+    seed_query: "How are critical violations different from noncritical ones?"
+    query: "What's the difference between critical and non-critical violations?"
+  - id: P04
+    category: paraphrase
+    expected_hit: true
+    seed_query: "What cuisine tends to get more temperature violations?"
+    query: "Which type of restaurant often fails hot/cold holding checks?"
+  - id: P05
+    category: paraphrase
+    expected_hit: true
+    seed_query: "Does a closed placard mean the restaurant failed inspection?"
+    query: "If I see a closed sign from the health dept, did they fail?"
+  - id: P06
+    category: paraphrase
+    expected_hit: true
+    seed_query: "How often are restaurants in San Jose typically inspected?"
+    query: "What's the usual inspection frequency for SJ restaurants?"
+  - id: P07
+    category: paraphrase
+    expected_hit: true
+    seed_query: "What is the inspection score range used in this system?"
+    query: "What numbers can an inspection score be between?"
+  - id: P08
+    category: paraphrase
+    expected_hit: true
+    seed_query: "Why does raw fish handling raise food-safety risk?"
+    query: "Why is preparing raw fish considered higher risk for food safety?"
+  - id: P09
+    category: paraphrase
+    expected_hit: true
+    seed_query: "Can an owner delete an inspection that still has violations?"
+    query: "Is deleting an inspection allowed when violations are still attached?"
+  - id: P10
+    category: paraphrase
+    expected_hit: true
+    seed_query: "What fields are required to create an inspection record?"
+    query: "Which inputs do I need when creating a new inspection?"
+
+  # --- 10 false friends (look similar, different answers; should miss) ---
+  - id: F01
+    category: false_friend
+    expected_hit: false
+    seed_query: "What is Blue Sushi's latest inspection score?"
+    query: "What is Taco Spot's latest inspection score?"
+    note: "same template, different restaurant"
+  - id: F02
+    category: false_friend
+    expected_hit: false
+    seed_query: "Is Japanese cuisine usually high risk for raw fish?"
+    query: "Is Mexican cuisine usually high risk for raw fish?"
+  - id: F03
+    category: false_friend
+    expected_hit: false
+    seed_query: "What grade placard does inspection ins-001 currently show?"
+    query: "What grade placard does inspection ins-002 currently show?"
+  - id: F04
+    category: false_friend
+    expected_hit: false
+    seed_query: "How many critical violations did Blue Sushi get last visit?"
+    query: "How many critical violations did Green Bowl get last visit?"
+  - id: F05
+    category: false_friend
+    expected_hit: false
+    seed_query: "Does a score below 70 require a follow-up inspection?"
+    query: "Does a score below 90 require a follow-up inspection?"
+  - id: F06
+    category: false_friend
+    expected_hit: false
+    seed_query: "Is handwashing the top violation for cafes?"
+    query: "Is handwashing the top violation for sushi bars?"
+  - id: F07
+    category: false_friend
+    expected_hit: false
+    seed_query: "When was Blue Sushi last inspected?"
+    query: "When was Taco Spot last inspected?"
+  - id: F08
+    category: false_friend
+    expected_hit: false
+    seed_query: "What is the owner phone number on file for Blue Sushi?"
+    query: "What is the owner phone number on file for Green Bowl?"
+  - id: F09
+    category: false_friend
+    expected_hit: false
+    seed_query: "Can a score of 95 be labeled Excellent?"
+    query: "Can a score of 75 be labeled Excellent?"
+  - id: F10
+    category: false_friend
+    expected_hit: false
+    seed_query: "Does Japanese cuisine require parasite destruction records?"
+    query: "Does Mexican cuisine require parasite destruction records?"
+
+  # --- 10 unrelated (should miss) ---
+  - id: U01
+    category: unrelated
+    expected_hit: false
+    seed_query: "Why do inspection scores matter for sushi restaurants?"
+    query: "How do I reset my bike share PIN?"
+  - id: U02
+    category: unrelated
+    expected_hit: false
+    seed_query: "What does a score of 100 mean on a restaurant inspection?"
+    query: "What is the capital of Portugal?"
+  - id: U03
+    category: unrelated
+    expected_hit: false
+    seed_query: "How are critical violations different from noncritical ones?"
+    query: "Write a haiku about fog in San Francisco."
+  - id: U04
+    category: unrelated
+    expected_hit: false
+    seed_query: "What cuisine tends to get more temperature violations?"
+    query: "How many calories are in a banana?"
+  - id: U05
+    category: unrelated
+    expected_hit: false
+    seed_query: "Does a closed placard mean the restaurant failed inspection?"
+    query: "Explain how TCP differs from UDP."
+  - id: U06
+    category: unrelated
+    expected_hit: false
+    seed_query: "How often are restaurants in San Jose typically inspected?"
+    query: "Who won the 2010 World Cup?"
+  - id: U07
+    category: unrelated
+    expected_hit: false
+    seed_query: "What is the inspection score range used in this system?"
+    query: "How do I change the oil in a 2012 Civic?"
+  - id: U08
+    category: unrelated
+    expected_hit: false
+    seed_query: "Why does raw fish handling raise food-safety risk?"
+    query: "What time does the SJSU library close on Friday?"
+  - id: U09
+    category: unrelated
+    expected_hit: false
+    seed_query: "Can an owner delete an inspection that still has violations?"
+    query: "Translate 'good morning' into Japanese."
+  - id: U10
+    category: unrelated
+    expected_hit: false
+    seed_query: "What fields are required to create an inspection record?"
+    query: "How do I train a small CNN on MNIST?"

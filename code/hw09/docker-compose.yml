@@ -1,0 +1,9 @@
+services:
+  redis:
+    # Redis Stack = Redis + RediSearch/Query (needed by redisvl.SemanticCache)
+    image: redis/redis-stack-server:latest
+    container_name: s1421-redis
+    ports:
+      - "6379:6379"
+    environment:
+      REDIS_ARGS: "--save '' --appendonly no"

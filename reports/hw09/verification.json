@@ -1,0 +1,51 @@
+{
+  "homework": 9,
+  "sid4": 1421,
+  "commit": "84b4bfd8a8fc2fb98e19ffac3b4fbbd0bc24aa83",
+  "seed": 1421,
+  "verify_seed": 261421,
+  "checked_at": "2026-11-07T22:20:43.188872+00:00",
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7
+  },
+  "overall_status": "PASS",
+  "checks": [
+    {
+      "name": "prefix",
+      "pass": true,
+      "detail": "PREFIX=s1421"
+    },
+    {
+      "name": "part1_incr_to_10",
+      "pass": true,
+      "detail": "last=10"
+    },
+    {
+      "name": "part1_db_sync",
+      "pass": true,
+      "detail": "db=10"
+    },
+    {
+      "name": "cache_cases_yaml",
+      "pass": true,
+      "detail": "/Users/eric/data260/code/hw09/cache_cases.yaml"
+    },
+    {
+      "name": "reports_layout",
+      "pass": true,
+      "detail": "/Users/eric/data260/reports/hw09"
+    },
+    {
+      "name": "part4_datasets",
+      "pass": true,
+      "detail": "/Users/eric/data260/code/hw09/part4"
+    },
+    {
+      "name": "semantic_modules_import",
+      "pass": true,
+      "detail": "ok"
+    }
+  ]
+}

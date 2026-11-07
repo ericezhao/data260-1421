@@ -23,6 +23,9 @@ select = ["E", "F", "I"]
 "code/kafka_rpc/slim_api.py" = ["E402"]
 "code/agents_kafka/*.py" = ["E402"]
 "code/verify_hw08.py" = ["E402"]
+"code/hw09/*.py" = ["E402"]
+"code/hw09/part4/*.py" = ["E402"]
+"code/verify_hw09.py" = ["E402"]
 
 [tool.ruff.format]
 quote-style = "double"

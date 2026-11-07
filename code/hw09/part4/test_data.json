@@ -1,0 +1,8 @@
+[
+  {"id": "te1", "question": "What is the inspection score range?"},
+  {"id": "te2", "question": "Why should sushi restaurants watch food-safety risk?"},
+  {"id": "te3", "question": "What is Taco Spot's latest score?"},
+  {"id": "te4", "question": "Name the required fields to create an inspection."},
+  {"id": "te5", "question": "Explain critical vs noncritical violations."},
+  {"id": "te6", "question": "What grade does Blue Sushi currently have?"}
+]

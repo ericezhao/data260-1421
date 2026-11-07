@@ -1,0 +1,119 @@
+{
+  "n": 12,
+  "hits": 3,
+  "misses": 9,
+  "hit_rate_pct": 25.0,
+  "avg_latency_cached_ms": 8.85,
+  "avg_latency_uncached_ms": 26.59,
+  "threshold": 0.85,
+  "rows": [
+    {
+      "question": "Why do inspection scores matter for sushi restaurants?",
+      "answer": "Inspection scores are 0-100 (higher is better). Sushi places care because raw fish handling is high risk.",
+      "is_cached": false,
+      "similarity": 0.0,
+      "latency_ms": 80.06895901053213,
+      "cached_query": null,
+      "data_version": 1
+    },
+    {
+      "question": "Why do inspection scores matter for sushi restaurants?",
+      "answer": "Inspection scores are 0-100 (higher is better). Sushi places care because raw fish handling is high risk.",
+      "is_cached": true,
+      "similarity": 1.0,
+      "latency_ms": 8.460999990347773,
+      "cached_query": "Why do inspection scores matter for sushi restaurants?",
+      "data_version": 1
+    },
+    {
+      "question": "Why should sushi places care about their inspection score?",
+      "answer": "Inspection scores are 0-100 (higher is better). Sushi places care because raw fish handling is high risk.",
+      "is_cached": true,
+      "similarity": 0.9323694705963,
+      "latency_ms": 9.188791998894885,
+      "cached_query": "Why do inspection scores matter for sushi restaurants?",
+      "data_version": 1
+    },
+    {
+      "question": "What is the inspection score range used in this system?",
+      "answer": "Restaurant inspection scores summarize observed food-safety findings. Higher scores generally mean fewer / less severe violations.",
+      "is_cached": false,
+      "similarity": 0.493569016457,
+      "latency_ms": 20.001875003799796,
+      "cached_query": null,
+      "data_version": 1
+    },
+    {
+      "question": "What numbers can an inspection score be between?",
+      "answer": "Restaurant inspection scores summarize observed food-safety findings. Higher scores generally mean fewer / less severe violations.",
+      "is_cached": false,
+      "similarity": 0.808445215225,
+      "latency_ms": 20.66054100578185,
+      "cached_query": null,
+      "data_version": 1
+    },
+    {
+      "question": "How are critical violations different from noncritical ones?",
+      "answer": "Restaurant inspection scores summarize observed food-safety findings. Higher scores generally mean fewer / less severe violations.",
+      "is_cached": false,
+      "similarity": 0.19322109222399997,
+      "latency_ms": 18.34841599338688,
+      "cached_query": null,
+      "data_version": 1
+    },
+    {
+      "question": "What's the difference between critical and non-critical violations?",
+      "answer": "Restaurant inspection scores summarize observed food-safety findings. Higher scores generally mean fewer / less severe violations.",
+      "is_cached": true,
+      "similarity": 0.890087664127,
+      "latency_ms": 8.88900000427384,
+      "cached_query": "How are critical violations different from noncritical ones?",
+      "data_version": 1
+    },
+    {
+      "question": "How do I reset my bike share PIN?",
+      "answer": "Restaurant inspection scores summarize observed food-safety findings. Higher scores generally mean fewer / less severe violations.",
+      "is_cached": false,
+      "similarity": 0.022398233414000046,
+      "latency_ms": 19.322082996950485,
+      "cached_query": null,
+      "data_version": 1
+    },
+    {
+      "question": "What cuisine tends to get more temperature violations?",
+      "answer": "Restaurant inspection scores summarize observed food-safety findings. Higher scores generally mean fewer / less severe violations.",
+      "is_cached": false,
+      "similarity": 0.34511387348199996,
+      "latency_ms": 18.578165996586904,
+      "cached_query": null,
+      "data_version": 1
+    },
+    {
+      "question": "Which type of restaurant often fails hot/cold holding checks?",
+      "answer": "Restaurant inspection scores summarize observed food-safety findings. Higher scores generally mean fewer / less severe violations.",
+      "is_cached": false,
+      "similarity": 0.518446207047,
+      "latency_ms": 21.455666996189393,
+      "cached_query": null,
+      "data_version": 1
+    },
+    {
+      "question": "Explain how TCP differs from UDP.",
+      "answer": "Restaurant inspection scores summarize observed food-safety findings. Higher scores generally mean fewer / less severe violations.",
+      "is_cached": false,
+      "similarity": 0.12895178794899997,
+      "latency_ms": 19.79429100174457,
+      "cached_query": null,
+      "data_version": 1
+    },
+    {
+      "question": "Does a closed placard mean the restaurant failed inspection?",
+      "answer": "Public grade placards summarize the latest inspection outcome.",
+      "is_cached": false,
+      "similarity": 0.46350300312000003,
+      "latency_ms": 21.062874991912395,
+      "cached_query": null,
+      "data_version": 1
+    }
+  ]
+}

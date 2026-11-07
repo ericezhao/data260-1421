@@ -1,0 +1,60 @@
+{
+  "query": "What grade placard does inspection ins-001 currently show?",
+  "before_update": {
+    "rel": {
+      "inspection_id": "ins-001",
+      "grade_label": "A",
+      "version": 1
+    },
+    "cached_answer": "Inspection ins-001 currently shows grade A (rel version 1).",
+    "hit": {
+      "question": "What grade placard does inspection ins-001 currently show?",
+      "answer": "Inspection ins-001 currently shows grade A (rel version 1).",
+      "is_cached": true,
+      "similarity": 0.9999999403953552,
+      "latency_ms": 6.822582989116199,
+      "cached_query": "What grade placard does inspection ins-001 currently show?",
+      "data_version": 1
+    }
+  },
+  "after_update_before_invalidate": {
+    "rel": {
+      "inspection_id": "ins-001",
+      "grade_label": "B",
+      "version": 2
+    },
+    "returned": {
+      "question": "What grade placard does inspection ins-001 currently show?",
+      "answer": "Inspection ins-001 currently shows grade A (rel version 1).",
+      "is_cached": true,
+      "similarity": 0.9999999403953552,
+      "latency_ms": 6.12087499757763,
+      "cached_query": "What grade placard does inspection ins-001 currently show?",
+      "data_version": 1
+    },
+    "stale": true
+  },
+  "after_invalidate": {
+    "data_version": 2,
+    "lookup_after_bump": {
+      "hit": false,
+      "similarity": 0.0,
+      "answer": null,
+      "cached_query": null,
+      "entry_id": null,
+      "data_version": 2
+    },
+    "returned": {
+      "question": "What grade placard does inspection ins-001 currently show?",
+      "answer": "Inspection ins-001 currently shows grade B (rel version 2).",
+      "is_cached": true,
+      "similarity": 0.9999999403953552,
+      "latency_ms": 6.43079201108776,
+      "cached_query": "What grade placard does inspection ins-001 currently show?",
+      "data_version": 2
+    },
+    "fresh_answer": "Inspection ins-001 currently shows grade B (rel version 2)."
+  },
+  "strategy": "Each cache entry stores data_version. A global s1421:data_version marker is compared on lookup; bumping it after s1421_rel changes makes old entries ineligible.",
+  "tradeoff": "Simple and safe for linked facts, but any bump can invalidate unrelated cached answers too (broader than key-level delete)."
+}

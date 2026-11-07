@@ -1,0 +1,9 @@
+[
+  {
+    "lesson_id": "lesson_001",
+    "failure_pattern": "The answer omits the current value.",
+    "correction": "Check the reference dataset before answering questions about changing values.",
+    "created_at": "2026-11-07",
+    "use_count": 3
+  }
+]

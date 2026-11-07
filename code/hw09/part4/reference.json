@@ -1,0 +1,45 @@
+{
+  "domain": "restaurant_inspections",
+  "facts": [
+    {
+      "id": "f1",
+      "topic": "score_range",
+      "text": "Inspection scores range from 0 to 100. Higher is better."
+    },
+    {
+      "id": "f2",
+      "topic": "sushi_risk",
+      "text": "Sushi restaurants have higher risk because of raw fish handling and parasite controls."
+    },
+    {
+      "id": "f3",
+      "topic": "critical_vs_noncritical",
+      "text": "Critical violations can lead to immediate foodborne illness risk; noncritical ones are lower risk facility issues."
+    },
+    {
+      "id": "f4",
+      "topic": "blue_sushi_score",
+      "text": "Blue Sushi (ins-001) latest score is 95 with grade A."
+    },
+    {
+      "id": "f5",
+      "topic": "taco_spot_score",
+      "text": "Taco Spot (ins-002) latest score is 88 with grade B."
+    },
+    {
+      "id": "f6",
+      "topic": "create_fields",
+      "text": "Creating an inspection requires restaurant_name, cuisine, and score."
+    },
+    {
+      "id": "f7",
+      "topic": "placard_closed",
+      "text": "A closed placard means the facility was ordered closed after inspection findings."
+    },
+    {
+      "id": "f8",
+      "topic": "temperature",
+      "text": "Hot and cold holding temperature violations are common for restaurants that cook and store food in batches."
+    }
+  ]
+}

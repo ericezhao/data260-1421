@@ -1,0 +1,38 @@
+Eric Zhao (SID4 1421) HW9 evidence
+PREFIX=s1421 VERIFY_SEED=261421
+Redis Stack: docker compose -f code/hw09/docker-compose.yml up -d  (s1421-redis / redis-stack-server)
+Semantic cache: redisvl.SemanticCache check/store (name=s1421_llmcache, ttl=3600)
+HW9_MOCK_LLM=1 for agent answers; HF_HUB_OFFLINE=1 for local embed model
+embed model=sentence-transformers/all-MiniLM-L6-v2
+
+===== Part1 run_part1.py =====
+=== Testing Counter ===
+Access #1..#9, sync at #10 and #20, Access #25: Total = 25
+db view_count for ins-001 = 20
+
+===== Part2 run_part2.py (redisvl) =====
+n=12 hits=3 misses=9 hit_rate=25.0%
+avg_latency_cached_ms~6.2 avg_latency_uncached_ms~18
+see raw/part2_results.json
+
+===== Part3 threshold_sweep.json table (redisvl) =====
+0.75 hit=0.525 false=0.15 cost=3.38
+0.80 hit=0.525 false=0.15 cost=3.38
+0.85 hit=0.475 false=0.125 cost=2.92
+0.90 hit=0.375 false=0.05 cost=1.50
+0.95 hit=0.275 false=0.025 cost=1.08
+chosen=0.95
+
+===== Part3.5 stale_invalidation (redisvl data_version filter) =====
+stale hit returned old grade after s1421_rel update
+after bumping s1421:data_version, old entry skipped; fresh answer cached
+see raw/stale_invalidation.json
+
+===== Part4 variants =====
+Baseline 5/6, Evaluator/Lesson/Validated 6/6
+validation keep 5->5; lesson_001 reused on later score question (1 attempt)
+lessons.json contains only lesson_001 (use_count bumped; not written from test set)
+see raw/part4_results.json
+
+===== verify_hw09.py =====
+7/7 PASS

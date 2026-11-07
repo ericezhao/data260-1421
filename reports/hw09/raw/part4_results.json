@@ -1,0 +1,1357 @@
+{
+  "revision_demo": {
+    "question": "What is Blue Sushi's latest score?",
+    "variant": "evaluator_repair",
+    "final_answer": "Blue Sushi (ins-001) latest score is 95 with grade A. (revised using feedback: Include these missing facts: 95)",
+    "eval": {
+      "result": "PASS",
+      "explanation": "Answer covers the reference facts for this question.",
+      "feedback": "",
+      "missing": [],
+      "facts_used": [
+        "f4"
+      ]
+    },
+    "correct": true,
+    "attempts": 2,
+    "latency_ms": 0.24366700381506234,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "Blue Sushi was inspected recently.",
+        "eval": {
+          "result": "REVISE",
+          "explanation": "Answer is missing required reference facts.",
+          "feedback": "Include these missing facts: 95",
+          "missing": [
+            "95"
+          ],
+          "facts_used": [
+            "f4"
+          ]
+        },
+        "meta": {
+          "answer": "Blue Sushi was inspected recently.",
+          "lessons_used": [],
+          "forced_bad": true
+        }
+      },
+      {
+        "attempt": 2,
+        "answer": "Blue Sushi (ins-001) latest score is 95 with grade A. (revised using feedback: Include these missing facts: 95)",
+        "eval": {
+          "result": "PASS",
+          "explanation": "Answer covers the reference facts for this question.",
+          "feedback": "",
+          "missing": [],
+          "facts_used": [
+            "f4"
+          ]
+        },
+        "meta": {
+          "answer": "Blue Sushi (ins-001) latest score is 95 with grade A. (revised using feedback: Include these missing facts: 95)",
+          "lessons_used": [],
+          "forced_bad": false,
+          "revised": true
+        }
+      }
+    ],
+    "lessons": []
+  },
+  "lesson": {
+    "lesson_id": "lesson_001",
+    "failure_pattern": "The answer omits the current value.",
+    "correction": "Check the reference dataset before answering questions about changing values.",
+    "created_at": "2026-11-07",
+    "use_count": 0
+  },
+  "validation_gate": {
+    "keep": true,
+    "before_correct": 5,
+    "after_correct": 5
+  },
+  "lesson_reuse_demo": {
+    "question": "What score did Blue Sushi get most recently?",
+    "variant": "lesson_memory",
+    "final_answer": "Blue Sushi (ins-001) latest score is 95 with grade A.",
+    "eval": {
+      "result": "PASS",
+      "explanation": "Answer covers the reference facts for this question.",
+      "feedback": "",
+      "missing": [],
+      "facts_used": [
+        "f4"
+      ]
+    },
+    "correct": true,
+    "attempts": 1,
+    "latency_ms": 0.03345799632370472,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "Blue Sushi (ins-001) latest score is 95 with grade A.",
+        "eval": {
+          "result": "PASS",
+          "explanation": "Answer covers the reference facts for this question.",
+          "feedback": "",
+          "missing": [],
+          "facts_used": [
+            "f4"
+          ]
+        },
+        "meta": {
+          "answer": "Blue Sushi (ins-001) latest score is 95 with grade A.",
+          "lessons_used": [
+            "lesson_001"
+          ],
+          "forced_bad": false
+        }
+      }
+    ],
+    "lessons": [
+      {
+        "lesson_id": "lesson_001",
+        "failure_pattern": "The answer omits the current value.",
+        "correction": "Check the reference dataset before answering questions about changing values.",
+        "created_at": "2026-11-07",
+        "use_count": 4
+      }
+    ]
+  },
+  "results_table": [
+    {
+      "variant": "baseline",
+      "correct_answers": 5,
+      "incorrect_answers": 1,
+      "average_attempts": 1.0,
+      "average_latency_ms": 0.03
+    },
+    {
+      "variant": "evaluator_repair",
+      "correct_answers": 6,
+      "incorrect_answers": 0,
+      "average_attempts": 1.167,
+      "average_latency_ms": 0.03
+    },
+    {
+      "variant": "lesson_memory",
+      "correct_answers": 6,
+      "incorrect_answers": 0,
+      "average_attempts": 1.333,
+      "average_latency_ms": 0.03
+    },
+    {
+      "variant": "validated_improvement",
+      "correct_answers": 6,
+      "incorrect_answers": 0,
+      "average_attempts": 1.333,
+      "average_latency_ms": 0.03
+    }
+  ],
+  "training_ids": [
+    "tr1",
+    "tr2",
+    "tr3",
+    "tr4",
+    "tr5"
+  ],
+  "final_lessons": [
+    {
+      "lesson_id": "lesson_001",
+      "failure_pattern": "The answer omits the current value.",
+      "correction": "Check the reference dataset before answering questions about changing values.",
+      "created_at": "2026-11-07",
+      "use_count": 3
+    }
+  ],
+  "details": {
+    "baseline": {
+      "correct": 5,
+      "rows": [
+        {
+          "id": "te1",
+          "question": "What is the inspection score range?",
+          "variant": "baseline",
+          "final_answer": "Inspection scores range from 0 to 100; higher is better.",
+          "eval": {
+            "result": "PASS",
+            "explanation": "Answer covers the reference facts for this question.",
+            "feedback": "",
+            "missing": [],
+            "facts_used": [
+              "f1"
+            ]
+          },
+          "correct": true,
+          "attempts": 1,
+          "latency_ms": 0.028166003176011145,
+          "history": [
+            {
+              "attempt": 1,
+              "answer": "Inspection scores range from 0 to 100; higher is better.",
+              "eval": {
+                "result": "PASS",
+                "explanation": "Answer covers the reference facts for this question.",
+                "feedback": "",
+                "missing": [],
+                "facts_used": [
+                  "f1"
+                ]
+              },
+              "meta": {
+                "answer": "Inspection scores range from 0 to 100; higher is better.",
+                "lessons_used": [],
+                "forced_bad": false
+              }
+            }
+          ],
+          "lessons": []
+        },
+        {
+          "id": "te2",
+          "question": "Why should sushi restaurants watch food-safety risk?",
+          "variant": "baseline",
+          "final_answer": "Sushi is higher risk because of raw fish handling and parasite controls.",
+          "eval": {
+            "result": "PASS",
+            "explanation": "Answer covers the reference facts for this question.",
+            "feedback": "",
+            "missing": [],
+            "facts_used": [
+              "f2"
+            ]
+          },
+          "correct": true,
+          "attempts": 1,
+          "latency_ms": 0.0289169984171167,
+          "history": [
+            {
+              "attempt": 1,
+              "answer": "Sushi is higher risk because of raw fish handling and parasite controls.",
+              "eval": {
+                "result": "PASS",
+                "explanation": "Answer covers the reference facts for this question.",
+                "feedback": "",
+                "missing": [],
+                "facts_used": [
+                  "f2"
+                ]
+              },
+              "meta": {
+                "answer": "Sushi is higher risk because of raw fish handling and parasite controls.",
+                "lessons_used": [],
+                "forced_bad": false
+              }
+            }
+          ],
+          "lessons": []
+        },
+        {
+          "id": "te3",
+          "question": "What is Taco Spot's latest score?",
+          "variant": "baseline",
+          "final_answer": "Taco Spot (ins-002) latest score is 88 with grade B.",
+          "eval": {
+            "result": "PASS",
+            "explanation": "Answer covers the reference facts for this question.",
+            "feedback": "",
+            "missing": [],
+            "facts_used": [
+              "f5"
+            ]
+          },
+          "correct": true,
+          "attempts": 1,
+          "latency_ms": 0.02824999683070928,
+          "history": [
+            {
+              "attempt": 1,
+              "answer": "Taco Spot (ins-002) latest score is 88 with grade B.",
+              "eval": {
+                "result": "PASS",
+                "explanation": "Answer covers the reference facts for this question.",
+                "feedback": "",
+                "missing": [],
+                "facts_used": [
+                  "f5"
+                ]
+              },
+              "meta": {
+                "answer": "Taco Spot (ins-002) latest score is 88 with grade B.",
+                "lessons_used": [],
+                "forced_bad": false
+              }
+            }
+          ],
+          "lessons": []
+        },
+        {
+          "id": "te4",
+          "question": "Name the required fields to create an inspection.",
+          "variant": "baseline",
+          "final_answer": "Creating an inspection needs restaurant_name, cuisine, and score.",
+          "eval": {
+            "result": "PASS",
+            "explanation": "Answer covers the reference facts for this question.",
+            "feedback": "",
+            "missing": [],
+            "facts_used": [
+              "f6"
+            ]
+          },
+          "correct": true,
+          "attempts": 1,
+          "latency_ms": 0.028333000955171883,
+          "history": [
+            {
+              "attempt": 1,
+              "answer": "Creating an inspection needs restaurant_name, cuisine, and score.",
+              "eval": {
+                "result": "PASS",
+                "explanation": "Answer covers the reference facts for this question.",
+                "feedback": "",
+                "missing": [],
+                "facts_used": [
+                  "f6"
+                ]
+              },
+              "meta": {
+                "answer": "Creating an inspection needs restaurant_name, cuisine, and score.",
+                "lessons_used": [],
+                "forced_bad": false
+              }
+            }
+          ],
+          "lessons": []
+        },
+        {
+          "id": "te5",
+          "question": "Explain critical vs noncritical violations.",
+          "variant": "baseline",
+          "final_answer": "Critical violations can cause foodborne illness risk; noncritical ones are lower-risk facility issues.",
+          "eval": {
+            "result": "PASS",
+            "explanation": "Answer covers the reference facts for this question.",
+            "feedback": "",
+            "missing": [],
+            "facts_used": [
+              "f3"
+            ]
+          },
+          "correct": true,
+          "attempts": 1,
+          "latency_ms": 0.028624999686144292,
+          "history": [
+            {
+              "attempt": 1,
+              "answer": "Critical violations can cause foodborne illness risk; noncritical ones are lower-risk facility issues.",
+              "eval": {
+                "result": "PASS",
+                "explanation": "Answer covers the reference facts for this question.",
+                "feedback": "",
+                "missing": [],
+                "facts_used": [
+                  "f3"
+                ]
+              },
+              "meta": {
+                "answer": "Critical violations can cause foodborne illness risk; noncritical ones are lower-risk facility issues.",
+                "lessons_used": [],
+                "forced_bad": false
+              }
+            }
+          ],
+          "lessons": []
+        },
+        {
+          "id": "te6",
+          "question": "What grade does Blue Sushi currently have?",
+          "variant": "baseline",
+          "final_answer": "Blue Sushi was inspected recently.",
+          "eval": {
+            "result": "REVISE",
+            "explanation": "Answer is missing required reference facts.",
+            "feedback": "Include these missing facts: grade a",
+            "missing": [
+              "grade a"
+            ],
+            "facts_used": [
+              "f4"
+            ]
+          },
+          "correct": false,
+          "attempts": 1,
+          "latency_ms": 0.02854099147953093,
+          "history": [
+            {
+              "attempt": 1,
+              "answer": "Blue Sushi was inspected recently.",
+              "eval": {
+                "result": "REVISE",
+                "explanation": "Answer is missing required reference facts.",
+                "feedback": "Include these missing facts: grade a",
+                "missing": [
+                  "grade a"
+                ],
+                "facts_used": [
+                  "f4"
+                ]
+              },
+              "meta": {
+                "answer": "Blue Sushi was inspected recently.",
+                "lessons_used": [],
+                "forced_bad": true
+              }
+            }
+          ],
+          "lessons": []
+        }
+      ]
+    },
+    "evaluator_repair": {
+      "correct": 6,
+      "rows": [
+        {
+          "id": "te1",
+          "question": "What is the inspection score range?",
+          "variant": "evaluator_repair",
+          "final_answer": "Inspection scores range from 0 to 100; higher is better.",
+          "eval": {
+            "result": "PASS",
+            "explanation": "Answer covers the reference facts for this question.",
+            "feedback": "",
+            "missing": [],
+            "facts_used": [
+              "f1"
+            ]
+          },
+          "correct": true,
+          "attempts": 1,
+          "latency_ms": 0.03133299469482154,
+          "history": [
+            {
+              "attempt": 1,
+              "answer": "Inspection scores range from 0 to 100; higher is better.",
+              "eval": {
+                "result": "PASS",
+                "explanation": "Answer covers the reference facts for this question.",
+                "feedback": "",
+                "missing": [],
+                "facts_used": [
+                  "f1"
+                ]
+              },
+              "meta": {
+                "answer": "Inspection scores range from 0 to 100; higher is better.",
+                "lessons_used": [],
+                "forced_bad": false
+              }
+            }
+          ],
+          "lessons": []
+        },
+        {
+          "id": "te2",
+          "question": "Why should sushi restaurants watch food-safety risk?",
+          "variant": "evaluator_repair",
+          "final_answer": "Sushi is higher risk because of raw fish handling and parasite controls.",
+          "eval": {
+            "result": "PASS",
+            "explanation": "Answer covers the reference facts for this question.",
+            "feedback": "",
+            "missing": [],
+            "facts_used": [
+              "f2"
+            ]
+          },
+          "correct": true,
+          "attempts": 1,
+          "latency_ms": 0.03145799564663321,
+          "history": [
+            {
+              "attempt": 1,
+              "answer": "Sushi is higher risk because of raw fish handling and parasite controls.",
+              "eval": {
+                "result": "PASS",
+                "explanation": "Answer covers the reference facts for this question.",
+                "feedback": "",
+                "missing": [],
+                "facts_used": [
+                  "f2"
+                ]
+              },
+              "meta": {
+                "answer": "Sushi is higher risk because of raw fish handling and parasite controls.",
+                "lessons_used": [],
+                "forced_bad": false
+              }
+            }
+          ],
+          "lessons": []
+        },
+        {
+          "id": "te3",
+          "question": "What is Taco Spot's latest score?",
+          "variant": "evaluator_repair",
+          "final_answer": "Taco Spot (ins-002) latest score is 88 with grade B.",
+          "eval": {
+            "result": "PASS",
+            "explanation": "Answer covers the reference facts for this question.",
+            "feedback": "",
+            "missing": [],
+            "facts_used": [
+              "f5"
+            ]
+          },
+          "correct": true,
+          "attempts": 1,
+          "latency_ms": 0.02791699080262333,
+          "history": [
+            {
+              "attempt": 1,
+              "answer": "Taco Spot (ins-002) latest score is 88 with grade B.",
+              "eval": {
+                "result": "PASS",
+                "explanation": "Answer covers the reference facts for this question.",
+                "feedback": "",
+                "missing": [],
+                "facts_used": [
+                  "f5"
+                ]
+              },
+              "meta": {
+                "answer": "Taco Spot (ins-002) latest score is 88 with grade B.",
+                "lessons_used": [],
+                "forced_bad": false
+              }
+            }
+          ],
+          "lessons": []
+        },
+        {
+          "id": "te4",
+          "question": "Name the required fields to create an inspection.",
+          "variant": "evaluator_repair",
+          "final_answer": "Creating an inspection needs restaurant_name, cuisine, and score.",
+          "eval": {
+            "result": "PASS",
+            "explanation": "Answer covers the reference facts for this question.",
+            "feedback": "",
+            "missing": [],
+            "facts_used": [
+              "f6"
+            ]
+          },
+          "correct": true,
+          "attempts": 1,
+          "latency_ms": 0.02791700535453856,
+          "history": [
+            {
+              "attempt": 1,
+              "answer": "Creating an inspection needs restaurant_name, cuisine, and score.",
+              "eval": {
+                "result": "PASS",
+                "explanation": "Answer covers the reference facts for this question.",
+                "feedback": "",
+                "missing": [],
+                "facts_used": [
+                  "f6"
+                ]
+              },
+              "meta": {
+                "answer": "Creating an inspection needs restaurant_name, cuisine, and score.",
+                "lessons_used": [],
+                "forced_bad": false
+              }
+            }
+          ],
+          "lessons": []
+        },
+        {
+          "id": "te5",
+          "question": "Explain critical vs noncritical violations.",
+          "variant": "evaluator_repair",
+          "final_answer": "Critical violations can cause foodborne illness risk; noncritical ones are lower-risk facility issues.",
+          "eval": {
+            "result": "PASS",
+            "explanation": "Answer covers the reference facts for this question.",
+            "feedback": "",
+            "missing": [],
+            "facts_used": [
+              "f3"
+            ]
+          },
+          "correct": true,
+          "attempts": 1,
+          "latency_ms": 0.027749993023462594,
+          "history": [
+            {
+              "attempt": 1,
+              "answer": "Critical violations can cause foodborne illness risk; noncritical ones are lower-risk facility issues.",
+              "eval": {
+                "result": "PASS",
+                "explanation": "Answer covers the reference facts for this question.",
+                "feedback": "",
+                "missing": [],
+                "facts_used": [
+                  "f3"
+                ]
+              },
+              "meta": {
+                "answer": "Critical violations can cause foodborne illness risk; noncritical ones are lower-risk facility issues.",
+                "lessons_used": [],
+                "forced_bad": false
+              }
+            }
+          ],
+          "lessons": []
+        },
+        {
+          "id": "te6",
+          "question": "What grade does Blue Sushi currently have?",
+          "variant": "evaluator_repair",
+          "final_answer": "Blue Sushi currently has grade A (score 95). (revised using feedback: Include these missing facts: grade a)",
+          "eval": {
+            "result": "PASS",
+            "explanation": "Answer covers the reference facts for this question.",
+            "feedback": "",
+            "missing": [],
+            "facts_used": [
+              "f4"
+            ]
+          },
+          "correct": true,
+          "attempts": 2,
+          "latency_ms": 0.03199999628122896,
+          "history": [
+            {
+              "attempt": 1,
+              "answer": "Blue Sushi was inspected recently.",
+              "eval": {
+                "result": "REVISE",
+                "explanation": "Answer is missing required reference facts.",
+                "feedback": "Include these missing facts: grade a",
+                "missing": [
+                  "grade a"
+                ],
+                "facts_used": [
+                  "f4"
+                ]
+              },
+              "meta": {
+                "answer": "Blue Sushi was inspected recently.",
+                "lessons_used": [],
+                "forced_bad": true
+              }
+            },
+            {
+              "attempt": 2,
+              "answer": "Blue Sushi currently has grade A (score 95). (revised using feedback: Include these missing facts: grade a)",
+              "eval": {
+                "result": "PASS",
+                "explanation": "Answer covers the reference facts for this question.",
+                "feedback": "",
+                "missing": [],
+                "facts_used": [
+                  "f4"
+                ]
+              },
+              "meta": {
+                "answer": "Blue Sushi currently has grade A (score 95). (revised using feedback: Include these missing facts: grade a)",
+                "lessons_used": [],
+                "forced_bad": false,
+                "revised": true
+              }
+            }
+          ],
+          "lessons": []
+        }
+      ]
+    },
+    "lesson_memory": {
+      "correct": 6,
+      "rows": [
+        {
+          "id": "te1",
+          "question": "What is the inspection score range?",
+          "variant": "lesson_memory",
+          "final_answer": "Blue Sushi (ins-001) latest score is 95 with grade A. (revised using feedback: Include these missing facts: 100)",
+          "eval": {
+            "result": "PASS",
+            "explanation": "Answer covers the reference facts for this question.",
+            "feedback": "",
+            "missing": [],
+            "facts_used": [
+              "f1"
+            ]
+          },
+          "correct": true,
+          "attempts": 2,
+          "latency_ms": 0.0347500026691705,
+          "history": [
+            {
+              "attempt": 1,
+              "answer": "Blue Sushi (ins-001) latest score is 95 with grade A.",
+              "eval": {
+                "result": "REVISE",
+                "explanation": "Answer is missing required reference facts.",
+                "feedback": "Include these missing facts: 100",
+                "missing": [
+                  "100"
+                ],
+                "facts_used": [
+                  "f1"
+                ]
+              },
+              "meta": {
+                "answer": "Blue Sushi (ins-001) latest score is 95 with grade A.",
+                "lessons_used": [
+                  "lesson_001"
+                ],
+                "forced_bad": false
+              }
+            },
+            {
+              "attempt": 2,
+              "answer": "Blue Sushi (ins-001) latest score is 95 with grade A. (revised using feedback: Include these missing facts: 100)",
+              "eval": {
+                "result": "PASS",
+                "explanation": "Answer covers the reference facts for this question.",
+                "feedback": "",
+                "missing": [],
+                "facts_used": [
+                  "f1"
+                ]
+              },
+              "meta": {
+                "answer": "Blue Sushi (ins-001) latest score is 95 with grade A. (revised using feedback: Include these missing facts: 100)",
+                "lessons_used": [
+                  "lesson_001"
+                ],
+                "forced_bad": false,
+                "revised": true
+              }
+            }
+          ],
+          "lessons": [
+            {
+              "lesson_id": "lesson_001",
+              "failure_pattern": "The answer omits the current value.",
+              "correction": "Check the reference dataset before answering questions about changing values.",
+              "created_at": "2026-11-07",
+              "use_count": 5
+            }
+          ]
+        },
+        {
+          "id": "te2",
+          "question": "Why should sushi restaurants watch food-safety risk?",
+          "variant": "lesson_memory",
+          "final_answer": "Sushi is higher risk because of raw fish handling and parasite controls.",
+          "eval": {
+            "result": "PASS",
+            "explanation": "Answer covers the reference facts for this question.",
+            "feedback": "",
+            "missing": [],
+            "facts_used": [
+              "f2"
+            ]
+          },
+          "correct": true,
+          "attempts": 1,
+          "latency_ms": 0.03283399564679712,
+          "history": [
+            {
+              "attempt": 1,
+              "answer": "Sushi is higher risk because of raw fish handling and parasite controls.",
+              "eval": {
+                "result": "PASS",
+                "explanation": "Answer covers the reference facts for this question.",
+                "feedback": "",
+                "missing": [],
+                "facts_used": [
+                  "f2"
+                ]
+              },
+              "meta": {
+                "answer": "Sushi is higher risk because of raw fish handling and parasite controls.",
+                "lessons_used": [],
+                "forced_bad": false
+              }
+            }
+          ],
+          "lessons": [
+            {
+              "lesson_id": "lesson_001",
+              "failure_pattern": "The answer omits the current value.",
+              "correction": "Check the reference dataset before answering questions about changing values.",
+              "created_at": "2026-11-07",
+              "use_count": 5
+            }
+          ]
+        },
+        {
+          "id": "te3",
+          "question": "What is Taco Spot's latest score?",
+          "variant": "lesson_memory",
+          "final_answer": "Blue Sushi (ins-001) latest score is 95 with grade A. (revised using feedback: Include these missing facts: 88)",
+          "eval": {
+            "result": "PASS",
+            "explanation": "Answer covers the reference facts for this question.",
+            "feedback": "",
+            "missing": [],
+            "facts_used": [
+              "f5"
+            ]
+          },
+          "correct": true,
+          "attempts": 2,
+          "latency_ms": 0.03458400897216052,
+          "history": [
+            {
+              "attempt": 1,
+              "answer": "Blue Sushi (ins-001) latest score is 95 with grade A.",
+              "eval": {
+                "result": "REVISE",
+                "explanation": "Answer is missing required reference facts.",
+                "feedback": "Include these missing facts: 88",
+                "missing": [
+                  "88"
+                ],
+                "facts_used": [
+                  "f5"
+                ]
+              },
+              "meta": {
+                "answer": "Blue Sushi (ins-001) latest score is 95 with grade A.",
+                "lessons_used": [
+                  "lesson_001"
+                ],
+                "forced_bad": false
+              }
+            },
+            {
+              "attempt": 2,
+              "answer": "Blue Sushi (ins-001) latest score is 95 with grade A. (revised using feedback: Include these missing facts: 88)",
+              "eval": {
+                "result": "PASS",
+                "explanation": "Answer covers the reference facts for this question.",
+                "feedback": "",
+                "missing": [],
+                "facts_used": [
+                  "f5"
+                ]
+              },
+              "meta": {
+                "answer": "Blue Sushi (ins-001) latest score is 95 with grade A. (revised using feedback: Include these missing facts: 88)",
+                "lessons_used": [
+                  "lesson_001"
+                ],
+                "forced_bad": false,
+                "revised": true
+              }
+            }
+          ],
+          "lessons": [
+            {
+              "lesson_id": "lesson_001",
+              "failure_pattern": "The answer omits the current value.",
+              "correction": "Check the reference dataset before answering questions about changing values.",
+              "created_at": "2026-11-07",
+              "use_count": 7
+            }
+          ]
+        },
+        {
+          "id": "te4",
+          "question": "Name the required fields to create an inspection.",
+          "variant": "lesson_memory",
+          "final_answer": "Creating an inspection needs restaurant_name, cuisine, and score.",
+          "eval": {
+            "result": "PASS",
+            "explanation": "Answer covers the reference facts for this question.",
+            "feedback": "",
+            "missing": [],
+            "facts_used": [
+              "f6"
+            ]
+          },
+          "correct": true,
+          "attempts": 1,
+          "latency_ms": 0.031625007977709174,
+          "history": [
+            {
+              "attempt": 1,
+              "answer": "Creating an inspection needs restaurant_name, cuisine, and score.",
+              "eval": {
+                "result": "PASS",
+                "explanation": "Answer covers the reference facts for this question.",
+                "feedback": "",
+                "missing": [],
+                "facts_used": [
+                  "f6"
+                ]
+              },
+              "meta": {
+                "answer": "Creating an inspection needs restaurant_name, cuisine, and score.",
+                "lessons_used": [],
+                "forced_bad": false
+              }
+            }
+          ],
+          "lessons": [
+            {
+              "lesson_id": "lesson_001",
+              "failure_pattern": "The answer omits the current value.",
+              "correction": "Check the reference dataset before answering questions about changing values.",
+              "created_at": "2026-11-07",
+              "use_count": 7
+            }
+          ]
+        },
+        {
+          "id": "te5",
+          "question": "Explain critical vs noncritical violations.",
+          "variant": "lesson_memory",
+          "final_answer": "Critical violations can cause foodborne illness risk; noncritical ones are lower-risk facility issues.",
+          "eval": {
+            "result": "PASS",
+            "explanation": "Answer covers the reference facts for this question.",
+            "feedback": "",
+            "missing": [],
+            "facts_used": [
+              "f3"
+            ]
+          },
+          "correct": true,
+          "attempts": 1,
+          "latency_ms": 0.031000003218650818,
+          "history": [
+            {
+              "attempt": 1,
+              "answer": "Critical violations can cause foodborne illness risk; noncritical ones are lower-risk facility issues.",
+              "eval": {
+                "result": "PASS",
+                "explanation": "Answer covers the reference facts for this question.",
+                "feedback": "",
+                "missing": [],
+                "facts_used": [
+                  "f3"
+                ]
+              },
+              "meta": {
+                "answer": "Critical violations can cause foodborne illness risk; noncritical ones are lower-risk facility issues.",
+                "lessons_used": [],
+                "forced_bad": false
+              }
+            }
+          ],
+          "lessons": [
+            {
+              "lesson_id": "lesson_001",
+              "failure_pattern": "The answer omits the current value.",
+              "correction": "Check the reference dataset before answering questions about changing values.",
+              "created_at": "2026-11-07",
+              "use_count": 7
+            }
+          ]
+        },
+        {
+          "id": "te6",
+          "question": "What grade does Blue Sushi currently have?",
+          "variant": "lesson_memory",
+          "final_answer": "Blue Sushi currently has grade A (score 95).",
+          "eval": {
+            "result": "PASS",
+            "explanation": "Answer covers the reference facts for this question.",
+            "feedback": "",
+            "missing": [],
+            "facts_used": [
+              "f4"
+            ]
+          },
+          "correct": true,
+          "attempts": 1,
+          "latency_ms": 0.031083007343113422,
+          "history": [
+            {
+              "attempt": 1,
+              "answer": "Blue Sushi currently has grade A (score 95).",
+              "eval": {
+                "result": "PASS",
+                "explanation": "Answer covers the reference facts for this question.",
+                "feedback": "",
+                "missing": [],
+                "facts_used": [
+                  "f4"
+                ]
+              },
+              "meta": {
+                "answer": "Blue Sushi currently has grade A (score 95).",
+                "lessons_used": [
+                  "lesson_001"
+                ],
+                "forced_bad": false
+              }
+            }
+          ],
+          "lessons": [
+            {
+              "lesson_id": "lesson_001",
+              "failure_pattern": "The answer omits the current value.",
+              "correction": "Check the reference dataset before answering questions about changing values.",
+              "created_at": "2026-11-07",
+              "use_count": 8
+            }
+          ]
+        }
+      ]
+    },
+    "validated_improvement": {
+      "correct": 6,
+      "rows": [
+        {
+          "id": "te1",
+          "question": "What is the inspection score range?",
+          "variant": "validated_improvement",
+          "final_answer": "Blue Sushi (ins-001) latest score is 95 with grade A. (revised using feedback: Include these missing facts: 100)",
+          "eval": {
+            "result": "PASS",
+            "explanation": "Answer covers the reference facts for this question.",
+            "feedback": "",
+            "missing": [],
+            "facts_used": [
+              "f1"
+            ]
+          },
+          "correct": true,
+          "attempts": 2,
+          "latency_ms": 0.03312499029561877,
+          "history": [
+            {
+              "attempt": 1,
+              "answer": "Blue Sushi (ins-001) latest score is 95 with grade A.",
+              "eval": {
+                "result": "REVISE",
+                "explanation": "Answer is missing required reference facts.",
+                "feedback": "Include these missing facts: 100",
+                "missing": [
+                  "100"
+                ],
+                "facts_used": [
+                  "f1"
+                ]
+              },
+              "meta": {
+                "answer": "Blue Sushi (ins-001) latest score is 95 with grade A.",
+                "lessons_used": [
+                  "lesson_001"
+                ],
+                "forced_bad": false
+              }
+            },
+            {
+              "attempt": 2,
+              "answer": "Blue Sushi (ins-001) latest score is 95 with grade A. (revised using feedback: Include these missing facts: 100)",
+              "eval": {
+                "result": "PASS",
+                "explanation": "Answer covers the reference facts for this question.",
+                "feedback": "",
+                "missing": [],
+                "facts_used": [
+                  "f1"
+                ]
+              },
+              "meta": {
+                "answer": "Blue Sushi (ins-001) latest score is 95 with grade A. (revised using feedback: Include these missing facts: 100)",
+                "lessons_used": [
+                  "lesson_001"
+                ],
+                "forced_bad": false,
+                "revised": true
+              }
+            }
+          ],
+          "lessons": [
+            {
+              "lesson_id": "lesson_001",
+              "failure_pattern": "The answer omits the current value.",
+              "correction": "Check the reference dataset before answering questions about changing values.",
+              "created_at": "2026-11-07",
+              "use_count": 5
+            }
+          ]
+        },
+        {
+          "id": "te2",
+          "question": "Why should sushi restaurants watch food-safety risk?",
+          "variant": "validated_improvement",
+          "final_answer": "Sushi is higher risk because of raw fish handling and parasite controls.",
+          "eval": {
+            "result": "PASS",
+            "explanation": "Answer covers the reference facts for this question.",
+            "feedback": "",
+            "missing": [],
+            "facts_used": [
+              "f2"
+            ]
+          },
+          "correct": true,
+          "attempts": 1,
+          "latency_ms": 0.031042000045999885,
+          "history": [
+            {
+              "attempt": 1,
+              "answer": "Sushi is higher risk because of raw fish handling and parasite controls.",
+              "eval": {
+                "result": "PASS",
+                "explanation": "Answer covers the reference facts for this question.",
+                "feedback": "",
+                "missing": [],
+                "facts_used": [
+                  "f2"
+                ]
+              },
+              "meta": {
+                "answer": "Sushi is higher risk because of raw fish handling and parasite controls.",
+                "lessons_used": [],
+                "forced_bad": false
+              }
+            }
+          ],
+          "lessons": [
+            {
+              "lesson_id": "lesson_001",
+              "failure_pattern": "The answer omits the current value.",
+              "correction": "Check the reference dataset before answering questions about changing values.",
+              "created_at": "2026-11-07",
+              "use_count": 5
+            }
+          ]
+        },
+        {
+          "id": "te3",
+          "question": "What is Taco Spot's latest score?",
+          "variant": "validated_improvement",
+          "final_answer": "Blue Sushi (ins-001) latest score is 95 with grade A. (revised using feedback: Include these missing facts: 88)",
+          "eval": {
+            "result": "PASS",
+            "explanation": "Answer covers the reference facts for this question.",
+            "feedback": "",
+            "missing": [],
+            "facts_used": [
+              "f5"
+            ]
+          },
+          "correct": true,
+          "attempts": 2,
+          "latency_ms": 0.03325000579934567,
+          "history": [
+            {
+              "attempt": 1,
+              "answer": "Blue Sushi (ins-001) latest score is 95 with grade A.",
+              "eval": {
+                "result": "REVISE",
+                "explanation": "Answer is missing required reference facts.",
+                "feedback": "Include these missing facts: 88",
+                "missing": [
+                  "88"
+                ],
+                "facts_used": [
+                  "f5"
+                ]
+              },
+              "meta": {
+                "answer": "Blue Sushi (ins-001) latest score is 95 with grade A.",
+                "lessons_used": [
+                  "lesson_001"
+                ],
+                "forced_bad": false
+              }
+            },
+            {
+              "attempt": 2,
+              "answer": "Blue Sushi (ins-001) latest score is 95 with grade A. (revised using feedback: Include these missing facts: 88)",
+              "eval": {
+                "result": "PASS",
+                "explanation": "Answer covers the reference facts for this question.",
+                "feedback": "",
+                "missing": [],
+                "facts_used": [
+                  "f5"
+                ]
+              },
+              "meta": {
+                "answer": "Blue Sushi (ins-001) latest score is 95 with grade A. (revised using feedback: Include these missing facts: 88)",
+                "lessons_used": [
+                  "lesson_001"
+                ],
+                "forced_bad": false,
+                "revised": true
+              }
+            }
+          ],
+          "lessons": [
+            {
+              "lesson_id": "lesson_001",
+              "failure_pattern": "The answer omits the current value.",
+              "correction": "Check the reference dataset before answering questions about changing values.",
+              "created_at": "2026-11-07",
+              "use_count": 7
+            }
+          ]
+        },
+        {
+          "id": "te4",
+          "question": "Name the required fields to create an inspection.",
+          "variant": "validated_improvement",
+          "final_answer": "Creating an inspection needs restaurant_name, cuisine, and score.",
+          "eval": {
+            "result": "PASS",
+            "explanation": "Answer covers the reference facts for this question.",
+            "feedback": "",
+            "missing": [],
+            "facts_used": [
+              "f6"
+            ]
+          },
+          "correct": true,
+          "attempts": 1,
+          "latency_ms": 0.030625000363215804,
+          "history": [
+            {
+              "attempt": 1,
+              "answer": "Creating an inspection needs restaurant_name, cuisine, and score.",
+              "eval": {
+                "result": "PASS",
+                "explanation": "Answer covers the reference facts for this question.",
+                "feedback": "",
+                "missing": [],
+                "facts_used": [
+                  "f6"
+                ]
+              },
+              "meta": {
+                "answer": "Creating an inspection needs restaurant_name, cuisine, and score.",
+                "lessons_used": [],
+                "forced_bad": false
+              }
+            }
+          ],
+          "lessons": [
+            {
+              "lesson_id": "lesson_001",
+              "failure_pattern": "The answer omits the current value.",
+              "correction": "Check the reference dataset before answering questions about changing values.",
+              "created_at": "2026-11-07",
+              "use_count": 7
+            }
+          ]
+        },
+        {
+          "id": "te5",
+          "question": "Explain critical vs noncritical violations.",
+          "variant": "validated_improvement",
+          "final_answer": "Critical violations can cause foodborne illness risk; noncritical ones are lower-risk facility issues.",
+          "eval": {
+            "result": "PASS",
+            "explanation": "Answer covers the reference facts for this question.",
+            "feedback": "",
+            "missing": [],
+            "facts_used": [
+              "f3"
+            ]
+          },
+          "correct": true,
+          "attempts": 1,
+          "latency_ms": 0.031333998776972294,
+          "history": [
+            {
+              "attempt": 1,
+              "answer": "Critical violations can cause foodborne illness risk; noncritical ones are lower-risk facility issues.",
+              "eval": {
+                "result": "PASS",
+                "explanation": "Answer covers the reference facts for this question.",
+                "feedback": "",
+                "missing": [],
+                "facts_used": [
+                  "f3"
+                ]
+              },
+              "meta": {
+                "answer": "Critical violations can cause foodborne illness risk; noncritical ones are lower-risk facility issues.",
+                "lessons_used": [],
+                "forced_bad": false
+              }
+            }
+          ],
+          "lessons": [
+            {
+              "lesson_id": "lesson_001",
+              "failure_pattern": "The answer omits the current value.",
+              "correction": "Check the reference dataset before answering questions about changing values.",
+              "created_at": "2026-11-07",
+              "use_count": 7
+            }
+          ]
+        },
+        {
+          "id": "te6",
+          "question": "What grade does Blue Sushi currently have?",
+          "variant": "validated_improvement",
+          "final_answer": "Blue Sushi currently has grade A (score 95).",
+          "eval": {
+            "result": "PASS",
+            "explanation": "Answer covers the reference facts for this question.",
+            "feedback": "",
+            "missing": [],
+            "facts_used": [
+              "f4"
+            ]
+          },
+          "correct": true,
+          "attempts": 1,
+          "latency_ms": 0.03275000199209899,
+          "history": [
+            {
+              "attempt": 1,
+              "answer": "Blue Sushi currently has grade A (score 95).",
+              "eval": {
+                "result": "PASS",
+                "explanation": "Answer covers the reference facts for this question.",
+                "feedback": "",
+                "missing": [],
+                "facts_used": [
+                  "f4"
+                ]
+              },
+              "meta": {
+                "answer": "Blue Sushi currently has grade A (score 95).",
+                "lessons_used": [
+                  "lesson_001"
+                ],
+                "forced_bad": false
+              }
+            }
+          ],
+          "lessons": [
+            {
+              "lesson_id": "lesson_001",
+              "failure_pattern": "The answer omits the current value.",
+              "correction": "Check the reference dataset before answering questions about changing values.",
+              "created_at": "2026-11-07",
+              "use_count": 8
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "notes": {
+    "communication": "Answering Agent produces an answer; Evaluator Agent returns PASS/REVISE + feedback. Max 2 attempts.",
+    "lesson_reuse": "Lessons are stored in lessons.json and keyword-matched before answering.",
+    "stopping": "Stop after second attempt even if still REVISE.",
+    "validation": "A candidate lesson is kept only if validation correct-count does not drop.",
+    "limitation": "Keyword lesson matching is brittle; a better approach would embed lessons."
+  }
+}

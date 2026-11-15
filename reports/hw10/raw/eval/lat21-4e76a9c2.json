@@ -1,0 +1,33 @@
+{
+  "correlation_id": "lat21-4e76a9c2",
+  "trace_id": "lat21-4e76a9c2",
+  "question": "HW10 latency miss #21 seed=1b4c176042b049369e6c7cc9c5ed4b8e what is a critical violation?",
+  "cache_hit": false,
+  "metrics": {
+    "plan_quality": {
+      "name": "plan_quality",
+      "score": 4,
+      "reason": "numbered plan",
+      "engine": "mock"
+    },
+    "writer_helpfulness": {
+      "name": "writer_helpfulness",
+      "score": 4,
+      "reason": "has domain words",
+      "engine": "mock"
+    },
+    "final_helpfulness": {
+      "name": "final_helpfulness",
+      "score": 4,
+      "reason": "has domain words",
+      "engine": "mock"
+    },
+    "final_vs_draft": {
+      "name": "final_vs_draft",
+      "score": 4,
+      "reason": "final longer",
+      "engine": "mock"
+    }
+  },
+  "ts": 1794711117.335746
+}

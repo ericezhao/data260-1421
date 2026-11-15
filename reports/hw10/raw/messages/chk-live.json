@@ -1,0 +1,19 @@
+{
+  "correlation_id": "chk-live",
+  "trace_id": "chk-live",
+  "question": "Briefly: what is a critical violation?",
+  "plan": "1. Define critical violation as a serious code violation posing health risks.  \n2. Identify common examples like unsanitary conditions or food temperature issues.  \n3. Explain the impact on public health and regulatory actions.  \n4. Mention typical enforcement responses such as fines or closures.  \n5. Clarify distinction from non-critical violations in inspections.",
+  "draft": "A critical violation is a serious code violation that poses a direct risk to public health and safety. Common examples include unsanitary conditions, improper food storage, or failure to maintain correct food temperatures. Such violations can lead to foodborne illness and require immediate corrective action. Regulatory agencies may impose fines, issue warnings, or order temporary closures depending on the severity. Critical violations are distinct from non-critical ones, as they involve more severe health hazards and higher levels of regulatory intervention.",
+  "final": "A critical violation is a serious code violation that poses a direct risk to public health and safety. Common examples include unsanitary conditions, improper food storage, or failure to maintain correct food temperatures. Such violations can lead to foodborne illness and require immediate corrective action. Regulatory agencies may impose fines, issue warnings, or order temporary closures depending on the severity. Critical violations are distinct from non-critical ones, as they involve more severe health hazards and higher levels of regulatory intervention.",
+  "answer": "A critical violation is a serious code violation that poses a direct risk to public health and safety. Common examples include unsanitary conditions, improper food storage, or failure to maintain correct food temperatures. Such violations can lead to foodborne illness and require immediate corrective action. Regulatory agencies may impose fines, issue warnings, or order temporary closures depending on the severity. Critical violations are distinct from non-critical ones, as they involve more severe health hazards and higher levels of regulatory intervention.",
+  "cache_hit": false,
+  "similarity": 0.0,
+  "metadata": {
+    "path": "cache_miss",
+    "verdict": {
+      "status": "approved",
+      "score": 10,
+      "answer": "A critical violation is a serious code violation that poses a direct risk to public health and safety. Common examples include unsanitary conditions, improper food storage, or failure to maintain correct food temperatures. Such violations can lead to foodborne illness and require immediate corrective action. Regulatory agencies may impose fines, issue warnings, or order temporary closures depending on the severity. Critical violations are distinct from non-critical ones, as they involve more severe health hazards and higher levels of regulatory intervention."
+    }
+  }
+}

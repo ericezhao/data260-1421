@@ -1,0 +1,146 @@
+{
+  "passed": 24,
+  "total": 24,
+  "details": [
+    {
+      "name": "eval_cases_20",
+      "ok": true,
+      "detail": 20
+    },
+    {
+      "name": "human_labels_20",
+      "ok": true,
+      "detail": 20
+    },
+    {
+      "name": "human_scores_1_5",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "part2_eval_exists",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "part2_criteria",
+      "ok": true,
+      "detail": [
+        "final_helpfulness",
+        "final_vs_draft",
+        "plan_quality",
+        "writer_helpfulness"
+      ]
+    },
+    {
+      "name": "part2_scale_1_5",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "judge_metrics",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "spearman_present",
+      "ok": true,
+      "detail": 0.3897916374940719
+    },
+    {
+      "name": "mae_present",
+      "ok": true,
+      "detail": 0.7
+    },
+    {
+      "name": "pairs_20",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "repeat_3",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "name": "repeat_stats",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "trace_index",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "trace_cache_hit",
+      "ok": true,
+      "detail": "hit-0df6163fe1"
+    },
+    {
+      "name": "trace_cache_miss_success",
+      "ok": true,
+      "detail": "miss-246adb0763"
+    },
+    {
+      "name": "trace_failed",
+      "ok": true,
+      "detail": "fail-04187a3d70"
+    },
+    {
+      "name": "failed_has_error_span",
+      "ok": true,
+      "detail": {
+        "trace_id": "fail-04187a3d70",
+        "stage": "writer",
+        "start": "2026-11-15T00:40:14.343950+00:00",
+        "end": "2026-11-15T00:40:14.343962+00:00",
+        "duration_ms": 0.012,
+        "status": "error",
+        "error": "RuntimeError: injected writer failure"
+      }
+    },
+    {
+      "name": "latency_json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "latency_50_miss",
+      "ok": true,
+      "detail": 50
+    },
+    {
+      "name": "latency_stages",
+      "ok": true,
+      "detail": [
+        "cache_lookup",
+        "eval",
+        "planner",
+        "queue_wait",
+        "reviewer",
+        "writer"
+      ]
+    },
+    {
+      "name": "streamlit_app",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "metrics_md",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "ai_use",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "run_log",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

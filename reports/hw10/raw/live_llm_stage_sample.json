@@ -1,0 +1,30 @@
+{
+  "note": "Single live-Ollama cache-miss traces (not the 50-run mock set). Used to show agent/eval share when LLM is on.",
+  "traces": {
+    "miss-246adb0763": {
+      "cache_lookup_ms": 8448.827,
+      "planner_ms": 3820.929,
+      "writer_ms": 4322.1,
+      "reviewer_ms": 5030.831,
+      "queue_wait_ms": 0.0,
+      "eval_ms": 11742.429
+    },
+    "part2-d75168393967": {
+      "cache_lookup_ms": 7999.281,
+      "planner_ms": 3076.36,
+      "writer_ms": 4278.775,
+      "reviewer_ms": 5312.723,
+      "queue_wait_ms": 0.0,
+      "eval_ms": 11829.994
+    }
+  },
+  "avg_pct_of_e2e": {
+    "cache_lookup": 24.7,
+    "planner": 10.4,
+    "writer": 12.9,
+    "reviewer": 15.5,
+    "queue_wait": 0.0,
+    "eval": 35.5
+  },
+  "optimize_first_live": "Evaluation (local judge) then Reviewer/Writer LLM calls."
+}

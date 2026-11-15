@@ -1,0 +1,7 @@
+{
+  "cache_miss_success": "miss-246adb0763",
+  "cache_hit": "hit-0df6163fe1",
+  "failed": "fail-04187a3d70",
+  "failed_stage": "writer",
+  "failed_error": "RuntimeError: injected writer failure"
+}

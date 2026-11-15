@@ -1,0 +1,19 @@
+{
+  "correlation_id": "lat29-f5a6106d",
+  "trace_id": "lat29-f5a6106d",
+  "question": "HW10 latency miss #29 seed=a3ebb0c2f4524dcab0f9d01a7306c114 what is a critical violation?",
+  "plan": "1. Restate the inspection question.\n2. Note score meaning (0-100, higher is better).\n3. Give a short cuisine-aware answer.",
+  "draft": "Inspection scores run from 0 to 100 (higher is better). For sushi places the score matters because raw fish handling is risky.",
+  "final": "Inspection scores (0-100) summarize food-safety findings; higher is better. Sushi restaurants watch scores because raw fish handling is high risk and public grades affect trust.",
+  "answer": "Inspection scores (0-100) summarize food-safety findings; higher is better. Sushi restaurants watch scores because raw fish handling is high risk and public grades affect trust.",
+  "cache_hit": false,
+  "similarity": 0.0,
+  "metadata": {
+    "path": "cache_miss",
+    "verdict": {
+      "status": "approved",
+      "score": 8,
+      "answer": "Inspection scores (0-100) summarize food-safety findings; higher is better. Sushi restaurants watch scores because raw fish handling is high risk and public grades affect trust."
+    }
+  }
+}

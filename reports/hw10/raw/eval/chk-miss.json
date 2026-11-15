@@ -1,0 +1,33 @@
+{
+  "correlation_id": "chk-miss",
+  "trace_id": "chk-miss",
+  "question": "what is inspection score range?",
+  "cache_hit": false,
+  "metrics": {
+    "plan_quality": {
+      "name": "plan_quality",
+      "score": 4,
+      "reason": "numbered plan",
+      "engine": "mock"
+    },
+    "writer_helpfulness": {
+      "name": "writer_helpfulness",
+      "score": 4,
+      "reason": "has domain words",
+      "engine": "mock"
+    },
+    "final_helpfulness": {
+      "name": "final_helpfulness",
+      "score": 4,
+      "reason": "has domain words",
+      "engine": "mock"
+    },
+    "final_vs_draft": {
+      "name": "final_vs_draft",
+      "score": 4,
+      "reason": "final longer",
+      "engine": "mock"
+    }
+  },
+  "ts": 1794711049.1459908
+}

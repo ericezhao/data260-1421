@@ -1,0 +1,14 @@
+{
+  "correlation_id": "hit-0df6163fe1",
+  "trace_id": "hit-0df6163fe1",
+  "question": "What does a restaurant inspection score between 0 and 100 mean for diners?",
+  "plan": null,
+  "draft": null,
+  "final": "Restaurant inspection scores between 0 and 100 reflect a restaurant's compliance with food safety and hygiene standards. These scores are typically categorized into letter grades, such as A, B, or C, based on local health department criteria. An A grade generally indicates excellent compliance with health regulations, while a C or lower may suggest significant violations. These scores help diners assess the likelihood of foodborne illness risks and the restaurant's adherence to health standards. Understanding these scores allows diners to make more informed choices about where to eat.",
+  "answer": "Restaurant inspection scores between 0 and 100 reflect a restaurant's compliance with food safety and hygiene standards. These scores are typically categorized into letter grades, such as A, B, or C, based on local health department criteria. An A grade generally indicates excellent compliance with health regulations, while a C or lower may suggest significant violations. These scores help diners assess the likelihood of foodborne illness risks and the restaurant's adherence to health standards. Understanding these scores allows diners to make more informed choices about where to eat.",
+  "cache_hit": true,
+  "similarity": 1.0,
+  "metadata": {
+    "path": "cache_hit"
+  }
+}

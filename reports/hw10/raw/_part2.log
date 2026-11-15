@@ -1,0 +1,18 @@
+W1114 16:40:24.409000 4419 .deps/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+[part2] question='Why do sushi restaurants care about health inspection scores (0-100)?' trace_id=part2-d75168393967 mock_llm=None
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 8942.34it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 6991.64it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[part2] saved message cache_hit=False
+{
+  "trace_id": "part2-d75168393967",
+  "metrics": {
+    "plan_quality": 5,
+    "writer_helpfulness": 5,
+    "final_helpfulness": 5,
+    "final_vs_draft": 5
+  },
+  "path": "/Users/eric/data260/reports/hw10/raw/part2_eval.json"
+}

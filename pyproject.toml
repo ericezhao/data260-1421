@@ -26,6 +26,8 @@ select = ["E", "F", "I"]
 "code/hw09/*.py" = ["E402"]
 "code/hw09/part4/*.py" = ["E402"]
 "code/verify_hw09.py" = ["E402"]
+"code/hw10/*.py" = ["E402"]
+"code/verify_hw10.py" = ["E402"]
 
 [tool.ruff.format]
 quote-style = "double"

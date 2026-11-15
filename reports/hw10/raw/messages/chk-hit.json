@@ -1,0 +1,14 @@
+{
+  "correlation_id": "chk-hit",
+  "trace_id": "chk-hit",
+  "question": "what is inspection score range?",
+  "plan": null,
+  "draft": null,
+  "final": "Inspection scores (0-100) summarize food-safety findings; higher is better. Sushi restaurants watch scores because raw fish handling is high risk and public grades affect trust.",
+  "answer": "Inspection scores (0-100) summarize food-safety findings; higher is better. Sushi restaurants watch scores because raw fish handling is high risk and public grades affect trust.",
+  "cache_hit": true,
+  "similarity": 1.0,
+  "metadata": {
+    "path": "cache_hit"
+  }
+}

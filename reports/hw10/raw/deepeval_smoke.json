@@ -1,0 +1,7 @@
+{
+  "name": "writer_helpfulness",
+  "score": 5,
+  "reason": "The Actual Output directly answers the inspection domain question by explaining the 0-100 score range and its correlation with food-safety compliance. It provides specific, accurate information without vagueness or off-topic content. There are no hallucinations or unsupported claims, aligning fully with all evaluation steps.",
+  "engine": "deepeval_geval_ollama",
+  "raw_0_1": 1.0
+}

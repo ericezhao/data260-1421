@@ -1,0 +1,160 @@
+W1114 16:41:02.623000 4571 .deps/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+[latency] 1/50 lat00-be70a7ef
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 7290.99it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 2/50 lat01-5e2ce042
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 11467.45it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 3/50 lat02-dfded6e7
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 11836.63it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 4/50 lat03-d037056b
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 8753.89it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 5/50 lat04-67d376be
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 11215.01it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 6/50 lat05-27fa4cf7
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 13517.31it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 7/50 lat06-337a79a7
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 14899.58it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 8/50 lat07-206a7c72
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 12342.88it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 9/50 lat08-6f4edbeb
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 13087.74it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 10/50 lat09-e7cba3cd
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 13395.76it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 11/50 lat10-4279f64d
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 13981.47it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 12/50 lat11-63013639
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 12465.04it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 13/50 lat12-923023b5
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 13943.56it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 14/50 lat13-3fa2c35b
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 11380.15it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 15/50 lat14-29233624
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 12007.37it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 16/50 lat15-9e454669
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 10471.53it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 17/50 lat16-fbe60423
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 11596.74it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 18/50 lat17-43a560e5
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 13432.41it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 19/50 lat18-b2b00bc6
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 12113.43it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 20/50 lat19-c6c507a6
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 12248.75it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 21/50 lat20-cd0568d2
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 5090.47it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 22/50 lat21-0350819c
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 7979.56it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 23/50 lat22-d74a20cc
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 11776.61it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 24/50 lat23-b99cb7aa
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 13888.87it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 25/50 lat24-bfbc519c
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 11019.62it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 26/50 lat25-ebb1bd77
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 12195.15it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 27/50 lat26-7844099c
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 10458.09it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 28/50 lat27-2b6fc75d
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 13682.57it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 29/50 lat28-7a1b8a3b
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 12571.68it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 30/50 lat29-49e1f43f
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 6507.11it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 31/50 lat30-a4bf86e5
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 12140.32it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 32/50 lat31-4ccd32c6
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 13090.92it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 33/50 lat32-5922f408
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 8038.65it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 34/50 lat33-9397be74
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 6498.40it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 35/50 lat34-66527db0
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 8951.23it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 36/50 lat35-eed8f82e
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 11058.55it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 37/50 lat36-b8ceae25
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 10648.33it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 38/50 lat37-0bca4def
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 8562.69it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 39/50 lat38-6a577589
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 10527.41it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 40/50 lat39-153e1109
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 11137.52it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 41/50 lat40-657370a6
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 6775.83it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 42/50 lat41-191fa205
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 7823.21it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 43/50 lat42-007c9dc1
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 8893.01it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 44/50 lat43-c798d997
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 9559.09it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 45/50 lat44-70587a36
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 11032.57it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 46/50 lat45-8af3a12c
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 9839.28it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 47/50 lat46-d6fb54f5
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 12466.84it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 48/50 lat47-6caf9ea5
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 11037.36it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 49/50 lat48-a6f8dbf0
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 12995.23it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] 50/50 lat49-d5119fc5
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 11727.38it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[latency] verified_misses=50 e2e_p50=624.652 e2e_p95=1081.405
+Optimize cache_lookup first (p50=624.577 ms, 99.99% of miss e2e).
+  cache_lookup: p50=624.577 p95=1081.294 %e2e=99.99
+  planner: p50=0.025 p95=0.045 %e2e=0.0
+  writer: p50=0.01 p95=0.038 %e2e=0.0
+  reviewer: p50=0.026 p95=0.072 %e2e=0.0
+  queue_wait: p50=0.0 p95=0.0 %e2e=0.0
+  eval: p50=0.022 p95=0.044 %e2e=0.0

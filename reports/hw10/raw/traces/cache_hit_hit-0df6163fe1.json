@@ -1,0 +1,14 @@
+[
+  {
+    "trace_id": "hit-0df6163fe1",
+    "stage": "cache_lookup",
+    "start": "2026-11-15T00:40:09.982987+00:00",
+    "end": "2026-11-15T00:40:11.097419+00:00",
+    "duration_ms": 1114.424,
+    "status": "ok",
+    "error": null,
+    "cache_hit": true,
+    "similarity": 1.0,
+    "path": "hit"
+  }
+]

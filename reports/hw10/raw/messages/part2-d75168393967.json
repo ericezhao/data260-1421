@@ -1,0 +1,19 @@
+{
+  "correlation_id": "part2-d75168393967",
+  "trace_id": "part2-d75168393967",
+  "question": "Why do sushi restaurants care about health inspection scores (0-100)?",
+  "plan": "1. Identify the role of health inspection scores in restaurant regulation.  \n2. Research how sushi restaurants are affected by food safety standards.  \n3. Analyze the impact of scores on customer trust and business reputation.  \n4. Explore legal and operational consequences of low scores.  \n5. Summarize the importance of scores in maintaining public health and business viability.",
+  "draft": "Health inspection scores play a critical role in ensuring restaurants meet food safety standards, which is especially important for sushi restaurants due to the risk of foodborne illnesses from raw ingredients. These scores help regulators monitor compliance and protect public health. Sushi restaurants with higher scores are more likely to build customer trust and maintain a positive reputation. Low scores can lead to fines, temporary closures, or damage to a restaurant's reputation, affecting its business viability. Overall, maintaining high inspection scores is essential for both public health and the long-term success of sushi restaurants.",
+  "final": "Health inspection scores play a critical role in ensuring restaurants meet food safety standards, which is especially important for sushi restaurants due to the risk of foodborne illnesses from raw ingredients. These scores help regulators monitor compliance and protect public health. Sushi restaurants with higher scores are more likely to build customer trust and maintain a positive reputation. Low scores can lead to fines, temporary closures, or damage to a restaurant's reputation, affecting its business viability. Overall, maintaining high inspection scores is essential for both public health and the long-term success of sushi restaurants.",
+  "answer": "Health inspection scores play a critical role in ensuring restaurants meet food safety standards, which is especially important for sushi restaurants due to the risk of foodborne illnesses from raw ingredients. These scores help regulators monitor compliance and protect public health. Sushi restaurants with higher scores are more likely to build customer trust and maintain a positive reputation. Low scores can lead to fines, temporary closures, or damage to a restaurant's reputation, affecting its business viability. Overall, maintaining high inspection scores is essential for both public health and the long-term success of sushi restaurants.",
+  "cache_hit": false,
+  "similarity": 0.0,
+  "metadata": {
+    "path": "cache_miss",
+    "verdict": {
+      "status": "approved",
+      "score": 9,
+      "answer": "Health inspection scores play a critical role in ensuring restaurants meet food safety standards, which is especially important for sushi restaurants due to the risk of foodborne illnesses from raw ingredients. These scores help regulators monitor compliance and protect public health. Sushi restaurants with higher scores are more likely to build customer trust and maintain a positive reputation. Low scores can lead to fines, temporary closures, or damage to a restaurant's reputation, affecting its business viability. Overall, maintaining high inspection scores is essential for both public health and the long-term success of sushi restaurants."
+    }
+  }
+}

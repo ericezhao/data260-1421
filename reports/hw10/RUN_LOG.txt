@@ -1,0 +1,55 @@
+HW10 RUN_LOG — SID4 1421
+========================
+
+Infra
+-----
+docker: s1421-redis (Redis Stack), s1421-kafka (healthy)
+ollama models: qwen3:8b (judge + gen), qwen3-4b-nothink available
+PYTHONPATH=.:code:.deps
+
+Freeze (Part 3.1) — before judge
+--------------------------------
+git commit 75f93af  hw10: freeze Part3 eval_cases + human_labels before judge
+  code/hw10/data/eval_cases.json
+  code/hw10/data/human_labels.csv
+
+Commands
+--------
+# Part 4 named traces (live LLM)
+HW8_OLLAMA_MODEL=qwen3:8b HW10_JUDGE_MODEL=qwen3:8b \
+  python3 -m hw10.run_part4_traces
+# -> miss-246adb0763, hit-0df6163fe1, fail-04187a3d70
+
+# Part 2 e2e eval
+HW8_OLLAMA_MODEL=qwen3:8b HW10_JUDGE_MODEL=qwen3:8b \
+  python3 -m hw10.run_part2_eval
+# -> part2-d75168393967 ; raw/part2_eval.json
+
+# DeepEval GEval smoke
+HW10_JUDGE_TIMEOUT=40 python3 -m hw10.run_deepeval_once
+# -> raw/deepeval_smoke.json
+
+# Part 3 judge validation (3x20)
+HW10_JUDGE_MODEL=qwen3:8b python3 -m hw10.run_part3_judge
+# spearman≈0.390 mae=0.70 changed=0
+
+# Part 4.3 latency 50 confirmed misses (mock LLM for agent stages)
+python3 -m hw10.run_part4_latency
+# verified_misses=50 ; raw/latency_50_miss.json
+
+# Summary aggregate
+python3 -c "from hw10.ops_summary import build_summary; print(build_summary())"
+
+# Streamlit dashboard (port 8521 = PORT_BASE)
+PYTHONPATH=".:code:.deps" python3 -m streamlit run code/hw10/app.py \
+  --server.port 8521 --server.headless true --global.developmentMode false
+# screenshots: reports/hw10/screenshots/01_summary.png 02_evaluation.png 03_trace_miss.png
+
+# Verify
+python3 code/verify_hw10.py
+
+Notes
+-----
+- trace_id always = correlation_id (no second ID)
+- Final-vs-Draft corrected when draft==final (score 3)
+- Latency 50-run uses HW10_MOCK_LLM=1; live stage mix in raw/live_llm_stage_sample.json

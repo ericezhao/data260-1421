@@ -1,0 +1,142 @@
+{
+  "draft_01": {
+    "name": "writer_helpfulness",
+    "score": 5,
+    "reason": "The response is accurate, concise, and directly addresses the question about restaurant inspection scores. It provides useful food-safety facts without hallucination or off-topic information.",
+    "engine": "geval_style_ollama_json",
+    "deepeval_note": "skipped (set HW10_USE_DEEPEVAL=1)"
+  },
+  "draft_02": {
+    "name": "writer_helpfulness",
+    "score": 5,
+    "reason": "The response is accurate and directly addresses the question. It provides concrete food-safety facts about why sushi restaurants care about inspection scores, including temperature control, cross-contamination, illness risk, and customer trust. There are no hallucinations or off-topic elements.",
+    "engine": "geval_style_ollama_json",
+    "deepeval_note": "skipped (set HW10_USE_DEEPEVAL=1)"
+  },
+  "draft_03": {
+    "name": "writer_helpfulness",
+    "score": 5,
+    "reason": "The response provides accurate and useful information about food safety inspections, emphasizing the importance of looking beyond the score and considering recent inspection comments and visit dates. It does not contain hallucinations or off-topic content.",
+    "engine": "geval_style_ollama_json",
+    "deepeval_note": "skipped (set HW10_USE_DEEPEVAL=1)"
+  },
+  "draft_04": {
+    "name": "writer_helpfulness",
+    "score": 5,
+    "reason": "The response is accurate, provides concrete food-safety facts, and is directly relevant to the inspection domain question. It explains the possible consequences of a restaurant failing an inspection without hallucination or off-topic information.",
+    "engine": "geval_style_ollama_json",
+    "deepeval_note": "skipped (set HW10_USE_DEEPEVAL=1)"
+  },
+  "draft_05": {
+    "name": "writer_helpfulness",
+    "score": 5,
+    "reason": "The response accurately addresses the question about how often restaurants are inspected. It provides concrete information about risk-based inspection schedules, mentions triggers like complaints, and notes the lack of a national schedule, directing the user to local health departments for specifics. The information is relevant, factual, and useful for the inspection domain.",
+    "engine": "geval_style_ollama_json",
+    "deepeval_note": "skipped (set HW10_USE_DEEPEVAL=1)"
+  },
+  "draft_06": {
+    "name": "writer_helpfulness",
+    "score": 5,
+    "reason": "The response accurately defines a critical violation in the context of food safety, providing specific examples such as food held at unsafe temperatures, no handwashing, and pest evidence near food. It is directly relevant to the inspection domain and offers useful, concrete information without hallucination.",
+    "engine": "geval_style_ollama_json",
+    "deepeval_note": "skipped (set HW10_USE_DEEPEVAL=1)"
+  },
+  "draft_07": {
+    "name": "writer_helpfulness",
+    "score": 5,
+    "reason": "The response is accurate, provides concrete food-safety facts, and directly addresses the inspection domain question without hallucination or off-topic text.",
+    "engine": "geval_style_ollama_json",
+    "deepeval_note": "skipped (set HW10_USE_DEEPEVAL=1)"
+  },
+  "draft_08": {
+    "name": "writer_helpfulness",
+    "score": 5,
+    "reason": "The response is accurate and directly addresses the user's question about comparing scores across cities. It provides useful food-safety context by explaining how scoring scales differ by agency and advises on best practices for comparison, without hallucination or off-topic information.",
+    "engine": "geval_style_ollama_json",
+    "deepeval_note": "skipped (set HW10_USE_DEEPEVAL=1)"
+  },
+  "draft_09": {
+    "name": "writer_helpfulness",
+    "score": 5,
+    "reason": "The response is accurate, specific, and directly addresses the question. It provides concrete food-safety-related information relevant to inspection reports, such as critical vs non-critical counts, temperature notes, pest mentions, repeated issues, hand sinks, cold holding, and sanitizer, all of which are pertinent to food safety inspections.",
+    "engine": "geval_style_ollama_json",
+    "deepeval_note": "skipped (set HW10_USE_DEEPEVAL=1)"
+  },
+  "draft_10": {
+    "name": "writer_helpfulness",
+    "score": 5,
+    "reason": "The response provides accurate and relevant food-safety facts explaining why two nearby pizza shops might have different scores. It mentions specific factors like kitchen practices, storage, staffing, cold-holding issues, and inspection timing, which are all pertinent to the inspection domain.",
+    "engine": "geval_style_ollama_json",
+    "deepeval_note": "skipped (set HW10_USE_DEEPEVAL=1)"
+  },
+  "draft_11": {
+    "name": "writer_helpfulness",
+    "score": 3,
+    "reason": "The response provides a general idea that higher scores are better but lacks specific details about what each inspection score entails, which is important for the inspection domain.",
+    "engine": "geval_style_ollama_json",
+    "deepeval_note": "skipped (set HW10_USE_DEEPEVAL=1)"
+  },
+  "draft_12": {
+    "name": "writer_helpfulness",
+    "score": 2,
+    "reason": "The response is off-topic and does not address the question about whether letter grades are the same as numeric scores. It discusses city policies on converting numeric scores to letter grades, which is unrelated to the inspection domain question.",
+    "engine": "geval_style_ollama_json",
+    "deepeval_note": "skipped (set HW10_USE_DEEPEVAL=1)"
+  },
+  "draft_13": {
+    "name": "writer_helpfulness",
+    "score": 5,
+    "reason": "The response is accurate and directly addresses the inspection domain question. It provides concrete food-safety facts about what a perfect 100 score means in the context of restaurant inspections, without hallucination or off-topic information.",
+    "engine": "geval_style_ollama_json",
+    "deepeval_note": "skipped (set HW10_USE_DEEPEVAL=1)"
+  },
+  "draft_14": {
+    "name": "writer_helpfulness",
+    "score": 5,
+    "reason": "The response accurately explains how temperature violations affect scores in the inspection domain, providing concrete food-safety facts about the danger zone and the impact on scores. It is relevant, precise, and helpful.",
+    "engine": "geval_style_ollama_json",
+    "deepeval_note": "skipped (set HW10_USE_DEEPEVAL=1)"
+  },
+  "draft_15": {
+    "name": "writer_helpfulness",
+    "score": 5,
+    "reason": "The response accurately distinguishes between Yelp ratings and health inspection scores, providing concrete food-safety facts. It explains the difference clearly and is directly relevant to the inspection domain question.",
+    "engine": "geval_style_ollama_json",
+    "deepeval_note": "skipped (set HW10_USE_DEEPEVAL=1)"
+  },
+  "draft_16": {
+    "name": "writer_helpfulness",
+    "score": 5,
+    "reason": "The response accurately explains the difference between routine and complaint inspections, providing concrete food-safety facts. It correctly notes that routine inspections follow a schedule while complaint inspections respond to reported issues, and mentions that both can affect public scores if violations are found.",
+    "engine": "geval_style_ollama_json",
+    "deepeval_note": "skipped (set HW10_USE_DEEPEVAL=1)"
+  },
+  "draft_17": {
+    "name": "writer_helpfulness",
+    "score": 5,
+    "reason": "The response is accurate and directly addresses the user's request by explaining the limitations of providing comprehensive data on all restaurants in California. It correctly notes that such data is not available and is managed by local agencies, avoiding hallucination and staying focused on the inspection domain.",
+    "engine": "geval_style_ollama_json",
+    "deepeval_note": "skipped (set HW10_USE_DEEPEVAL=1)"
+  },
+  "draft_18": {
+    "name": "writer_helpfulness",
+    "score": 5,
+    "reason": "The response is accurate, directly answers the question, and provides useful information about food truck inspections, including permits, public portals, and local programs. It contains no hallucinations or off-topic content.",
+    "engine": "geval_style_ollama_json",
+    "deepeval_note": "skipped (set HW10_USE_DEEPEVAL=1)"
+  },
+  "draft_19": {
+    "name": "writer_helpfulness",
+    "score": 5,
+    "reason": "The response provides accurate, actionable steps for a manager after a bad inspection, including addressing critical hazards, documentation, staff training, and scheduling a reinspection. It also mentions preparing logs, which are relevant to food safety. The response is focused, factual, and directly addresses the inspection domain.",
+    "engine": "geval_style_ollama_json",
+    "deepeval_note": "skipped (set HW10_USE_DEEPEVAL=1)"
+  },
+  "draft_20": {
+    "name": "writer_helpfulness",
+    "score": 5,
+    "reason": "The response accurately addresses the inspection issue related to raw chicken storage, providing concrete food-safety facts about contamination risks, separation, labeling, and cold holding. It correctly identifies Salmonella and Campylobacter as significant risks, making the information both accurate and useful for the inspection domain.",
+    "engine": "geval_style_ollama_json",
+    "deepeval_note": "skipped (set HW10_USE_DEEPEVAL=1)"
+  }
+}

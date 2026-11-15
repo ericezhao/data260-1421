@@ -1,0 +1,23 @@
+infra status — 2026-11-15
+
+redis: OK
+  - docker compose: /Users/eric/data260/code/hw09/docker-compose.yml (container s1421-redis)
+  - redis-cli ping (docker exec): PONG
+  - FT._LIST: OK (exit 0)
+
+kafka: OK
+  - found compose: /Users/eric/data260/code/kafka_rpc/docker-compose.yml
+  - started service: kafka only (container s1421-kafka)
+  - healthcheck: healthy
+  - broker-api-versions: OK
+
+packages installed into /Users/eric/data260/.deps (Python 3.13.7):
+  - streamlit 1.67.0
+  - deepeval 4.3.4
+  - scipy 1.18.1
+  - pandas 3.1.1
+  - import check: OK
+
+errors: none
+  - pip noted existing target dirs under .deps (scipy and other deps already present); install completed with exit 0
+  - Docker Desktop was already running

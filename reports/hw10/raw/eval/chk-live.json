@@ -1,0 +1,34 @@
+{
+  "correlation_id": "chk-live",
+  "trace_id": "chk-live",
+  "question": "Briefly: what is a critical violation?",
+  "cache_hit": false,
+  "metrics": {
+    "plan_quality": {
+      "name": "plan_quality",
+      "score": 5,
+      "reason": "The output provides a clear, numbered plan that addresses the question about critical violations in a structured and comprehensive manner without answering directly.",
+      "engine": "ollama_json"
+    },
+    "writer_helpfulness": {
+      "name": "writer_helpfulness",
+      "score": 5,
+      "reason": "The writer provides accurate and useful information about critical violations, including their definition, examples, consequences, and distinction from non-critical violations. It addresses the inspection question with concrete food-safety facts.",
+      "engine": "ollama_json"
+    },
+    "final_helpfulness": {
+      "name": "final_helpfulness",
+      "score": 5,
+      "reason": "The answer is highly helpful and relevant, providing a clear definition of a critical violation, examples, potential consequences, and how it differs from non-critical violations.",
+      "engine": "ollama_json"
+    },
+    "final_vs_draft": {
+      "name": "final_vs_draft",
+      "score": 3,
+      "reason": "final same as draft",
+      "engine": "same_text",
+      "diff": 0
+    }
+  },
+  "ts": 1794711087.2506182
+}

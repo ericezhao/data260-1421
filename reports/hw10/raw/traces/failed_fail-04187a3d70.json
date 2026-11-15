@@ -1,0 +1,34 @@
+[
+  {
+    "trace_id": "fail-04187a3d70",
+    "stage": "cache_lookup",
+    "start": "2026-11-15T00:40:11.098291+00:00",
+    "end": "2026-11-15T00:40:11.722160+00:00",
+    "duration_ms": 623.857,
+    "status": "ok",
+    "error": null,
+    "cache_hit": false,
+    "similarity": 0.0,
+    "path": "miss"
+  },
+  {
+    "trace_id": "fail-04187a3d70",
+    "stage": "planner",
+    "start": "2026-11-15T00:40:11.722603+00:00",
+    "end": "2026-11-15T00:40:14.342219+00:00",
+    "duration_ms": 2619.61,
+    "status": "ok",
+    "error": null,
+    "queue_wait_ms": 0.0,
+    "chars": 359
+  },
+  {
+    "trace_id": "fail-04187a3d70",
+    "stage": "writer",
+    "start": "2026-11-15T00:40:14.343950+00:00",
+    "end": "2026-11-15T00:40:14.343962+00:00",
+    "duration_ms": 0.012,
+    "status": "error",
+    "error": "RuntimeError: injected writer failure"
+  }
+]

@@ -1,0 +1,30 @@
+W1114 16:39:41.148000 4244 .deps/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+[part4] cache-miss success miss-246adb0763
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 7852.50it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 6262.88it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[part4] cache-hit hit-0df6163fe1
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 4108.47it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[part4] failed trace fail-04187a3d70
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 13691.24it/s]
+[semcache] redisvl name=s1421_llmcache sim>=0.85 dist<=0.150 ttl=3600 model=sentence-transformers/all-MiniLM-L6-v2
+[part4] expected failure: injected writer failure
+{
+  "named": {
+    "cache_miss_success": "miss-246adb0763",
+    "cache_hit": "hit-0df6163fe1",
+    "failed": "fail-04187a3d70",
+    "failed_stage": "writer",
+    "failed_error": "RuntimeError: injected writer failure"
+  },
+  "index": {
+    "cache_miss_success": "miss-246adb0763",
+    "cache_hit": "hit-0df6163fe1",
+    "failed": "fail-04187a3d70",
+    "failed_stage": "writer",
+    "failed_error": "RuntimeError: injected writer failure"
+  }
+}

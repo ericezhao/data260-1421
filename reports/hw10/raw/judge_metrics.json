@@ -1,0 +1,330 @@
+{
+  "judge_model": "qwen3:8b",
+  "mock": false,
+  "n_cases": 20,
+  "n_runs": 3,
+  "agreement_run1": {
+    "n": 20,
+    "spearman_rho": 0.3897916374940719,
+    "spearman_p": 0.0893347055121538,
+    "mae": 0.7,
+    "pairs": [
+      {
+        "case_id": "draft_01",
+        "human": 5.0,
+        "judge": 5.0
+      },
+      {
+        "case_id": "draft_02",
+        "human": 5.0,
+        "judge": 5.0
+      },
+      {
+        "case_id": "draft_03",
+        "human": 4.0,
+        "judge": 5.0
+      },
+      {
+        "case_id": "draft_04",
+        "human": 4.0,
+        "judge": 5.0
+      },
+      {
+        "case_id": "draft_05",
+        "human": 4.0,
+        "judge": 5.0
+      },
+      {
+        "case_id": "draft_06",
+        "human": 5.0,
+        "judge": 5.0
+      },
+      {
+        "case_id": "draft_07",
+        "human": 4.0,
+        "judge": 5.0
+      },
+      {
+        "case_id": "draft_08",
+        "human": 4.0,
+        "judge": 5.0
+      },
+      {
+        "case_id": "draft_09",
+        "human": 5.0,
+        "judge": 5.0
+      },
+      {
+        "case_id": "draft_10",
+        "human": 4.0,
+        "judge": 5.0
+      },
+      {
+        "case_id": "draft_11",
+        "human": 2.0,
+        "judge": 3.0
+      },
+      {
+        "case_id": "draft_12",
+        "human": 4.0,
+        "judge": 2.0
+      },
+      {
+        "case_id": "draft_13",
+        "human": 4.0,
+        "judge": 5.0
+      },
+      {
+        "case_id": "draft_14",
+        "human": 5.0,
+        "judge": 5.0
+      },
+      {
+        "case_id": "draft_15",
+        "human": 5.0,
+        "judge": 5.0
+      },
+      {
+        "case_id": "draft_16",
+        "human": 4.0,
+        "judge": 5.0
+      },
+      {
+        "case_id": "draft_17",
+        "human": 3.0,
+        "judge": 5.0
+      },
+      {
+        "case_id": "draft_18",
+        "human": 4.0,
+        "judge": 5.0
+      },
+      {
+        "case_id": "draft_19",
+        "human": 5.0,
+        "judge": 5.0
+      },
+      {
+        "case_id": "draft_20",
+        "human": 5.0,
+        "judge": 5.0
+      }
+    ]
+  },
+  "repeatability": {
+    "cases_with_any_change": 0,
+    "fraction_changed": 0.0,
+    "mean_abs_change": 0.0,
+    "max_abs_change": 0,
+    "mean_stdev": 0.0,
+    "max_stdev": 0.0,
+    "per_case": {
+      "draft_01": {
+        "scores": [
+          5,
+          5,
+          5
+        ],
+        "stdev": 0.0,
+        "mean": 5
+      },
+      "draft_02": {
+        "scores": [
+          5,
+          5,
+          5
+        ],
+        "stdev": 0.0,
+        "mean": 5
+      },
+      "draft_03": {
+        "scores": [
+          5,
+          5,
+          5
+        ],
+        "stdev": 0.0,
+        "mean": 5
+      },
+      "draft_04": {
+        "scores": [
+          5,
+          5,
+          5
+        ],
+        "stdev": 0.0,
+        "mean": 5
+      },
+      "draft_05": {
+        "scores": [
+          5,
+          5,
+          5
+        ],
+        "stdev": 0.0,
+        "mean": 5
+      },
+      "draft_06": {
+        "scores": [
+          5,
+          5,
+          5
+        ],
+        "stdev": 0.0,
+        "mean": 5
+      },
+      "draft_07": {
+        "scores": [
+          5,
+          5,
+          5
+        ],
+        "stdev": 0.0,
+        "mean": 5
+      },
+      "draft_08": {
+        "scores": [
+          5,
+          5,
+          5
+        ],
+        "stdev": 0.0,
+        "mean": 5
+      },
+      "draft_09": {
+        "scores": [
+          5,
+          5,
+          5
+        ],
+        "stdev": 0.0,
+        "mean": 5
+      },
+      "draft_10": {
+        "scores": [
+          5,
+          5,
+          5
+        ],
+        "stdev": 0.0,
+        "mean": 5
+      },
+      "draft_11": {
+        "scores": [
+          3,
+          3,
+          3
+        ],
+        "stdev": 0.0,
+        "mean": 3
+      },
+      "draft_12": {
+        "scores": [
+          2,
+          2,
+          2
+        ],
+        "stdev": 0.0,
+        "mean": 2
+      },
+      "draft_13": {
+        "scores": [
+          5,
+          5,
+          5
+        ],
+        "stdev": 0.0,
+        "mean": 5
+      },
+      "draft_14": {
+        "scores": [
+          5,
+          5,
+          5
+        ],
+        "stdev": 0.0,
+        "mean": 5
+      },
+      "draft_15": {
+        "scores": [
+          5,
+          5,
+          5
+        ],
+        "stdev": 0.0,
+        "mean": 5
+      },
+      "draft_16": {
+        "scores": [
+          5,
+          5,
+          5
+        ],
+        "stdev": 0.0,
+        "mean": 5
+      },
+      "draft_17": {
+        "scores": [
+          5,
+          5,
+          5
+        ],
+        "stdev": 0.0,
+        "mean": 5
+      },
+      "draft_18": {
+        "scores": [
+          5,
+          5,
+          5
+        ],
+        "stdev": 0.0,
+        "mean": 5
+      },
+      "draft_19": {
+        "scores": [
+          5,
+          5,
+          5
+        ],
+        "stdev": 0.0,
+        "mean": 5
+      },
+      "draft_20": {
+        "scores": [
+          5,
+          5,
+          5
+        ],
+        "stdev": 0.0,
+        "mean": 5
+      }
+    }
+  },
+  "trust_gate": {
+    "would_trust_to_gate_deploy": false,
+    "reason": "Need higher Spearman vs human, stable scores across more seeds, and calibrated thresholds on holdout drafts before gating deploy."
+  },
+  "run1_scores": {
+    "draft_01": 5,
+    "draft_02": 5,
+    "draft_03": 5,
+    "draft_04": 5,
+    "draft_05": 5,
+    "draft_06": 5,
+    "draft_07": 5,
+    "draft_08": 5,
+    "draft_09": 5,
+    "draft_10": 5,
+    "draft_11": 3,
+    "draft_12": 2,
+    "draft_13": 5,
+    "draft_14": 5,
+    "draft_15": 5,
+    "draft_16": 5,
+    "draft_17": 5,
+    "draft_18": 5,
+    "draft_19": 5,
+    "draft_20": 5
+  }
+}

@@ -1,0 +1,1 @@
+{"trace_id": "smoke-2", "stage": "cache_lookup", "start": "2026-11-15T00:35:59.028489+00:00", "end": "2026-11-15T00:35:59.581579+00:00", "duration_ms": 553.09, "status": "ok", "error": null, "cache_hit": true, "similarity": 1.0, "path": "hit"}

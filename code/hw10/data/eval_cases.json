@@ -1,0 +1,102 @@
+[
+  {
+    "case_id": "draft_01",
+    "question": "What does a restaurant inspection score of 0-100 mean?",
+    "draft": "Inspection scores usually run from 0 to 100. Higher is better and means fewer or less serious food-safety problems. A low score often means the inspector found risks like temperature abuse or dirty equipment. The score is a summary, not a full list of every violation. Always check the narrative notes when the number looks borderline."
+  },
+  {
+    "case_id": "draft_02",
+    "question": "Why do sushi restaurants care about inspection scores?",
+    "draft": "Sushi places handle raw fish, so temperature control and cross-contamination matter a lot. A weak score can signal cold-chain or sanitizer problems that raise illness risk. Public grades also affect customer trust. Operators watch scores to catch those high-risk issues early."
+  },
+  {
+    "case_id": "draft_03",
+    "question": "Is a score of 95 always safe to eat at?",
+    "draft": "A 95 is usually strong, but it is not a guarantee. Some serious items can still appear in the write-up even when the number looks good. Read recent inspection comments, not only the score. Also check how recent the visit was."
+  },
+  {
+    "case_id": "draft_04",
+    "question": "What happens if a restaurant fails inspection?",
+    "draft": "Depending on the jurisdiction, a failing visit can trigger a reinspection, a temporary closure, or a required corrective plan. The inspector documents critical violations and sets a follow-up. The public score or grade may drop until issues are fixed. Exact rules vary by city health department."
+  },
+  {
+    "case_id": "draft_05",
+    "question": "How often are restaurants inspected?",
+    "draft": "Many cities inspect based on risk: high-risk places like full-service kitchens get more frequent visits than low-risk packaged-food shops. Complaints can trigger extra inspections. There is no single national schedule. Check your local health department calendar for the real cadence."
+  },
+  {
+    "case_id": "draft_06",
+    "question": "What is a critical violation?",
+    "draft": "A critical violation is a food-safety problem that can directly cause illness, such as food held at unsafe temperatures, no handwashing, or pest evidence near food. Non-critical items are more about maintenance or paperwork. Critical findings weigh more heavily on the score. Fixing them is the first priority after an inspection."
+  },
+  {
+    "case_id": "draft_07",
+    "question": "Does a closed grade mean the restaurant is permanently shut?",
+    "draft": "Usually no. Closed often means it cannot serve until critical hazards are corrected and a reinspection passes. Some closures are short. Permanently shut businesses are a different legal process. Look for a reopen or reinspection date on the health department site."
+  },
+  {
+    "case_id": "draft_08",
+    "question": "Can I compare scores across two different cities?",
+    "draft": "Only roughly. Scoring scales, grade letters, and violation weights differ by agency. A 90 in one city may not match a 90 elsewhere. Prefer comparing restaurants inside the same jurisdiction and time window. When in doubt, read the violation text."
+  },
+  {
+    "case_id": "draft_09",
+    "question": "What should I look for in an inspection report besides the score?",
+    "draft": "Look at critical vs non-critical counts, temperature notes, pest mentions, and whether the same issue repeats across visits. The date of inspection matters. Comments about hand sinks, cold holding, and sanitizer are especially useful for food safety."
+  },
+  {
+    "case_id": "draft_10",
+    "question": "Why might two nearby pizza shops have very different scores?",
+    "draft": "Different kitchens, storage habits, and staffing can create different risks even with the same menu style. One may have cold-holding problems while the other keeps logs well. Inspection timing also matters. The score reflects that visit, not the brand as a whole forever."
+  },
+  {
+    "case_id": "draft_11",
+    "question": "Explain inspection scores briefly.",
+    "draft": "Scores summarize food-safety findings. Higher is usually better."
+  },
+  {
+    "case_id": "draft_12",
+    "question": "Are letter grades the same as numeric scores?",
+    "draft": "Some cities convert numeric scores into A/B/C letter grades. The cutoffs are local policy. A letter grade is easier for the public, but the underlying number and violation list still matter. Do not assume every city uses the same A/B thresholds."
+  },
+  {
+    "case_id": "draft_13",
+    "question": "What does a perfect 100 mean?",
+    "draft": "A 100 usually means no scored violations were recorded on that visit. It does not prove the restaurant never has problems later. It is a snapshot. Keep watching later reports if you care about consistency."
+  },
+  {
+    "case_id": "draft_14",
+    "question": "How do temperature violations affect scores?",
+    "draft": "Unsafe hot/cold holding is often scored as a critical item because pathogens grow quickly in the danger zone. That can drop the score a lot in one visit. Fixing thermometers, equipment, and staff checks usually recovers the grade on reinspection."
+  },
+  {
+    "case_id": "draft_15",
+    "question": "Is Yelp rating the same as a health inspection score?",
+    "draft": "No. Yelp is customer opinion about taste and service. Health scores measure food-safety compliance. A popular restaurant can still have a weak inspection. Use both signals for different questions."
+  },
+  {
+    "case_id": "draft_16",
+    "question": "What is the difference between routine and complaint inspections?",
+    "draft": "Routine visits follow the agency schedule. Complaint inspections respond to a reported issue such as illness or pests. Complaint visits may focus on the alleged problem. Both can change the public score if violations are found."
+  },
+  {
+    "case_id": "draft_17",
+    "question": "Give me everything about every restaurant in California forever.",
+    "draft": "I cannot invent a statewide live dump. Inspection data is published by local agencies, often county by county. For a useful answer, pick a city or a restaurant name. Without that scope the request is too broad to answer accurately."
+  },
+  {
+    "case_id": "draft_18",
+    "question": "Do food trucks get inspected too?",
+    "draft": "Yes. Mobile food facilities are usually permitted and inspected, sometimes with different rules for water tanks, waste, and commissary use. Scores or permits may appear in the same public portal as brick-and-mortar shops. Check the local mobile-food program."
+  },
+  {
+    "case_id": "draft_19",
+    "question": "What should a manager do right after a bad inspection?",
+    "draft": "Correct critical hazards first, document the fixes, train staff on the failed items, and schedule or request reinspection. Keep temperature and sanitizer logs ready. Ignoring the report usually makes the next visit worse."
+  },
+  {
+    "case_id": "draft_20",
+    "question": "Why is raw chicken storage a common inspection issue?",
+    "draft": "Raw chicken can contaminate ready-to-eat food if stored above it or handled with shared tools. Inspectors look for separation, labeling, and cold holding. Failures here are treated seriously because of Salmonella and Campylobacter risk."
+  }
+]
